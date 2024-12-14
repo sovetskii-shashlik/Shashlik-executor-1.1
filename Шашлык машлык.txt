@@ -1,4 +1,5 @@
 local player = game.Players.LocalPlayer
+local camera = workspace.CurrentCamera
 
 -- Создаем ScreenGui
 local screenGui = Instance.new("ScreenGui")
@@ -91,9 +92,7 @@ openButtonBorder.Parent = openButton
 -- Обработчик нажатия кнопки Execute
 executeButton.MouseButton1Click:Connect(function()
     local codeToExecute = textBox.Text
-    local success, errorMessage = pcall(function()
-        loadstring(codeToExecute)()
-    end)
+    local success, errorMessage = pcall(function() loadstring(codeToExecute)() end)
     if not success then
         print("Ошибка выполнения кода: " .. errorMessage)
     end
@@ -116,8 +115,45 @@ openButton.MouseButton1Click:Connect(function()
     openButton.Visible = false -- Скрываем кнопку "Открыть"
 end)
 
--- Перетаскивание кнопки "Открыть" с блокировкой управления камерой
+-- Перетаскивание интерфейса за окантовку или надпись
 local UserInputService = game:GetService("UserInputService")
+local dragging = false
+local dragStart, startPos
+
+local function update(input)
+    local delta = input.Position - dragStart
+    frame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+end
+
+local function beginDrag(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+        dragging = true
+        dragStart = input.Position
+        startPos = frame.Position
+
+        -- Изменение типа камеры на Scriptable, чтобы заблокировать её
+        camera.CameraType = Enum.CameraType.Scriptable
+
+        input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then
+                dragging = false
+                -- Восстановление типа камеры
+                camera.CameraType = Enum.CameraType.Custom
+            end
+        end)
+    end
+end
+
+borderFrame.InputBegan:Connect(beginDrag)
+titleLabel.InputBegan:Connect(beginDrag)
+
+UserInputService.InputChanged:Connect(function(input)
+    if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+        update(input)
+    end
+end)
+
+-- Перетаскивание кнопки "Открыть" с блокировкой управления камерой
 local openButtonDragging = false
 local mousePos, openButtonPos
 
@@ -126,8 +162,10 @@ openButton.InputBegan:Connect(function(input)
         openButtonDragging = true
         mousePos = input.Position
         openButtonPos = openButton.Position
+
         -- Блокируем управление камерой
-        UserInputService.MouseBehavior = Enum.MouseBehavior.LockCurrentPosition
+        camera.CameraType = Enum.CameraType.Scriptable
+
         UserInputService.InputChanged:Connect(function(change)
             if openButtonDragging and (change.UserInputType == Enum.UserInputType.MouseMovement or change.UserInputType == Enum.UserInputType.Touch) then
                 local delta = change.Position - mousePos
@@ -139,7 +177,8 @@ end)
 
 UserInputService.InputEnded:Connect(function(input)
     if openButtonDragging and (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then
-        openButtonDragging = false -- Восстанавливаем управление камерой
-        UserInputService.MouseBehavior = Enum.MouseBehavior.Default
+        openButtonDragging = false
+        -- Восстанавливаем управление камерой
+        camera.CameraType = Enum.CameraType.Custom
     end
 end)
