@@ -1,14 +1,14 @@
 local player = game.Players.LocalPlayer 
 local camera = workspace.CurrentCamera 
 
--- Выполняем код сразу после активации скрипта
-loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/AdonisAntikick/refs/heads/main/Antikick"))()
- 
--- Создаем ScreenGui
+-- Выполняем код сразу после активации скрипта 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/AdonisAntikick/refs/heads/main/Antikick"))() 
+
+-- Создаем ScreenGui 
 local screenGui = Instance.new("ScreenGui") 
 screenGui.Parent = game.CoreGui 
 
--- Создаем Frame (GUI)
+-- Создаем Frame (GUI) 
 local frame = Instance.new("Frame") 
 frame.Size = UDim2.new(0, 450, 0, 225) 
 frame.Position = UDim2.new(0.5, 0, 0.475, 0) 
@@ -16,37 +16,44 @@ frame.AnchorPoint = Vector2.new(0.5, 0.5)
 frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255) 
 frame.BorderSizePixel = 0 
 frame.Parent = screenGui 
-frame.Visible = false -- Скрываем интерфейс при запуске 
+frame.Visible = false 
 
--- Создаем BorderFrame для окантовки основного фрейма
-local borderFrame = Instance.new("Frame") 
-borderFrame.Size = UDim2.new(1, 18, 1, 18) 
-borderFrame.Position = UDim2.new(0, -9, 0, -9) 
-borderFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0) 
-borderFrame.Parent = frame 
+-- Создаем градиентный Frame
+local gradientFrame = Instance.new("Frame")
+gradientFrame.Size = UDim2.new(1, 18, 1, 18)  -- Размеры соответствуют окантовке
+gradientFrame.Position = UDim2.new(0, -9, 0, -9)
+gradientFrame.Parent = frame
 
--- Создаем верхний прямоугольный Frame
+-- Создаем градиент 
+local gradient = Instance.new("UIGradient") 
+gradient.Color = ColorSequence.new({
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 0)),   -- Черный цвет внизу
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 0, 255))   -- Синий цвет вверху
+}) 
+gradient.Parent = gradientFrame  -- Применяем градиент к новому фрейму
+
+-- Создаем верхний прямоугольный Frame 
 local topFrame = Instance.new("Frame") 
 topFrame.Size = UDim2.new(1, 0, 0, 50) 
 topFrame.Position = UDim2.new(0, 0, 0, 0) 
-topFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255) 
+topFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 139) -- Темно-синий цвет
 topFrame.Parent = frame 
 
--- Создаем надпись
+-- Создаем надпись 
 local titleLabel = Instance.new("TextLabel") 
 titleLabel.Size = UDim2.new(1, -40, 1, 0) 
 titleLabel.Position = UDim2.new(0, 0, 0, 0) 
-titleLabel.Text = "shashlik executor 1.1" 
-titleLabel.TextColor3 = Color3.fromRGB(0, 0, 0) 
+titleLabel.Text = "shashlik executor 2.0"  -- Изменено на 2.0
+titleLabel.TextColor3 = Color3.fromRGB(0, 0, 0) -- Черный цвет текста
 titleLabel.BackgroundTransparency = 1 
 titleLabel.TextScaled = true 
 titleLabel.Parent = topFrame 
 
--- Создаем многострочный TextBox
+-- Создаем многострочный TextBox 
 local textBox = Instance.new("TextBox") 
 textBox.Size = UDim2.new(1, 0, 0.5, 0) 
 textBox.Position = UDim2.new(0, 0, 0, 50) 
-textBox.Text = "Введите текст здесь..." 
+textBox.Text = "парацетомол нахуй"  -- Измененный текст
 textBox.TextColor3 = Color3.fromRGB(0, 0, 0) 
 textBox.BackgroundColor3 = Color3.fromRGB(240, 240, 240) 
 textBox.BorderSizePixel = 0 
@@ -55,7 +62,7 @@ textBox.ClearTextOnFocus = false
 textBox.MultiLine = true 
 textBox.Parent = frame 
 
--- Функция для создания кнопок
+-- Функция для создания кнопок 
 local function createButton(size, position, text, color, parent) 
     local button = Instance.new("TextButton") 
     button.Size = size 
@@ -67,60 +74,75 @@ local function createButton(size, position, text, color, parent)
     return button 
 end 
 
--- Создаем кнопки
-local executeButton = createButton(UDim2.new(0.4, 0, 0.3, 0), UDim2.new(0.05, 0, 0.735, 0), "Execute", Color3.fromRGB(0, 150, 0), frame) 
-local clearButton = createButton(UDim2.new(0.4, 0, 0.3, 0), UDim2.new(0.55, 0, 0.735, 0), "Clear", Color3.fromRGB(255, 0, 0), frame) 
+-- Устанавливаем размеры и позиции кнопок с одинаковыми промежутками
+local buttonWidth = 0.25
+local buttonSpacing = 0.05
+local buttonOffset = 0.1 -- Смещение вниз
 
--- Создаем красный крестик в верхнем правом углу верхнего прямоугольника
+local totalWidth = buttonWidth * 3 + buttonSpacing * 2 -- Общая ширина всех кнопок с промежутками
+local startX = (1 - totalWidth) / 2 -- Начальная позиция по оси X для центрирования
+
+local executeButton = createButton(UDim2.new(buttonWidth, 0, 0.2, 0), UDim2.new(startX, 0, 0.735 + buttonOffset, 0), "Execute", Color3.fromRGB(128, 128, 128), frame) 
+local clearButton = createButton(UDim2.new(buttonWidth, 0, 0.2, 0), UDim2.new(startX + buttonWidth + buttonSpacing, 0, 0.735 + buttonOffset, 0), "Clear", Color3.fromRGB(128, 128, 128), frame) 
+local copyButton = createButton(UDim2.new(buttonWidth, 0, 0.2, 0), UDim2.new(startX + 2 * (buttonWidth + buttonSpacing), 0, 0.735 + buttonOffset, 0), "Copy", Color3.fromRGB(128, 128, 128), frame)
+
+-- Создаем красный крестик в верхнем правом углу верхнего прямоугольника 
 local closeButton = createButton(UDim2.new(0, 30, 0, 30), UDim2.new(1, -35, 0, 5), "X", Color3.fromRGB(255, 0, 0), topFrame) 
 
--- Создаем кнопку "Открыть" без фона
+-- Создаем кнопку "Открыть" без фона 
 local openButton = Instance.new("TextButton") 
 openButton.Size = UDim2.new(0, 40, 0, 40) 
 openButton.Position = UDim2.new(0.9, 0, 0.0, 0) 
 openButton.Text = "+" 
-openButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255) 
 openButton.TextColor3 = Color3.fromRGB(0, 255, 0) 
 openButton.TextSize = 30 
 openButton.Parent = screenGui 
 openButton.Visible = true 
 
--- Создаем BorderFrame для кнопки "Открыть"
-local openButtonBorder = Instance.new("Frame") 
-openButtonBorder.Size = UDim2.new(1, 4, 1, 4) 
-openButtonBorder.Position = UDim2.new(0, -2, 0, -2) 
-openButtonBorder.BackgroundColor3 = Color3.fromRGB(0, 0, 0) 
-openButtonBorder.Parent = openButton 
+-- Создаем градиент для кнопки "Открыть"
+local openButtonGradient = Instance.new("UIGradient")
+openButtonGradient.Color = ColorSequence.new({
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 0)),   -- Черный цвет внизу
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 0, 255))   -- Синий цвет вверху
+})
+openButtonGradient.Parent = openButton
 
--- Обработчик нажатия кнопки Execute
+-- Удаляем окантовку с кнопки "Открыть"
+
+-- Обработчик нажатия кнопки Execute 
 executeButton.MouseButton1Click:Connect(function() 
     local codeToExecute = textBox.Text 
-    local success, errorMessage = pcall(function() 
-        loadstring(codeToExecute)() 
-    end) 
+    local success, errorMessage = pcall(function() loadstring(codeToExecute)() end) 
     if not success then 
         print("Ошибка выполнения кода: " .. errorMessage) 
     end 
 end) 
 
--- Обработчик нажатия кнопки Clear
+-- Обработчик нажатия кнопки Clear 
 clearButton.MouseButton1Click:Connect(function() 
     textBox.Text = "" 
 end) 
 
--- Обработчик нажатия кнопки Close
+-- Обработчик нажатия кнопки Copy 
+copyButton.MouseButton1Click:Connect(function() 
+    local textToCopy = textBox.Text 
+    setclipboard(textToCopy)  -- Копируем текст в буфер обмена
+    print("Текст скопирован в буфер обмена: " .. textToCopy) 
+end)
+
+-- Обработчик нажатия кнопки Close 
 closeButton.MouseButton1Click:Connect(function() 
     frame.Visible = false -- Скрываем GUI 
     openButton.Visible = true -- Показываем кнопку "Открыть" 
 end) 
 
--- Обработчик нажатия кнопки "Открыть"
+-- Обработчик нажатия кнопки "Открыть" 
 openButton.MouseButton1Click:Connect(function() 
     frame.Visible = true -- Показываем GUI 
     openButton.Visible = false -- Скрываем кнопку "Открыть" 
 end) 
 
--- Перетаскивание интерфейса за окантовку или надпись
+-- Перетаскивание интерфейса за окантовку или надпись 
 local UserInputService = game:GetService("UserInputService") 
 local dragging = false 
 local dragStart, startPos 
@@ -145,15 +167,16 @@ local function beginDrag(input)
     end 
 end 
 
-borderFrame.InputBegan:Connect(beginDrag) 
+gradientFrame.InputBegan:Connect(beginDrag) 
 titleLabel.InputBegan:Connect(beginDrag) 
+
 UserInputService.InputChanged:Connect(function(input) 
     if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then 
         update(input) 
     end 
 end) 
 
--- Перетаскивание кнопки "Открыть" с блокировкой управления камерой
+-- Перетаскивание кнопки "Открыть" с блокировкой управления камерой 
 local openButtonDragging = false 
 local mousePos, openButtonPos 
 
@@ -163,7 +186,6 @@ openButton.InputBegan:Connect(function(input)
         mousePos = input.Position 
         openButtonPos = openButton.Position 
         camera.CameraType = Enum.CameraType.Scriptable 
-
         UserInputService.InputChanged:Connect(function(change) 
             if openButtonDragging and (change.UserInputType == Enum.UserInputType.MouseMovement or change.UserInputType == Enum.UserInputType.Touch) then 
                 local delta = change.Position - mousePos 
