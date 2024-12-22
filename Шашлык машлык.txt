@@ -18,6 +18,7 @@ frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 frame.BorderSizePixel = 0
 frame.Parent = screenGui
 frame.Visible = false
+frame.BackgroundTransparency = 1 -- Сначала фрейм невидим
 
 local dragging = false
 local dragInput, dragStart, startPos
@@ -88,7 +89,7 @@ topFrame.Parent = frame
 local titleLabel = Instance.new("TextLabel")
 titleLabel.Size = UDim2.new(1, -80, 1, 0) -- Укороченный размер
 titleLabel.Position = UDim2.new(0, 0, 0, 0)
-titleLabel.Text = "shashlik exec 2.3" -- Сокращенный текст
+titleLabel.Text = "shashlik executor 2.5" -- Изменено на 2.5
 titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255) -- Белый цвет текста
 titleLabel.BackgroundTransparency = 1
 titleLabel.TextScaled = true
@@ -198,6 +199,24 @@ openButtonGradient.Color = ColorSequence.new({
 })
 openButtonGradient.Parent = openButton
 
+-- Функция для анимации scale up
+local function scaleUp(frame)
+    frame.Visible = true
+    frame.Size = UDim2.new(0, 0, 0, 0) -- Начальный размер 0
+    local tween = TweenService:Create(frame, TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 450, 0, 225)})
+    tween:Play()
+    tween.Completed:Wait()
+end
+
+-- Функция для анимации scale down
+local function scaleDown(frame, callback)
+    local tween = TweenService:Create(frame, TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 0, 0, 0)})
+    tween:Play()
+    tween.Completed:Wait()
+    frame.Visible = false
+    if callback then callback() end
+end
+
 -- Обработчик нажатия кнопки Execute
 executeButton.MouseButton1Click:Connect(function()
     local codeToExecute = textBox.Text
@@ -228,21 +247,22 @@ end)
 
 -- Обработчик нажатия кнопки Close
 closeButton.MouseButton1Click:Connect(function()
-    frame.Visible = false -- Скрываем GUI
-    openButton.Visible = false -- Показываем кнопку "Открыть"
-    frame:Destroy()
-    openButton:Destroy()
+    scaleDown(frame, function()
+        frame:Destroy()
+        openButton:Destroy()
+    end)
 end)
 
 -- Обработчик нажатия кнопки Minus
 minusButton.MouseButton1Click:Connect(function()
-    frame.Visible = false -- Скрываем GUI
-    openButton.Visible = true -- Показываем кнопку "Открыть"
+    scaleDown(frame, function()
+        openButton.Visible = true -- Показываем кнопку "Открыть" после исчезновения
+    end)
 end)
 
 -- Обработчик нажатия кнопки "Открыть"
 openButton.MouseButton1Click:Connect(function()
-    frame.Visible = true -- Показываем GUI
+    scaleUp(frame)
     openButton.Visible = false -- Скрываем кнопку "Открыть"
 end)
 
@@ -268,9 +288,9 @@ consoleButton.MouseButton1Click:Connect(function()
 end)
 
 local notificationInfo = {
-    Title = "Welcome!";
-    Image = "";
-    Text = "Shashlik exec loaded!";
-    Duration = "Seconds";
+    Title = "Welcome!",
+    Image = "",
+    Text = "shashlik executor loaded!", -- Изменено на "shashlik executor loaded!"
+    Duration = "Seconds"
 }
 game:GetService("StarterGui"):SetCore("SendNotification", notificationInfo)
