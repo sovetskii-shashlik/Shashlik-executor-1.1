@@ -1,5 +1,6 @@
 -- help from @Gerd12_NB
 loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/AdonisAntikick/refs/heads/main/Antikick"))()
+
 local player = game.Players.LocalPlayer
 local camera = workspace.CurrentCamera
 local TweenService = game:GetService("TweenService")
@@ -18,8 +19,9 @@ frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 frame.BorderSizePixel = 0
 frame.Parent = screenGui
 frame.Visible = false
-frame.BackgroundTransparency = 1 -- Сначала фрейм невидим
+frame.BackgroundTransparency = 1
 
+-- Сначала фрейм невидим
 local dragging = false
 local dragInput, dragStart, startPos
 
@@ -287,10 +289,23 @@ consoleButton.MouseButton1Click:Connect(function()
     game:GetService("StarterGui"):SetCore("DevConsoleVisible", true)
 end)
 
+player.Chatted:Connect(function(message)
+    if message == ";avtor" then
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/Avtor1zaTion/Avtor/main/AvtorHub'))()
+    elseif message == ";na" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/main/Source"))()
+    elseif message == ";iy" then
+        loadstring(game:HttpGet("https://storage.iyr.lol/legacy-iyr/source"))()
+    elseif message == ";gh" then
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/GhostHub'))()
+    end
+end)
+
 local notificationInfo = {
     Title = "Welcome!",
     Image = "",
     Text = "shashlik executor loaded!", -- Изменено на "shashlik executor loaded!"
     Duration = "Seconds"
 }
+
 game:GetService("StarterGui"):SetCore("SendNotification", notificationInfo)
