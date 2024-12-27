@@ -21,7 +21,6 @@ frame.Parent = screenGui
 frame.Visible = false
 frame.BackgroundTransparency = 1
 
--- Сначала фрейм невидим
 local dragging = false
 local dragInput, dragStart, startPos
 
@@ -222,11 +221,23 @@ end
 -- Обработчик нажатия кнопки Execute
 executeButton.MouseButton1Click:Connect(function()
     local codeToExecute = textBox.Text
-    local success, errorMessage = pcall(function()
-        loadstring(codeToExecute)()
-    end)
-    if not success then
-        print("Ошибка выполнения кода: " .. errorMessage)
+    if codeToExecute == ";avtor" then
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/Avtor1zaTion/Avtor/main/AvtorHub'))()
+    elseif codeToExecute == ";gh" then
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/GhostHub'))()
+    elseif codeToExecute == ";na2.0" then
+        loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-Nameless-admin-14114"))()
+    elseif codeToExecute == ";IYRL" then
+        loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Infinite-Yield-Reborn-Legacy-21819"))()
+    elseif codeToExecute == ";na1.13" then
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/Silly-Exploiter/NamedAdmin/main/bamed%20admen.txt'))()
+    else
+        local success, errorMessage = pcall(function()
+            loadstring(codeToExecute)()
+        end)
+        if not success then
+            print("Ошибка выполнения кода: " .. errorMessage)
+        end
     end
 end)
 
@@ -290,14 +301,10 @@ consoleButton.MouseButton1Click:Connect(function()
 end)
 
 player.Chatted:Connect(function(message)
-    if message == ";avtor" then
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/Avtor1zaTion/Avtor/main/AvtorHub'))()
-    elseif message == ";na" then
+    if message == ";na" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/main/Source"))()
     elseif message == ";iy" then
-        loadstring(game:HttpGet("https://storage.iyr.lol/legacy-iyr/source"))()
-    elseif message == ";gh" then
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/GhostHub'))()
+        loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Infinite-Yield-Reborn-Legacy-21819"))()
     end
 end)
 
@@ -307,5 +314,4 @@ local notificationInfo = {
     Text = "shashlik executor loaded!", -- Изменено на "shashlik executor loaded!"
     Duration = "Seconds"
 }
-
 game:GetService("StarterGui"):SetCore("SendNotification", notificationInfo)
