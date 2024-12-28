@@ -1,7 +1,6 @@
--- help from @Gerd12_NB
-loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/AdonisAntikick/refs/heads/main/Antikick"))()
-
+--help from @Gerd12_NB
 loadstring(game:HttpGet("https://github.com/FurryBoyYT/moreunc/raw/main/iyr_init"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/AdonisAntikick/refs/heads/main/Antikick"))()
 
 local player = game.Players.LocalPlayer
 local camera = workspace.CurrentCamera
@@ -233,6 +232,8 @@ executeButton.MouseButton1Click:Connect(function()
         loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Infinite-Yield-Reborn-Legacy-21819"))()
     elseif codeToExecute == ";na1.13" then
         loadstring(game:HttpGet('https://raw.githubusercontent.com/Silly-Exploiter/NamedAdmin/main/bamed%20admen.txt'))()
+    elseif codeToExecute == ";le" then
+        loadstring(game:HttpGet("https://pastebin.com/raw/08QdLK2Y"))() -- Исправленная команда
     else
         local success, errorMessage = pcall(function()
             loadstring(codeToExecute)()
