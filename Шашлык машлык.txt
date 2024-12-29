@@ -1,4 +1,4 @@
--- Загрузка необходимого скрипта
+-- help from @Gerd12_NB
 loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/AdonisAntikick/refs/heads/main/Antikick"))()
 
 local player = game.Players.LocalPlayer
@@ -29,7 +29,7 @@ local function startDrag(input)
         dragging = true
         dragStart = input.Position
         startPos = frame.Position
-        camera.CameraType = Enum.CameraType.Scriptable
+        camera.CameraType = Enum.CameraType.Scriptable -- Блокируем тип камеры
     end
 end
 
@@ -43,7 +43,7 @@ end
 local function endDrag(input)
     if dragging then
         dragging = false
-        camera.CameraType = Enum.CameraType.Custom
+        camera.CameraType = Enum.CameraType.Custom -- Восстанавливаем тип камеры
     end
 end
 
@@ -74,8 +74,8 @@ gradientFrame.Parent = frame
 -- Генерируем градиент
 local gradient = Instance.new("UIGradient")
 gradient.Color = ColorSequence.new({
-    ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 255)),
-    ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 0, 0))
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 255)), -- Синий цвет внизу
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 0, 0)) -- Черный цвет сверху
 })
 gradient.Parent = gradientFrame
 
@@ -83,31 +83,30 @@ gradient.Parent = gradientFrame
 local topFrame = Instance.new("Frame")
 topFrame.Size = UDim2.new(1, 0, 0, 50)
 topFrame.Position = UDim2.new(0, 0, 0, 0)
-topFrame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+topFrame.BackgroundColor3 = Color3.fromRGB(50, 50, 50) -- Темно-серый цвет
 topFrame.Parent = frame
 
 -- Добавляем заголовок
 local titleLabel = Instance.new("TextLabel")
-titleLabel.Size = UDim2.new(1, -80, 1, 0)
+titleLabel.Size = UDim2.new(1, -80, 1, 0) -- Укороченный размер
 titleLabel.Position = UDim2.new(0, 0, 0, 0)
-titleLabel.Text = "shashlik executor 2.5"
-titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+titleLabel.Text = "shashlik executor 2.5" -- Изменено на 2.5
+titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255) -- Белый цвет текста
 titleLabel.BackgroundTransparency = 1
 titleLabel.TextScaled = true
 titleLabel.Parent = topFrame
 
--- Создание текстового поля
+-- Создаем многострочное текстовое поле
 local textBox = Instance.new("TextBox")
-textBox.Size = UDim2.new(1, 0, 0.5, -50)
+textBox.Size = UDim2.new(0.73, 0, 0.5, 0)
 textBox.Position = UDim2.new(0, 0, 0, 50)
 textBox.Text = ""
 textBox.TextColor3 = Color3.fromRGB(255, 255, 255)
-textBox.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+textBox.BackgroundColor3 = Color3.fromRGB(70, 70, 70) -- Светлее темно-серого
 textBox.BorderSizePixel = 0
 textBox.TextWrapped = true
 textBox.ClearTextOnFocus = false
 textBox.MultiLine = true
-textBox.TextSize = 14
 textBox.Parent = frame
 
 -- Функция для создания кнопок
@@ -122,15 +121,14 @@ local function createButton(size, position, text, color, parent)
     return button
 end
 
--- Устанавливаем размеры и позиции кнопок
+-- Устанавливаем размеры и позиции кнопок с одинаковыми промежутками
 local buttonWidth = 0.2
 local buttonSpacing = 0.05
-local buttonOffset = 0.05 
-local totalWidth = buttonWidth * 4 + buttonSpacing * 3 
-local startX = (1 - totalWidth) / 2 
+local buttonOffset = 0.05 -- Смещение вниз для кнопок
+local totalWidth = buttonWidth * 4 + buttonSpacing * 3 -- Общая ширина всех кнопок с промежутками
+local startX = (1 - totalWidth) / 2 -- Начальная позиция по оси X для центрирования
 local verticalOffset = 0.8
 
--- Создаем кнопки
 local executeButton = createButton(UDim2.new(buttonWidth, 0, 0.2, 0), UDim2.new(startX, 0, verticalOffset, 0), "Execute", Color3.fromRGB(128, 128, 128), frame)
 local executeClipboardButton = createButton(UDim2.new(buttonWidth, 0, 0.2, 0), UDim2.new(startX + buttonWidth + buttonSpacing, 0, verticalOffset, 0), "Execute Clipboard", Color3.fromRGB(128, 128, 128), frame)
 local consoleButton = createButton(UDim2.new(buttonWidth, 0, 0.2, 0), UDim2.new(startX + 2 * (buttonWidth + buttonSpacing), 0, verticalOffset, 0), "Console", Color3.fromRGB(128, 128, 128), frame)
@@ -143,7 +141,7 @@ local closeButton = createButton(UDim2.new(0, 30, 0, 30), UDim2.new(1, -35, 0, 5
 
 -- Создаем желтую кнопку "минус" рядом с крестиком
 local minusButton = createButton(UDim2.new(0, 30, 0, 30), UDim2.new(1, -70, 0, 5), "-", Color3.fromRGB(255, 255, 0), topFrame)
-minusButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+minusButton.TextColor3 = Color3.fromRGB(255, 255, 255) -- Белый цвет для символа "минус"
 
 -- Создаем кнопку "Открыть" без фона
 local openButton = Instance.new("TextButton")
@@ -197,15 +195,15 @@ end)
 -- Генерируем градиент для кнопки "Открыть"
 local openButtonGradient = Instance.new("UIGradient")
 openButtonGradient.Color = ColorSequence.new({
-    ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 0)),
-    ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 0, 255))
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 0)), -- Черный цвет внизу
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 0, 255)) -- Синий цвет вверху
 })
 openButtonGradient.Parent = openButton
 
 -- Функция для анимации scale up
 local function scaleUp(frame)
     frame.Visible = true
-    frame.Size = UDim2.new(0, 0, 0, 0)
+    frame.Size = UDim2.new(0, 0, 0, 0) -- Начальный размер 0
     local tween = TweenService:Create(frame, TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 450, 0, 225)})
     tween:Play()
     tween.Completed:Wait()
@@ -235,23 +233,15 @@ local commands = {
     ";tel1",
     ";tel2",
     ";glios",
-    ";cmds",
-    ";qcmd",
-    ";mast",
-    ";fly"
+    ";cmds"
 }
 
 -- Обработчик нажатия кнопки Execute
 executeButton.MouseButton1Click:Connect(function()
     local codeToExecute = textBox.Text
     if codeToExecute == ";cmds" then
+        -- Выводим список команд в текстовое поле
         textBox.Text = "Существующие команды:\n" .. table.concat(commands, "\n")
-    elseif codeToExecute == ";qcmd" then
-        loadstring(game:HttpGet("https://gist.github.com/someunknowndude/38cecea5be9d75cb743eac8b1eaf6758/raw"))()
-    elseif codeToExecute == ";mast" then
-        loadstring(game:HttpGet("https://pastefy.app/wa3v2Vgm/raw"))()
-    elseif codeToExecute == ";fly" then
-        loadstring(game:HttpGet(('https://pastefy.app/M0N30XXG/raw'), true))()
     elseif codeToExecute == ";avtor" then
         loadstring(game:HttpGet('https://raw.githubusercontent.com/Avtor1zaTion/Avtor/main/AvtorHub'))()
     elseif codeToExecute == ";gh" then
@@ -277,7 +267,7 @@ executeButton.MouseButton1Click:Connect(function()
     elseif codeToExecute == ";tel2" then
         loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/randomstring0/Qwerty/refs/heads/main/qwerty11.lua"))()
     elseif codeToExecute == ";glios" then
-        writefile(".nonecing", "white")
+        writefile(".nonecing", "white") 
         loadstring(game:HttpGet(('https://glot.io/snippets/gua2ntmbdm/raw/main.lua'), true))()
     else
         local success, errorMessage = pcall(function()
@@ -297,7 +287,7 @@ end)
 -- Обработчик нажатия кнопки Copy
 copyButton.MouseButton1Click:Connect(function()
     local textToCopy = textBox.Text
-    setclipboard(textToCopy) 
+    setclipboard(textToCopy) -- Копируем текст в буфер обмена
     print("Текст скопирован в буфер обмена: " .. textToCopy)
 end)
 
@@ -308,18 +298,23 @@ end)
 
 -- Обработчик нажатия кнопки Close
 closeButton.MouseButton1Click:Connect(function()
-    scaleDown(frame, function() frame:Destroy() openButton:Destroy() end)
+    scaleDown(frame, function()
+        frame:Destroy()
+        openButton:Destroy()
+    end)
 end)
 
 -- Обработчик нажатия кнопки Minus
 minusButton.MouseButton1Click:Connect(function()
-    scaleDown(frame, function() openButton.Visible = true end)
+    scaleDown(frame, function()
+        openButton.Visible = true -- Показываем кнопку "Открыть" после исчезновения
+    end)
 end)
 
 -- Обработчик нажатия кнопки "Открыть"
 openButton.MouseButton1Click:Connect(function()
     scaleUp(frame)
-    openButton.Visible = false 
+    openButton.Visible = false -- Скрываем кнопку "Открыть"
 end)
 
 -- Восстанавливаем тип камеры при закрытии интерфейса
@@ -354,8 +349,7 @@ end)
 local notificationInfo = {
     Title = "Welcome!",
     Image = "",
-    Text = "shashlik executor loaded!",
+    Text = "shashlik executor loaded!", -- Изменено на "shashlik executor loaded!"
     Duration = "Seconds"
 }
-
 game:GetService("StarterGui"):SetCore("SendNotification", notificationInfo)
