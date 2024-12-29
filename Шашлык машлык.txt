@@ -1,4 +1,5 @@
 -- help from @Gerd12_NB
+-- Загрузка необходимого скрипта
 loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/AdonisAntikick/refs/heads/main/Antikick"))()
 
 local player = game.Players.LocalPlayer
@@ -96,10 +97,17 @@ titleLabel.BackgroundTransparency = 1
 titleLabel.TextScaled = true
 titleLabel.Parent = topFrame
 
--- Создаем многострочное текстовое поле
+-- Создание многострочного текстового поля с прокруткой
+local scrollFrame = Instance.new("ScrollingFrame")
+scrollFrame.Size = UDim2.new(0.73, 0, 0.5, 0)
+scrollFrame.Position = UDim2.new(0, 0, 0, 50)
+scrollFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
+scrollFrame.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+scrollFrame.Parent = frame
+
 local textBox = Instance.new("TextBox")
-textBox.Size = UDim2.new(0.73, 0, 0.5, 0)
-textBox.Position = UDim2.new(0, 0, 0, 50)
+textBox.Size = UDim2.new(1, 0, 1, 0)
+textBox.Position = UDim2.new(0, 0, 0, 0)
 textBox.Text = ""
 textBox.TextColor3 = Color3.fromRGB(255, 255, 255)
 textBox.BackgroundColor3 = Color3.fromRGB(70, 70, 70) -- Светлее темно-серого
@@ -107,7 +115,18 @@ textBox.BorderSizePixel = 0
 textBox.TextWrapped = true
 textBox.ClearTextOnFocus = false
 textBox.MultiLine = true
-textBox.Parent = frame
+textBox.TextSize = 14 -- Увеличиваем размер шрифта для удобства чтения
+textBox.Parent = scrollFrame
+
+-- Настройка свойств скроллбара
+scrollFrame.ScrollBarThickness = 10
+scrollFrame.ScrollBarImageColor3 = Color3.fromRGB(255, 255, 255)
+scrollFrame.BackgroundTransparency = 0.5
+
+-- Обновление размера CanvasSize во время изменения текста
+textBox:GetPropertyChangedSignal("Text"):Connect(function()
+    scrollFrame.CanvasSize = UDim2.new(0, 0, 0, textBox.TextBounds.Y + 10) -- Увеличиваем CanvasSize
+end)
 
 -- Функция для создания кнопок
 local function createButton(size, position, text, color, parent)
@@ -129,6 +148,7 @@ local totalWidth = buttonWidth * 4 + buttonSpacing * 3 -- Общая ширин�
 local startX = (1 - totalWidth) / 2 -- Начальная позиция по оси X для центрирования
 local verticalOffset = 0.8
 
+-- Создаем кнопки
 local executeButton = createButton(UDim2.new(buttonWidth, 0, 0.2, 0), UDim2.new(startX, 0, verticalOffset, 0), "Execute", Color3.fromRGB(128, 128, 128), frame)
 local executeClipboardButton = createButton(UDim2.new(buttonWidth, 0, 0.2, 0), UDim2.new(startX + buttonWidth + buttonSpacing, 0, verticalOffset, 0), "Execute Clipboard", Color3.fromRGB(128, 128, 128), frame)
 local consoleButton = createButton(UDim2.new(buttonWidth, 0, 0.2, 0), UDim2.new(startX + 2 * (buttonWidth + buttonSpacing), 0, verticalOffset, 0), "Console", Color3.fromRGB(128, 128, 128), frame)
@@ -233,7 +253,10 @@ local commands = {
     ";tel1",
     ";tel2",
     ";glios",
-    ";cmds"
+    ";cmds",
+    ";qcmd",  -- Новая команда
+    ";mast",   -- Новая команда
+    ";fly"     -- Новая команда
 }
 
 -- Обработчик нажатия кнопки Execute
@@ -242,33 +265,12 @@ executeButton.MouseButton1Click:Connect(function()
     if codeToExecute == ";cmds" then
         -- Выводим список команд в текстовое поле
         textBox.Text = "Существующие команды:\n" .. table.concat(commands, "\n")
-    elseif codeToExecute == ";avtor" then
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/Avtor1zaTion/Avtor/main/AvtorHub'))()
-    elseif codeToExecute == ";gh" then
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/GhostHub'))()
-    elseif codeToExecute == ";na2.0" then
-        loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-Nameless-admin-14114"))()
-    elseif codeToExecute == ";inf" then
-        loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Infinite-Yield-Reborn-Legacy-21819"))()
-    elseif codeToExecute == ";na1.13" then
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/Silly-Exploiter/NamedAdmin/main/bamed%20admen.txt'))()
-    elseif codeToExecute == ";le" then
-        loadstring(game:HttpGet("https://pastebin.com/raw/08QdLK2Y"))()
-    elseif codeToExecute == ";tfling" then
-        loadstring(game:HttpGet("https://pastebin.com/raw/rfKaavP3"))()
-    elseif codeToExecute == ";bp1" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Bac0nHck/Scripts/main/BringFlingPlayers"))()
-    elseif codeToExecute == ";bp2" then
-        loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Better-Bring-Parts-Ui-SOLARA-and-Fixed-Lags-21780"))()
-    elseif codeToExecute == ";bp3" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/GoofyBlox/GoofyZ/refs/heads/main/Best/Vortex.lua"))()
-    elseif codeToExecute == ";tel1" then
-        loadstring(game:HttpGet("https://rawscripts.net/raw/a-literal-baseplate.-FE-Telekinesis-15523"))()
-    elseif codeToExecute == ";tel2" then
-        loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/randomstring0/Qwerty/refs/heads/main/qwerty11.lua"))()
-    elseif codeToExecute == ";glios" then
-        writefile(".nonecing", "white") 
-        loadstring(game:HttpGet(('https://glot.io/snippets/gua2ntmbdm/raw/main.lua'), true))()
+    elseif codeToExecute == ";qcmd" then
+        loadstring(game:HttpGet("https://gist.github.com/someunknowndude/38cecea5be9d75cb743eac8b1eaf6758/raw"))()
+    elseif codeToExecute == ";mast" then
+        loadstring(game:HttpGet("https://pastefy.app/wa3v2Vgm/raw"))()
+    elseif codeToExecute == ";fly" then
+        loadstring(game:HttpGet(('https://pastefy.app/M0N30XXG/raw'), true))()
     else
         local success, errorMessage = pcall(function()
             loadstring(codeToExecute)()
@@ -298,17 +300,12 @@ end)
 
 -- Обработчик нажатия кнопки Close
 closeButton.MouseButton1Click:Connect(function()
-    scaleDown(frame, function()
-        frame:Destroy()
-        openButton:Destroy()
-    end)
+    scaleDown(frame, function() frame:Destroy() openButton:Destroy() end)
 end)
 
 -- Обработчик нажатия кнопки Minus
 minusButton.MouseButton1Click:Connect(function()
-    scaleDown(frame, function()
-        openButton.Visible = true -- Показываем кнопку "Открыть" после исчезновения
-    end)
+    scaleDown(frame, function() openButton.Visible = true -- Показываем кнопку "Открыть" после исчезновения end)
 end)
 
 -- Обработчик нажатия кнопки "Открыть"
@@ -352,4 +349,5 @@ local notificationInfo = {
     Text = "shashlik executor loaded!", -- Изменено на "shashlik executor loaded!"
     Duration = "Seconds"
 }
+
 game:GetService("StarterGui"):SetCore("SendNotification", notificationInfo)
