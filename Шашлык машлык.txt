@@ -1,4 +1,5 @@
 -- help from @Gerd12_NB
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-MoreUNC-13110"))()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/AdonisAntikick/refs/heads/main/Antikick"))()
 
 local player = game.Players.LocalPlayer
