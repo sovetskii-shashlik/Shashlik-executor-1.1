@@ -29,7 +29,7 @@ local function startDrag(input)
         dragging = true
         dragStart = input.Position
         startPos = frame.Position
-        camera.CameraType = Enum.CameraType.Scriptable -- Блокируем тип камеры
+        camera.CameraType = Enum.CameraType.Scriptable
     end
 end
 
@@ -43,7 +43,7 @@ end
 local function endDrag(input)
     if dragging then
         dragging = false
-        camera.CameraType = Enum.CameraType.Custom -- Восстанавливаем тип камеры
+        camera.CameraType = Enum.CameraType.Custom
     end
 end
 
@@ -74,8 +74,8 @@ gradientFrame.Parent = frame
 -- Генерируем градиент
 local gradient = Instance.new("UIGradient")
 gradient.Color = ColorSequence.new({
-    ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 255)), -- Синий цвет внизу
-    ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 0, 0)) -- Черный цвет сверху
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 255)),
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 0, 0))
 })
 gradient.Parent = gradientFrame
 
@@ -83,49 +83,32 @@ gradient.Parent = gradientFrame
 local topFrame = Instance.new("Frame")
 topFrame.Size = UDim2.new(1, 0, 0, 50)
 topFrame.Position = UDim2.new(0, 0, 0, 0)
-topFrame.BackgroundColor3 = Color3.fromRGB(50, 50, 50) -- Темно-серый цвет
+topFrame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
 topFrame.Parent = frame
 
 -- Добавляем заголовок
 local titleLabel = Instance.new("TextLabel")
-titleLabel.Size = UDim2.new(1, -80, 1, 0) -- Укороченный размер
+titleLabel.Size = UDim2.new(1, -80, 1, 0)
 titleLabel.Position = UDim2.new(0, 0, 0, 0)
-titleLabel.Text = "shashlik executor 2.5" -- Изменено на 2.5
-titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255) -- Белый цвет текста
+titleLabel.Text = "shashlik executor 2.5"
+titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 titleLabel.BackgroundTransparency = 1
 titleLabel.TextScaled = true
 titleLabel.Parent = topFrame
 
--- Создание многострочного текстового поля с прокруткой
-local scrollFrame = Instance.new("ScrollingFrame")
-scrollFrame.Size = UDim2.new(0.73, 0, 0.5, 0)
-scrollFrame.Position = UDim2.new(0, 0, 0, 50)
-scrollFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
-scrollFrame.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
-scrollFrame.Parent = frame
-
+-- Создание текстового поля
 local textBox = Instance.new("TextBox")
-textBox.Size = UDim2.new(1, 0, 1, 0)
-textBox.Position = UDim2.new(0, 0, 0, 0)
+textBox.Size = UDim2.new(1, 0, 0.5, -50)
+textBox.Position = UDim2.new(0, 0, 0, 50)
 textBox.Text = ""
 textBox.TextColor3 = Color3.fromRGB(255, 255, 255)
-textBox.BackgroundColor3 = Color3.fromRGB(70, 70, 70) -- Светлее темно-серого
+textBox.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
 textBox.BorderSizePixel = 0
 textBox.TextWrapped = true
 textBox.ClearTextOnFocus = false
 textBox.MultiLine = true
-textBox.TextSize = 14 -- Увеличиваем размер шрифта для удобства чтения
-textBox.Parent = scrollFrame
-
--- Настройка свойств скроллбара
-scrollFrame.ScrollBarThickness = 10
-scrollFrame.ScrollBarImageColor3 = Color3.fromRGB(255, 255, 255)
-scrollFrame.BackgroundTransparency = 0.5
-
--- Обновление размера CanvasSize во время изменения текста
-textBox:GetPropertyChangedSignal("Text"):Connect(function()
-    scrollFrame.CanvasSize = UDim2.new(0, 0, 0, textBox.TextBounds.Y + 10) -- Увеличиваем CanvasSize
-end)
+textBox.TextSize = 14
+textBox.Parent = frame
 
 -- Функция для создания кнопок
 local function createButton(size, position, text, color, parent)
@@ -139,12 +122,12 @@ local function createButton(size, position, text, color, parent)
     return button
 end
 
--- Устанавливаем размеры и позиции кнопок с одинаковыми промежутками
+-- Устанавливаем размеры и позиции кнопок
 local buttonWidth = 0.2
 local buttonSpacing = 0.05
-local buttonOffset = 0.05 -- Смещение вниз для кнопок
-local totalWidth = buttonWidth * 4 + buttonSpacing * 3 -- Общая ширина всех кнопок с промежутками
-local startX = (1 - totalWidth) / 2 -- Начальная позиция по оси X для центрирования
+local buttonOffset = 0.05 
+local totalWidth = buttonWidth * 4 + buttonSpacing * 3 
+local startX = (1 - totalWidth) / 2 
 local verticalOffset = 0.8
 
 -- Создаем кнопки
@@ -160,7 +143,7 @@ local closeButton = createButton(UDim2.new(0, 30, 0, 30), UDim2.new(1, -35, 0, 5
 
 -- Создаем желтую кнопку "минус" рядом с крестиком
 local minusButton = createButton(UDim2.new(0, 30, 0, 30), UDim2.new(1, -70, 0, 5), "-", Color3.fromRGB(255, 255, 0), topFrame)
-minusButton.TextColor3 = Color3.fromRGB(255, 255, 255) -- Белый цвет для символа "минус"
+minusButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 
 -- Создаем кнопку "Открыть" без фона
 local openButton = Instance.new("TextButton")
@@ -214,15 +197,15 @@ end)
 -- Генерируем градиент для кнопки "Открыть"
 local openButtonGradient = Instance.new("UIGradient")
 openButtonGradient.Color = ColorSequence.new({
-    ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 0)), -- Черный цвет внизу
-    ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 0, 255)) -- Синий цвет вверху
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 0)),
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 0, 255))
 })
 openButtonGradient.Parent = openButton
 
 -- Функция для анимации scale up
 local function scaleUp(frame)
     frame.Visible = true
-    frame.Size = UDim2.new(0, 0, 0, 0) -- Начальный размер 0
+    frame.Size = UDim2.new(0, 0, 0, 0)
     local tween = TweenService:Create(frame, TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 450, 0, 225)})
     tween:Play()
     tween.Completed:Wait()
@@ -253,16 +236,15 @@ local commands = {
     ";tel2",
     ";glios",
     ";cmds",
-    ";qcmd",  -- Новая команда
-    ";mast",   -- Новая команда
-    ";fly"     -- Новая команда
+    ";qcmd",
+    ";mast",
+    ";fly"
 }
 
 -- Обработчик нажатия кнопки Execute
 executeButton.MouseButton1Click:Connect(function()
     local codeToExecute = textBox.Text
     if codeToExecute == ";cmds" then
-        -- Выводим список команд в текстовое поле
         textBox.Text = "Существующие команды:\n" .. table.concat(commands, "\n")
     elseif codeToExecute == ";qcmd" then
         loadstring(game:HttpGet("https://gist.github.com/someunknowndude/38cecea5be9d75cb743eac8b1eaf6758/raw"))()
@@ -315,7 +297,7 @@ end)
 -- Обработчик нажатия кнопки Copy
 copyButton.MouseButton1Click:Connect(function()
     local textToCopy = textBox.Text
-    setclipboard(textToCopy) -- Копируем текст в буфер обмена
+    setclipboard(textToCopy) 
     print("Текст скопирован в буфер обмена: " .. textToCopy)
 end)
 
@@ -331,13 +313,13 @@ end)
 
 -- Обработчик нажатия кнопки Minus
 minusButton.MouseButton1Click:Connect(function()
-    scaleDown(frame, function() openButton.Visible = true -- Показываем кнопку "Открыть" после исчезновения end)
+    scaleDown(frame, function() openButton.Visible = true end)
 end)
 
 -- Обработчик нажатия кнопки "Открыть"
 openButton.MouseButton1Click:Connect(function()
     scaleUp(frame)
-    openButton.Visible = false -- Скрываем кнопку "Открыть"
+    openButton.Visible = false 
 end)
 
 -- Восстанавливаем тип камеры при закрытии интерфейса
@@ -372,7 +354,7 @@ end)
 local notificationInfo = {
     Title = "Welcome!",
     Image = "",
-    Text = "shashlik executor loaded!", -- Изменено на "shashlik executor loaded!"
+    Text = "shashlik executor loaded!",
     Duration = "Seconds"
 }
 
