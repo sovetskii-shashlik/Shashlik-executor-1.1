@@ -1,4 +1,3 @@
--- help from @Gerd12_NB
 -- Загрузка необходимого скрипта
 loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/AdonisAntikick/refs/heads/main/Antikick"))()
 
@@ -271,6 +270,33 @@ executeButton.MouseButton1Click:Connect(function()
         loadstring(game:HttpGet("https://pastefy.app/wa3v2Vgm/raw"))()
     elseif codeToExecute == ";fly" then
         loadstring(game:HttpGet(('https://pastefy.app/M0N30XXG/raw'), true))()
+    elseif codeToExecute == ";avtor" then
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/Avtor1zaTion/Avtor/main/AvtorHub'))()
+    elseif codeToExecute == ";gh" then
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/GhostHub'))()
+    elseif codeToExecute == ";na2.0" then
+        loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-Nameless-admin-14114"))()
+    elseif codeToExecute == ";inf" then
+        loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Infinite-Yield-Reborn-Legacy-21819"))()
+    elseif codeToExecute == ";na1.13" then
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/Silly-Exploiter/NamedAdmin/main/bamed%20admen.txt'))()
+    elseif codeToExecute == ";le" then
+        loadstring(game:HttpGet("https://pastebin.com/raw/08QdLK2Y"))()
+    elseif codeToExecute == ";tfling" then
+        loadstring(game:HttpGet("https://pastebin.com/raw/rfKaavP3"))()
+    elseif codeToExecute == ";bp1" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Bac0nHck/Scripts/main/BringFlingPlayers"))()
+    elseif codeToExecute == ";bp2" then
+        loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Better-Bring-Parts-Ui-SOLARA-and-Fixed-Lags-21780"))()
+    elseif codeToExecute == ";bp3" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/GoofyBlox/GoofyZ/refs/heads/main/Best/Vortex.lua"))()
+    elseif codeToExecute == ";tel1" then
+        loadstring(game:HttpGet("https://rawscripts.net/raw/a-literal-baseplate.-FE-Telekinesis-15523"))()
+    elseif codeToExecute == ";tel2" then
+        loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/randomstring0/Qwerty/refs/heads/main/qwerty11.lua"))()
+    elseif codeToExecute == ";glios" then
+        writefile(".nonecing", "white")
+        loadstring(game:HttpGet(('https://glot.io/snippets/gua2ntmbdm/raw/main.lua'), true))()
     else
         local success, errorMessage = pcall(function()
             loadstring(codeToExecute)()
