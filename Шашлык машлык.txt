@@ -219,7 +219,7 @@ local function scaleDown(frame, callback)
     if callback then callback() end
 end
 
--- Список команд
+-- Обновленный список команд
 local commands = {
     ";avtor",
     ";gh",
@@ -228,16 +228,18 @@ local commands = {
     ";na1.13",
     ";le",
     ";tfling",
+    ";fly", -- Существующая команда
+    ";fly2", -- Новая команда
+    ";qcmd", -- Существующая команда
+    ";mast", -- Существующая команда
+    ";tfling2", -- Новая команда
     ";bp1",
     ";bp2",
     ";bp3",
     ";tel1",
     ";tel2",
     ";glios",
-    ";cmds",
-    ";fly", -- Новая команда
-    ";qcmd", -- Новая команда
-    ";mast" -- Новая команда
+    ";cmds"
 }
 
 -- Обработчик нажатия кнопки Execute
@@ -245,13 +247,15 @@ executeButton.MouseButton1Click:Connect(function()
     local codeToExecute = textBox.Text
     if codeToExecute == ";cmds" then
         -- Выводим список команд в текстовое поле
-        textBox.Text = "Существующие команды:\n" .. table.concat(commands, "\n") .. "\n\nНовые команды:\n;fly\n;qcmd\n;mast"
+        textBox.Text = "Существующие команды:\n" .. table.concat(commands, "\n") .. "\n\nНовые команды:\n;fly\n;fly2\n;qcmd\n;mast"
     elseif codeToExecute == ";fly" then
         loadstring(game:HttpGet(('https://pastefy.app/M0N30XXG/raw'),true))()
-    elseif codeToExecute == ";qcmd" then
-        loadstring(game:HttpGet("https://gist.github.com/someunknowndude/38cecea5be9d75cb743eac8b1eaf6758/raw"))()
-    elseif codeToExecute == ";mast" then
-        loadstring(game:HttpGet("https://pastefy.app/wa3v2Vgm/raw"))("Spider Script")
+    elseif codeToExecute == ";fly2" then
+        loadstring(game:HttpGet('https://pastebin.com/raw/YSL3xKYU'))()
+    elseif codeToExecute == ";tfling" then
+        loadstring(game:HttpGet("https://pastebin.com/raw/rfKaavP3"))()
+    elseif codeToExecute == ";tfling2" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/0Ben1/fe./main/Fling%20GUI"))()
     elseif codeToExecute == ";avtor" then
         loadstring(game:HttpGet('https://raw.githubusercontent.com/Avtor1zaTion/Avtor/main/AvtorHub'))()
     elseif codeToExecute == ";gh" then
@@ -264,8 +268,6 @@ executeButton.MouseButton1Click:Connect(function()
         loadstring(game:HttpGet('https://raw.githubusercontent.com/Silly-Exploiter/NamedAdmin/main/bamed%20admen.txt'))()
     elseif codeToExecute == ";le" then
         loadstring(game:HttpGet("https://pastebin.com/raw/08QdLK2Y"))()
-    elseif codeToExecute == ";tfling" then
-        loadstring(game:HttpGet("https://pastebin.com/raw/rfKaavP3"))()
     elseif codeToExecute == ";bp1" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Bac0nHck/Scripts/main/BringFlingPlayers"))()
     elseif codeToExecute == ";bp2" then
