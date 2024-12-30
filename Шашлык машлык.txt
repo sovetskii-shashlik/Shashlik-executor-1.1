@@ -241,7 +241,8 @@ local commands = {
     ";glios",
     ";cmds",
     ";HTh",  -- Новая команда
-    ";zomb"  -- Новая команда
+    ";zomb",  -- Новая команда
+    ";knpc"   -- Новая команда
 }
 
 -- Обработчик нажатия кнопки Execute
@@ -249,7 +250,9 @@ executeButton.MouseButton1Click:Connect(function()
     local codeToExecute = textBox.Text
     if codeToExecute == ";cmds" then
         -- Выводим список команд в текстовое поле
-        textBox.Text = "Существующие команды:\n" .. table.concat(commands, "\n") .. "\n\nНовые команды:\n;fly\n;fly2\n;qcmd\n;mast\n;HTh\n;zomb"
+        textBox.Text = "Существующие команды:\n" .. table.concat(commands, "\n") .. "\n\nНовые команды:\n;fly\n;fly2\n;qcmd\n;mast\n;HTh\n;zomb\n;knpc"
+    elseif codeToExecute == ";knpc" then
+        loadstring(game:HttpGet("https://pastebin.com/raw/DcSXwXqC"))()
     elseif codeToExecute == ";HTh" then
         loadstring(game:HttpGet(('https://pastefy.app/tI5b3OVD/raw'),true))()
     elseif codeToExecute == ";zomb" then
