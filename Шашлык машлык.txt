@@ -9,7 +9,7 @@ local UserInputService = game:GetService("UserInputService")
 
 -- Создаем основной графический интерфейс
 local screenGui = Instance.new("ScreenGui")
-screenGui.Parent = game.CoreGui
+screenGui.Parent = game.CoreGui.TopBarApp.TopBarFrame
 
 -- Создаем основной Frame для GUI
 local frame = Instance.new("Frame")
