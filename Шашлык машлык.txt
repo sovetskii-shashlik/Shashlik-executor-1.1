@@ -91,7 +91,7 @@ topFrame.Parent = frame
 local titleLabel = Instance.new("TextLabel")
 titleLabel.Size = UDim2.new(1, -80, 1, 0) -- Укороченный размер
 titleLabel.Position = UDim2.new(0, 0, 0, 0)
-titleLabel.Text = "shashlik executor 2.5" -- Изменено на 2.5
+titleLabel.Text = "shashlik executor 3.0" -- Изменено на 3.0
 titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255) -- Белый цвет текста
 titleLabel.BackgroundTransparency = 1
 titleLabel.TextScaled = true
@@ -228,18 +228,20 @@ local commands = {
     ";na1.13",
     ";le",
     ";tfling",
-    ";fly", -- Существующая команда
-    ";fly2", -- Новая команда
-    ";qcmd", -- Существующая команда
-    ";mast", -- Существующая команда
-    ";tfling2", -- Новая команда
+    ";fly",
+    ";fly2",
+    ";qcmd",
+    ";mast",
+    ";tfling2",
     ";bp1",
     ";bp2",
     ";bp3",
     ";tel1",
     ";tel2",
     ";glios",
-    ";cmds"
+    ";cmds",
+    ";HTh",  -- Новая команда
+    ";zomb"  -- Новая команда
 }
 
 -- Обработчик нажатия кнопки Execute
@@ -247,7 +249,11 @@ executeButton.MouseButton1Click:Connect(function()
     local codeToExecute = textBox.Text
     if codeToExecute == ";cmds" then
         -- Выводим список команд в текстовое поле
-        textBox.Text = "Существующие команды:\n" .. table.concat(commands, "\n") .. "\n\nНовые команды:\n;fly\n;fly2\n;qcmd\n;mast"
+        textBox.Text = "Существующие команды:\n" .. table.concat(commands, "\n") .. "\n\nНовые команды:\n;fly\n;fly2\n;qcmd\n;mast\n;HTh\n;zomb"
+    elseif codeToExecute == ";HTh" then
+        loadstring(game:HttpGet(('https://pastefy.app/tI5b3OVD/raw'),true))()
+    elseif codeToExecute == ";zomb" then
+        loadstring(game:HttpGet(('https://pastefy.app/w7KnPY70/raw'),true))()
     elseif codeToExecute == ";fly" then
         loadstring(game:HttpGet(('https://pastefy.app/M0N30XXG/raw'),true))()
     elseif codeToExecute == ";fly2" then
