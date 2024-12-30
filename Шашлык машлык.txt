@@ -230,8 +230,7 @@ local commands = {
     ";tfling",
     ";fly",
     ";fly2",
-    ";qcmd",
-    ";mast",
+    ";qcmd", -- Новая команда
     ";tfling2",
     ";bp1",
     ";bp2",
@@ -243,7 +242,7 @@ local commands = {
     ";HTh",
     ";zomb",
     ";knpc",
-    ";ska"  -- Новая команда
+    ";jerk" -- Новая команда
 }
 
 -- Обработчик нажатия кнопки Execute
@@ -251,7 +250,11 @@ executeButton.MouseButton1Click:Connect(function()
     local codeToExecute = textBox.Text
     if codeToExecute == ";cmds" then
         -- Выводим список команд в текстовое поле
-        textBox.Text = "Существующие команды:\n" .. table.concat(commands, "\n") .. "\n\nНовые команды:\n;fly\n;fly2\n;qcmd\n;mast\n;HTh\n;zomb\n;knpc\n;ska"
+        textBox.Text = "Существующие команды:\n" .. table.concat(commands, "\n") .. "\n\nНовые команды:\n;fly\n;fly2\n;qcmd\n;jerk"
+    elseif codeToExecute == ";jerk" then
+        loadstring(game:HttpGet("https://pastefy.app/wa3v2Vgm/raw"))("Spider Script")
+    elseif codeToExecute == ";qcmd" then
+        loadstring(game:HttpGet("https://gist.github.com/someunknowndude/38cecea5be9d75cb743eac8b1eaf6758/raw"))()
     elseif codeToExecute == ";knpc" then
         loadstring(game:HttpGet("https://pastebin.com/raw/DcSXwXqC"))()
     elseif codeToExecute == ";HTh" then
@@ -291,8 +294,6 @@ executeButton.MouseButton1Click:Connect(function()
     elseif codeToExecute == ";glios" then
         writefile(".nonecing", "white") 
         loadstring(game:HttpGet(('https://glot.io/snippets/gua2ntmbdm/raw/main.lua'), true))()
-    elseif codeToExecute == ";ska" then
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/zephyr10101/sword-kill-all/main/script'))()
     else
         local success, errorMessage = pcall(function()
             loadstring(codeToExecute)()
