@@ -240,9 +240,10 @@ local commands = {
     ";tel2",
     ";glios",
     ";cmds",
-    ";HTh",  -- Новая команда
-    ";zomb",  -- Новая команда
-    ";knpc"   -- Новая команда
+    ";HTh",
+    ";zomb",
+    ";knpc",
+    ";ska"  -- Новая команда
 }
 
 -- Обработчик нажатия кнопки Execute
@@ -250,7 +251,7 @@ executeButton.MouseButton1Click:Connect(function()
     local codeToExecute = textBox.Text
     if codeToExecute == ";cmds" then
         -- Выводим список команд в текстовое поле
-        textBox.Text = "Существующие команды:\n" .. table.concat(commands, "\n") .. "\n\nНовые команды:\n;fly\n;fly2\n;qcmd\n;mast\n;HTh\n;zomb\n;knpc"
+        textBox.Text = "Существующие команды:\n" .. table.concat(commands, "\n") .. "\n\nНовые команды:\n;fly\n;fly2\n;qcmd\n;mast\n;HTh\n;zomb\n;knpc\n;ska"
     elseif codeToExecute == ";knpc" then
         loadstring(game:HttpGet("https://pastebin.com/raw/DcSXwXqC"))()
     elseif codeToExecute == ";HTh" then
@@ -270,7 +271,7 @@ executeButton.MouseButton1Click:Connect(function()
     elseif codeToExecute == ";gh" then
         loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/GhostHub'))()
     elseif codeToExecute == ";na2.0" then
-        loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-Nameless-admin-14114"))()
+        loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-Nameless admin-14114"))()
     elseif codeToExecute == ";inf" then
         loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Infinite-Yield-Reborn-Legacy-21819"))()
     elseif codeToExecute == ";na1.13" then
@@ -290,6 +291,8 @@ executeButton.MouseButton1Click:Connect(function()
     elseif codeToExecute == ";glios" then
         writefile(".nonecing", "white") 
         loadstring(game:HttpGet(('https://glot.io/snippets/gua2ntmbdm/raw/main.lua'), true))()
+    elseif codeToExecute == ";ska" then
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/zephyr10101/sword-kill-all/main/script'))()
     else
         local success, errorMessage = pcall(function()
             loadstring(codeToExecute)()
