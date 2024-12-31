@@ -102,6 +102,7 @@ local textBox = Instance.new("TextBox")
 textBox.Size = UDim2.new(0.73, 0, 0.5, 0)
 textBox.Position = UDim2.new(0, 0, 0, 50)
 textBox.Text = ""
+textBox.PlaceholderText = "send ;cmds and execute" -- Устанавливаем плейсхолдер
 textBox.TextColor3 = Color3.fromRGB(255, 255, 255)
 textBox.BackgroundColor3 = Color3.fromRGB(70, 70, 70) -- Светлее темно-серого
 textBox.BorderSizePixel = 0
@@ -205,14 +206,14 @@ openButtonGradient.Parent = openButton
 local function scaleUp(frame)
     frame.Visible = true
     frame.Size = UDim2.new(0, 0, 0, 0) -- Начальный размер 0
-    local tween = TweenService:Create(frame, TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 450, 0, 225)})
+    local tween = TweenService:Create(frame, TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), { Size = UDim2.new(0, 450, 0, 225) })
     tween:Play()
     tween.Completed:Wait()
 end
 
 -- Функция для анимации scale down
 local function scaleDown(frame, callback)
-    local tween = TweenService:Create(frame, TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 0, 0, 0)})
+    local tween = TweenService:Create(frame, TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), { Size = UDim2.new(0, 0, 0, 0) })
     tween:Play()
     tween.Completed:Wait()
     frame.Visible = false
@@ -221,28 +222,8 @@ end
 
 -- Обновленный список команд
 local commands = {
-    ";avtor",
-    ";gh",
-    ";na2.0",
-    ";inf",
-    ";na1.13",
-    ";le",
-    ";tfling",
-    ";fly",
-    ";fly2",
-    ";qcmd", -- Новая команда
-    ";tfling2",
-    ";bp1",
-    ";bp2",
-    ";bp3",
-    ";tel1",
-    ";tel2",
-    ";glios",
-    ";cmds",
-    ";HTh",
-    ";zomb",
-    ";knpc",
-    ";jerk" -- Новая команда
+    ";avtor", ";gh", ";na2.0", ";inf", ";na1.13", ";le", ";tfling", ";fly", ";fly2", ";qcmd", -- Новая команда
+    ";tfling2", ";bp1", ";bp2", ";bp3", ";tel1", ";tel2", ";glios", ";cmds", ";HTh", ";zomb", ";knpc", ";jerk" -- Новая команда
 }
 
 -- Обработчик нажатия кнопки Execute
@@ -258,11 +239,11 @@ executeButton.MouseButton1Click:Connect(function()
     elseif codeToExecute == ";knpc" then
         loadstring(game:HttpGet("https://pastebin.com/raw/DcSXwXqC"))()
     elseif codeToExecute == ";HTh" then
-        loadstring(game:HttpGet(('https://pastefy.app/tI5b3OVD/raw'),true))()
+        loadstring(game:HttpGet(('https://pastefy.app/tI5b3OVD/raw'), true))()
     elseif codeToExecute == ";zomb" then
-        loadstring(game:HttpGet(('https://pastefy.app/w7KnPY70/raw'),true))()
+        loadstring(game:HttpGet(('https://pastefy.app/w7KnPY70/raw'), true))()
     elseif codeToExecute == ";fly" then
-        loadstring(game:HttpGet(('https://pastefy.app/M0N30XXG/raw'),true))()
+        loadstring(game:HttpGet(('https://pastefy.app/M0N30XXG/raw'), true))()
     elseif codeToExecute == ";fly2" then
         loadstring(game:HttpGet('https://pastebin.com/raw/YSL3xKYU'))()
     elseif codeToExecute == ";tfling" then
@@ -292,7 +273,7 @@ executeButton.MouseButton1Click:Connect(function()
     elseif codeToExecute == ";tel2" then
         loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/randomstring0/Qwerty/refs/heads/main/qwerty11.lua"))()
     elseif codeToExecute == ";glios" then
-        writefile(".nonecing", "white") 
+        writefile(".nonecing", "white")
         loadstring(game:HttpGet(('https://glot.io/snippets/gua2ntmbdm/raw/main.lua'), true))()
     else
         local success, errorMessage = pcall(function()
