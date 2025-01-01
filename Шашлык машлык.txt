@@ -223,7 +223,8 @@ end
 -- Обновленный список команд
 local commands = {
     ";avtor", ";gh", ";na2.0", ";inf", ";na1.13", ";le", ";tfling", ";fly", ";fly2", ";qcmd", -- Новая команда
-    ";tfling2", ";bp1", ";bp2", ";bp3", ";tel1", ";tel2", ";glios", ";cmds", ";HTh", ";zomb", ";knpc", ";jerk" -- Новая команда
+    ";tfling2", ";bp1", ";bp2", ";bp3", ";tel1", ";tel2", ";glios", ";cmds", ";HTh", ";zomb", ";knpc", ";jerk", -- Новая команда
+    ";punch", ";akp1", ";akp2" -- Новые команды добавлены
 }
 
 -- Обработчик нажатия кнопки Execute
@@ -231,7 +232,7 @@ executeButton.MouseButton1Click:Connect(function()
     local codeToExecute = textBox.Text
     if codeToExecute == ";cmds" then
         -- Выводим список команд в текстовое поле
-        textBox.Text = "Существующие команды:\n" .. table.concat(commands, "\n") .. "\n\nНовые команды:\n;fly\n;fly2\n;qcmd\n;jerk"
+        textBox.Text = "Существующие команды:\n" .. table.concat(commands, "\n") .. "\n\nНовые команды:\n;fly\n;fly2\n;qcmd\n;jerk\n;punch\n;akp1\n;akp2"
     elseif codeToExecute == ";jerk" then
         loadstring(game:HttpGet("https://pastefy.app/wa3v2Vgm/raw"))("Spider Script")
     elseif codeToExecute == ";qcmd" then
@@ -275,6 +276,12 @@ executeButton.MouseButton1Click:Connect(function()
     elseif codeToExecute == ";glios" then
         writefile(".nonecing", "white")
         loadstring(game:HttpGet(('https://glot.io/snippets/gua2ntmbdm/raw/main.lua'), true))()
+    elseif codeToExecute == ";punch" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/fedoratums/Base-Script/Base-Script/fedoratum punch fling", true))()
+    elseif codeToExecute == ";akp1" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/zephyr10101/ignore-touchinterests/main/main", true))()
+    elseif codeToExecute == ";akp2" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Anti-kill-parts-updated-/refs/heads/main/Anti%20kill%20parts%20by%20Zephyr"))()
     else
         local success, errorMessage = pcall(function()
             loadstring(codeToExecute)()
