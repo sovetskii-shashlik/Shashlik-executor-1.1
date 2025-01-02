@@ -263,7 +263,7 @@ loadstring(game:HttpGet('https://pastebin.com/raw/TXMNj1yy'))()
     elseif codeToExecute == ";gh" then
         loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/GhostHub'))()
     elseif codeToExecute == ";na2" then
-        loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-Nameless admin-14114"))()
+        loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-Nameless-admin-14114"))()
     elseif codeToExecute == ";inf" then
         loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Infinite-Yield-Reborn-Legacy-21819"))()
     elseif codeToExecute == ";na1" then
