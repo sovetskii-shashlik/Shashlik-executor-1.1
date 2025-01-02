@@ -222,7 +222,7 @@ end
 
 -- Обновленный список команд
 local commands = {
-    ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";fly2", ";qcmd", ";tfling2", ";bp1", ";bp2", ";bp3", ";tel1", ";tel2", ";glios", ";cmds", ";hth", ";zomb", ";knpc", ";jerk",  ";punch", ";invis", "tel3", ";akp1", ";akp2", ";prox", ";tptool"
+    ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";fly2", ";qcmd", ";tfling2", ";bp1", ";bp2", ";bp3", ";tel1", ";tel2", ";glios", ";cmds", ";hth", ";zomb", ";knpc", ";jerk",  ";punch", ";invis2", ";invis", "tel3", ";akp1", ";akp2", ";prox", ";tptool"
 }
 
 -- Обработчик нажатия кнопки Execute
@@ -291,8 +291,10 @@ loadstring(game:HttpGet('https://pastebin.com/raw/TXMNj1yy'))()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/sakupenXD/SakupScripts/main/Telekinesis", true))()
     elseif codeToExecute == ";invis" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Luarmor123/community-Y-HUB/refs/heads/main/invisible-button"))()
-elseif codeToExecute == ";prox" then
+    elseif codeToExecute == ";prox" then
         for i,v in ipairs(game:GetService("Workspace"):GetDescendants()) do if v.ClassName == "ProximityPrompt" then v.HoldDuration = 0 end end
+    elseif codeToExecute == ";invis2" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/CloudHub111/Scripts/refs/heads/main/Fe%20Invisible%20Beta", Beta))()
     else
         local success, errorMessage = pcall(function()
             loadstring(codeToExecute)()
