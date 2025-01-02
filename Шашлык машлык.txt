@@ -222,8 +222,8 @@ end
 
 -- Обновленный список команд
 local commands = {
-    ";avtor", ";gh", ";na2.0", ";inf", ";na1.13", ";le", ";tfling", ";fly", ";fly2", ";qcmd", -- Новая команда
-    ";tfling2", ";bp1", ";bp2", ";bp3", ";tel1", ";tel2", ";glios", ";cmds", ";HTh", ";zomb", ";knpc", ";jerk", -- Новая команда
+    ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";fly2", ";qcmd", -- Новая команда
+    ";tfling2", ";bp1", ";bp2", ";bp3", ";tel1", ";tel2", ";glios", ";cmds", ";hth", ";zomb", ";knpc", ";jerk", -- Новая команда
     ";punch", "tel3", ";akp1", ";akp2", ";tptool" -- Добавленная команда
 }
 
@@ -244,7 +244,7 @@ loadstring(game:HttpGet("https://pastefy.app/YZoglOyJ/raw"))()
         loadstring(game:HttpGet("https://gist.github.com/someunknowndude/38cecea5be9d75cb743eac8b1eaf6758/raw"))()
     elseif codeToExecute == ";knpc" then
         loadstring(game:HttpGet("https://pastebin.com/raw/DcSXwXqC"))()
-    elseif codeToExecute == ";HTh" then
+    elseif codeToExecute == ";hth" then
         loadstring(game:HttpGet(('https://pastefy.app/tI5b3OVD/raw'), true))()
     elseif codeToExecute == ";zomb" then
         loadstring(game:HttpGet(('https://pastefy.app/w7KnPY70/raw'), true))()
@@ -255,16 +255,18 @@ loadstring(game:HttpGet("https://pastefy.app/YZoglOyJ/raw"))()
     elseif codeToExecute == ";tfling" then
         loadstring(game:HttpGet("https://pastebin.com/raw/rfKaavP3"))()
     elseif codeToExecute == ";tfling2" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/0Ben1/fe./main/Fling%20GUI"))()
+        --fling ez
+
+loadstring(game:HttpGet('https://pastebin.com/raw/TXMNj1yy'))()
     elseif codeToExecute == ";avtor" then
         loadstring(game:HttpGet('https://raw.githubusercontent.com/Avtor1zaTion/Avtor/main/AvtorHub'))()
     elseif codeToExecute == ";gh" then
         loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/GhostHub'))()
-    elseif codeToExecute == ";na2.0" then
+    elseif codeToExecute == ";na2" then
         loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-Nameless admin-14114"))()
     elseif codeToExecute == ";inf" then
         loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Infinite-Yield-Reborn-Legacy-21819"))()
-    elseif codeToExecute == ";na1.13" then
+    elseif codeToExecute == ";na1" then
         loadstring(game:HttpGet('https://raw.githubusercontent.com/Silly-Exploiter/NamedAdmin/main/bamed%20admen.txt'))()
     elseif codeToExecute == ";le" then
         loadstring(game:HttpGet("https://pastebin.com/raw/08QdLK2Y"))()
