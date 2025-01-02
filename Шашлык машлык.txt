@@ -224,7 +224,7 @@ end
 local commands = {
     ";avtor", ";gh", ";na2.0", ";inf", ";na1.13", ";le", ";tfling", ";fly", ";fly2", ";qcmd", -- Новая команда
     ";tfling2", ";bp1", ";bp2", ";bp3", ";tel1", ";tel2", ";glios", ";cmds", ";HTh", ";zomb", ";knpc", ";jerk", -- Новая команда
-    ";punch", ";akp1", ";akp2", ";tptool" -- Добавленная команда
+    ";punch", "tel3", ";akp1", ";akp2", ";tptool" -- Добавленная команда
 }
 
 -- Обработчик нажатия кнопки Execute
@@ -287,6 +287,8 @@ loadstring(game:HttpGet("https://pastefy.app/YZoglOyJ/raw"))()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/zephyr10101/ignore-touchinterests/main/main", true))()
     elseif codeToExecute == ";akp2" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Anti-kill-parts-updated-/refs/heads/main/Anti%20kill%20parts%20by%20Zephyr"))()
+    elseif codeToExecute == ";tel3" then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/sakupenXD/SakupScripts/main/Telekinesis", true))()
     else
         local success, errorMessage = pcall(function()
             loadstring(codeToExecute)()
