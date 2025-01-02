@@ -224,7 +224,7 @@ end
 local commands = {
     ";avtor", ";gh", ";na2.0", ";inf", ";na1.13", ";le", ";tfling", ";fly", ";fly2", ";qcmd", -- Новая команда
     ";tfling2", ";bp1", ";bp2", ";bp3", ";tel1", ";tel2", ";glios", ";cmds", ";HTh", ";zomb", ";knpc", ";jerk", -- Новая команда
-    ";punch", ";akp1", ";akp2" -- Новые команды добавлены
+    ";punch", ";akp1", ";akp2", ";tptool" -- Добавленная команда
 }
 
 -- Обработчик нажатия кнопки Execute
@@ -233,6 +233,8 @@ executeButton.MouseButton1Click:Connect(function()
     if codeToExecute == ";cmds" then
         -- Выводим список команд в текстовое поле
         textBox.Text = "Существующие команды:\n" .. table.concat(commands, "\n") .. "\n\nНовые команды:\n;fly\n;fly2\n;qcmd\n;jerk\n;punch\n;akp1\n;akp2"
+    elseif codeToExecute == ";tptool" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Tptool/refs/heads/main/Tptool"))()
     elseif codeToExecute == ";jerk" then
         loadstring(game:HttpGet("https://pastefy.app/wa3v2Vgm/raw"))("Spider Script")
     elseif codeToExecute == ";qcmd" then
