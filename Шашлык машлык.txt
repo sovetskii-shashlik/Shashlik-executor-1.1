@@ -1,4 +1,4 @@
--- help from @Gerd12_NB
+-- help from @Gerdroid
 loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-MoreUNC-13110"))()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/AdonisAntikick/refs/heads/main/Antikick"))()
 
@@ -21,50 +21,8 @@ frame.BorderSizePixel = 0
 frame.Parent = screenGui
 frame.Visible = false
 frame.BackgroundTransparency = 1
-
-local dragging = false
-local dragInput, dragStart, startPos
-
-local function startDrag(input)
-    if not dragging then
-        dragging = true
-        dragStart = input.Position
-        startPos = frame.Position
-        camera.CameraType = Enum.CameraType.Scriptable -- Блокируем тип камеры
-    end
-end
-
-local function dragMove(input)
-    if dragging then
-        local delta = input.Position - dragStart
-        frame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
-    end
-end
-
-local function endDrag(input)
-    if dragging then
-        dragging = false
-        camera.CameraType = Enum.CameraType.Custom -- Восстанавливаем тип камеры
-    end
-end
-
-frame.InputBegan:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-        startDrag(input)
-    end
-end)
-
-frame.InputChanged:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-        dragMove(input)
-    end
-end)
-
-frame.InputEnded:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-        endDrag(input)
-    end
-end)
+frame.Active = true
+frame.Draggable = true
 
 -- Генерация градиента для фона
 local gradientFrame = Instance.new("Frame")
@@ -72,13 +30,45 @@ gradientFrame.Size = UDim2.new(1, 18, 1, 18)
 gradientFrame.Position = UDim2.new(0, -9, 0, -9)
 gradientFrame.Parent = frame
 
--- Генерируем градиент
 local gradient = Instance.new("UIGradient")
-gradient.Color = ColorSequence.new({
-    ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 255)), -- Синий цвет внизу
-    ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 0, 0)) -- Черный цвет сверху
-})
 gradient.Parent = gradientFrame
+
+local function lerpColor(color1, color2, alpha)
+    return Color3.new(
+        color1.R + (color2.R - color1.R) * alpha,
+        color1.G + (color2.G - color1.G) * alpha,
+        color1.B + (color2.B - color1.B) * alpha
+    )
+end
+
+local function animateGradient()
+    local duration = 2
+    local steps = 60
+    local stepTime = duration / steps
+    local color1 = Color3.fromRGB(0, 0, 255)
+    local color2 = Color3.fromRGB(0, 0, 0)
+
+    while true do
+        for i = 0, steps do
+            local alpha = i / steps
+            gradient.Color = ColorSequence.new({
+                ColorSequenceKeypoint.new(0, lerpColor(color1, color2, alpha)),
+                ColorSequenceKeypoint.new(1, lerpColor(color2, color1, alpha))
+            })
+            task.wait(stepTime)
+        end
+        for i = 0, steps do
+            local alpha = i / steps
+            gradient.Color = ColorSequence.new({
+                ColorSequenceKeypoint.new(0, lerpColor(color2, color1, alpha)),
+                ColorSequenceKeypoint.new(1, lerpColor(color1, color2, alpha))
+            })
+            task.wait(stepTime)
+        end
+    end
+end
+
+task.spawn(animateGradient)
 
 -- Создаем верхнюю панель
 local topFrame = Instance.new("Frame")
@@ -155,45 +145,6 @@ openButton.TextSize = 30
 openButton.Parent = screenGui
 openButton.Visible = true
 
--- Перетаскивание кнопки "Открыть"
-local openButtonDragging = false
-local openButtonDragInput, openButtonDragStart, openButtonStartPos
-
-local function startOpenButtonDrag(input)
-    openButtonDragging = true
-    openButtonDragStart = input.Position
-    openButtonStartPos = openButton.Position
-end
-
-local function dragOpenButtonMove(input)
-    if openButtonDragging then
-        local delta = input.Position - openButtonDragStart
-        openButton.Position = UDim2.new(openButtonStartPos.X.Scale, openButtonStartPos.X.Offset + delta.X, openButtonStartPos.Y.Scale, openButtonStartPos.Y.Offset + delta.Y)
-    end
-end
-
-local function endOpenButtonDrag(input)
-    openButtonDragging = false
-end
-
-openButton.InputBegan:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-        startOpenButtonDrag(input)
-    end
-end)
-
-openButton.InputChanged:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-        dragOpenButtonMove(input)
-    end
-end)
-
-openButton.InputEnded:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-        endOpenButtonDrag(input)
-    end
-end)
-
 -- Генерируем градиент для кнопки "Открыть"
 local openButtonGradient = Instance.new("UIGradient")
 openButtonGradient.Color = ColorSequence.new({
@@ -217,12 +168,17 @@ local function scaleDown(frame, callback)
     tween:Play()
     tween.Completed:Wait()
     frame.Visible = false
-    if callback then callback() end
+    if callback then
+        callback()
+    end
 end
 
 -- Обновленный список команд
 local commands = {
-    ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";fly2", ";qcmd", ";tfling2", ";bp1", ";bp2", ";bp3", ";tel1", ";tel2", ";glios", ";cmds", ";hth", ";zomb", ";knpc", ";jerk",  ";punch", ";invis2", ";invis", "tel3", ";akp1", ";akp2", ";prox", ";tptool"
+    ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";fly2", ";qcmd",
+    ";tfling2", ";bp1", ";bp2", ";bp3", ";tel1", ";tel2", ";glios", ";cmds", ";hth",
+    ";zomb", ";knpc", ";jerk", ";punch", ";invis2", ";invis", "tel3", ";akp1", ";akp2",
+    ";prox", ";tptool"
 }
 
 -- Обработчик нажатия кнопки Execute
@@ -234,10 +190,10 @@ executeButton.MouseButton1Click:Connect(function()
     elseif codeToExecute == ";tptool" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Tptool/refs/heads/main/Tptool"))()
     elseif codeToExecute == ";jerk" then
-        --This one is r6:
-loadstring(game:HttpGet("https://pastefy.app/wa3v2Vgm/raw"))() 
---This one is r15:
-loadstring(game:HttpGet("https://pastefy.app/YZoglOyJ/raw"))()
+        -- This one is r6:
+        loadstring(game:HttpGet("https://pastefy.app/wa3v2Vgm/raw"))()
+        -- This one is r15:
+        loadstring(game:HttpGet("https://pastefy.app/YZoglOyJ/raw"))()
     elseif codeToExecute == ";qcmd" then
         loadstring(game:HttpGet("https://gist.github.com/someunknowndude/38cecea5be9d75cb743eac8b1eaf6758/raw"))()
     elseif codeToExecute == ";knpc" then
@@ -252,10 +208,8 @@ loadstring(game:HttpGet("https://pastefy.app/YZoglOyJ/raw"))()
         loadstring(game:HttpGet('https://pastebin.com/raw/YSL3xKYU'))()
     elseif codeToExecute == ";tfling" then
         loadstring(game:HttpGet("https://pastebin.com/raw/rfKaavP3"))()
-    elseif codeToExecute == ";tfling2" then
-        --fling ez
-
-loadstring(game:HttpGet('https://pastebin.com/raw/TXMNj1yy'))()
+    elseif codeToExecute == ";tfling2" then -- fling ez
+        loadstring(game:HttpGet('https://pastebin.com/raw/TXMNj1yy'))()
     elseif codeToExecute == ";avtor" then
         loadstring(game:HttpGet('https://raw.githubusercontent.com/Avtor1zaTion/Avtor/main/AvtorHub'))()
     elseif codeToExecute == ";gh" then
@@ -288,11 +242,15 @@ loadstring(game:HttpGet('https://pastebin.com/raw/TXMNj1yy'))()
     elseif codeToExecute == ";akp2" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Anti-kill-parts-updated-/refs/heads/main/Anti%20kill%20parts%20by%20Zephyr"))()
     elseif codeToExecute == ";tel3" then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/sakupenXD/SakupScripts/main/Telekinesis", true))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/sakupenXD/SakupScripts/main/Telekinesis", true))()
     elseif codeToExecute == ";invis" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Luarmor123/community-Y-HUB/refs/heads/main/invisible-button"))()
     elseif codeToExecute == ";prox" then
-        for i,v in ipairs(game:GetService("Workspace"):GetDescendants()) do if v.ClassName == "ProximityPrompt" then v.HoldDuration = 0 end end
+        for i,v in ipairs(game:GetService("Workspace"):GetDescendants()) do
+            if v.ClassName == "ProximityPrompt" then
+                v.HoldDuration = 0
+            end
+        end
     elseif codeToExecute == ";invis2" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/CloudHub111/Scripts/refs/heads/main/Fe%20Invisible%20Beta", Beta))()
     else
