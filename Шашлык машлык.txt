@@ -236,7 +236,10 @@ executeButton.MouseButton1Click:Connect(function()
     elseif codeToExecute == ";tptool" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Tptool/refs/heads/main/Tptool"))()
     elseif codeToExecute == ";jerk" then
-        loadstring(game:HttpGet("https://pastefy.app/wa3v2Vgm/raw"))("Spider Script")
+        --This one is r6:
+loadstring(game:HttpGet("https://pastefy.app/wa3v2Vgm/raw"))() 
+--This one is r15:
+loadstring(game:HttpGet("https://pastefy.app/YZoglOyJ/raw"))()
     elseif codeToExecute == ";qcmd" then
         loadstring(game:HttpGet("https://gist.github.com/someunknowndude/38cecea5be9d75cb743eac8b1eaf6758/raw"))()
     elseif codeToExecute == ";knpc" then
