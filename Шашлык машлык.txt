@@ -301,6 +301,35 @@ openButton.MouseButton1Click:Connect(function()
     openButton.Visible = false -- Скрываем кнопку "Открыть"
 end)
 
+-- Перетаскивание кнопки "Открыть"
+local openButtonDragging = false
+local mousePos, openButtonPos
+
+openButton.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+        openButtonDragging = true
+        mousePos = input.Position
+        openButtonPos = openButton.Position
+
+        -- Блокируем управление камерой
+        UserInputService.MouseBehavior = Enum.MouseBehavior.LockCurrentPosition
+
+        UserInputService.InputChanged:Connect(function(change)
+            if openButtonDragging and (change.UserInputType == Enum.UserInputType.MouseMovement or change.UserInputType == Enum.UserInputType.Touch) then
+                local delta = change.Position - mousePos
+                openButton.Position = UDim2.new(openButtonPos.X.Scale, openButtonPos.X.Offset + delta.X, openButtonPos.Y.Scale, openButtonPos.Y.Offset + delta.Y)
+            end
+        end)
+    end
+end)
+
+UserInputService.InputEnded:Connect(function(input)
+    if openButtonDragging and (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then
+        openButtonDragging = false -- Восстанавливаем управление камерой
+        UserInputService.MouseBehavior = Enum.MouseBehavior.Default
+    end
+end)
+
 -- Восстанавливаем тип камеры при закрытии интерфейса
 frame:GetPropertyChangedSignal("Visible"):Connect(function()
     if not frame.Visible then
