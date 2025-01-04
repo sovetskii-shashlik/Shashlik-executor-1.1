@@ -22,6 +22,51 @@ frame.Parent = screenGui
 frame.Visible = false
 frame.BackgroundTransparency = 1
 
+-- Перетаскивание интерфейса
+local dragging = false
+local dragInput, dragStart, startPos
+
+local function startDrag(input)
+    if not dragging then
+        dragging = true
+        dragStart = input.Position
+        startPos = frame.Position
+        camera.CameraType = Enum.CameraType.Scriptable -- Блокируем тип камеры
+    end
+end
+
+local function dragMove(input)
+    if dragging then
+        local delta = input.Position - dragStart
+        frame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+    end
+end
+
+local function endDrag(input)
+    if dragging then
+        dragging = false
+        camera.CameraType = Enum.CameraType.Custom -- Восстанавливаем тип камеры
+    end
+end
+
+frame.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+        startDrag(input)
+    end
+end)
+
+frame.InputChanged:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+        dragMove(input)
+    end
+end)
+
+frame.InputEnded:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+        endDrag(input)
+    end
+end)
+
 -- Генерация градиента для фона
 local gradientFrame = Instance.new("Frame")
 gradientFrame.Size = UDim2.new(1, 18, 1, 18)
