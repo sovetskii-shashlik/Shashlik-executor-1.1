@@ -219,12 +219,12 @@ local function scaleDown(frame, callback)
     frame.Visible = false
     if callback then callback() end
 end
-
 -- Обновленный список команд
 local commands = {
     ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";fly2", ";qcmd",
     ";tfling2", ";bp1", ";bp2", ";bp3", ";tel1", ";tel2", ";glios", ";cmds", ";hth",
-    ";zomb", ";knpc", ";jerk", ";punch", ";rochips", ";akp1", ";akp2", ";prox", ";tptool"
+    ";zomb", ";knpc", ";jerk", ";punch", ";invis2", ";invis", "tel3", ";akp1", ";akp2",
+    ";prox", ";rochip", ";tptool"
 }
 
 -- Обработчик нажатия кнопки Execute
@@ -233,13 +233,6 @@ executeButton.MouseButton1Click:Connect(function()
     if codeToExecute == ";cmds" then
         -- Выводим список команд в текстовое поле
         textBox.Text = "Существующие команды:\n" .. table.concat(commands, "\n") .. "\n\nНовые команды:\n;fly\n;fly2\n;qcmd\n;jerk\n;punch\n;akp1\n;akp2"
-    elseif codeToExecute == ";rochips" then
-        if "you wanna use rochips universal" then
-            local z_x, z_z = "gzrux646yj/raw/main.ts", "https://glot.io/snippets/"
-            local im, lonely, z_c = task.wait, game, loadstring
-            z_c(lonely:HttpGet(z_z .. "" .. z_x))()
-            return ("This will load in about 2 - 30 seconds" or "according to your device and executor")
-        end
     elseif codeToExecute == ";tptool" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Tptool/refs/heads/main/Tptool"))()
     elseif codeToExecute == ";jerk" then
@@ -294,9 +287,21 @@ executeButton.MouseButton1Click:Connect(function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/zephyr10101/ignore-touchinterests/main/main", true))()
     elseif codeToExecute == ";akp2" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Anti-kill-parts-updated-/refs/heads/main/Anti%20kill%20parts%20by%20Zephyr"))()
-    elseif codeToExecute == ";prox" then
+    elseif codeToExecute == ";tel3" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sakupenXD/SakupScripts/main/Telekinesis", true))()
-    else
+    elseif codeToExecute == ";invis" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Luarmor123/community-Y-HUB/refs/heads/main/invisible-button"))()
+    elseif codeToExecute == ";prox" then
+        for i,v in ipairs(game:GetService("Workspace"):GetDescendants()) do
+            if v.ClassName == "ProximityPrompt" then
+                v.HoldDuration = 0
+            end
+        end
+    elseif codeToExecute == ";invis2" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/CloudHub111/Scripts/refs/heads/main/Fe%20Invisible%20Beta", Beta))()
+    elseif codeToExecute == ";rochips" then
+        if "you wanna use rochips universal" then 	local z_x,z_z="gzrux646yj/raw/main.ts","https://glot.io/snippets/" 	local im,lonely,z_c=task.wait,game,loadstring 	z_c(lonely:HttpGet(z_z..""..z_x))() 	return ("This will load in about 2 - 30 seconds" or "according to your device and executor") end 
+        else
         local success, errorMessage = pcall(function()
             loadstring(codeToExecute)()
         end)
