@@ -67,18 +67,52 @@ frame.InputEnded:Connect(function(input)
     end
 end)
 
--- Генерация градиента для фона
 local gradientFrame = Instance.new("Frame")
 gradientFrame.Size = UDim2.new(1, 18, 1, 18)
 gradientFrame.Position = UDim2.new(0, -9, 0, -9)
 gradientFrame.Parent = frame
 
 local gradient = Instance.new("UIGradient")
-gradient.Color = ColorSequence.new({
-    ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 255)), -- Синий цвет внизу
-    ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 0, 0)) -- Черный цвет сверху
-})
 gradient.Parent = gradientFrame
+
+local function lerpColor(color1, color2, alpha)
+    return Color3.new(
+        color1.R + (color2.R - color1.R) * alpha,
+        color1.G + (color2.G - color1.G) * alpha,
+        color1.B + (color2.B - color1.B) * alpha
+    )
+end
+
+local function animateGradient()
+    local duration = 2
+    local steps = 60
+    local stepTime = duration / steps
+    local color1 = Color3.fromRGB(0, 0, 255)
+    local color2 = Color3.fromRGB(0, 0, 0)
+
+    while true do
+        for i = 0, steps do
+            local alpha = i / steps
+            gradient.Color = ColorSequence.new({
+                ColorSequenceKeypoint.new(0, lerpColor(color1, color2, alpha)),
+                ColorSequenceKeypoint.new(1, lerpColor(color2, color1, alpha))
+            })
+            task.wait(stepTime)
+        end
+        
+        for i = 0, steps do
+            local alpha = i / steps
+            gradient.Color = ColorSequence.new({
+                ColorSequenceKeypoint.new(0, lerpColor(color2, color1, alpha)),
+                ColorSequenceKeypoint.new(1, lerpColor(color1, color2, alpha))
+            })
+            task.wait(stepTime)
+        end
+    end
+end
+
+task.spawn(animateGradient)
+
 
 -- Создаем верхнюю панель
 local topFrame = Instance.new("Frame")
