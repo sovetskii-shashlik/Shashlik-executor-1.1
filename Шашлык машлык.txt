@@ -91,7 +91,7 @@ topFrame.Parent = frame
 local titleLabel = Instance.new("TextLabel")
 titleLabel.Size = UDim2.new(1, -80, 1, 0) -- Укороченный размер
 titleLabel.Position = UDim2.new(0, 0, 0, 0)
-titleLabel.Text = "shashlik executor 3.0" -- Изменено на 3.0
+titleLabel.Text = "shashlik executor 3.5" -- Изменено на 3.0
 titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255) -- Белый цвет текста
 titleLabel.BackgroundTransparency = 1
 titleLabel.TextScaled = true
@@ -224,7 +224,7 @@ local commands = {
     ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";fly2", ";qcmd",
     ";tfling2", ";bp1", ";bp2", ";bp3", ";tel1", ";tel2", ";glios", ";cmds", ";hth",
     ";zomb", ";knpc", ";jerk", ";punch", ";invis2", ";invis", "tel3", ";akp1", ";akp2",
-    ";prox", ";rochip", ";tptool"
+    ";prox", ";rochips", ";tptool"
 }
 
 -- Обработчик нажатия кнопки Execute
