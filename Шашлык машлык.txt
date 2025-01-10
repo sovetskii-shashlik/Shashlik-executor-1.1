@@ -257,7 +257,7 @@ end
 local commands = {
     ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";fly2", ";qcmd",
     ";tfling2", ";bp1", ";bp2", ";bp3", ";tel1", ";tel2", ";glios", ";cmds", ";hth",
-    ";zomb", ";knpc", ";jerk", ";punch", ";invis2", ";invis", ";tel3", ";RoA" ";akp1", ";akp2",
+    ";zomb", ";knpc", ";jerk", ";punch", ";invis2", ";invis", ";tel3", ";RoA", ";akp1", ";akp2",
     ";prox", ";rochips", ";tptool"
 }
 
