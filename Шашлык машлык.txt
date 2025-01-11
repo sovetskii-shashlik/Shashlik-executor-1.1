@@ -258,7 +258,7 @@ local commands = {
     ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";fly2", ";qcmd",
     ";tfling2", ";bp1", ";bp2", ";bp3", ";tel1", ";tel2", ";glios", ";cmds", ";hth",
     ";zomb", ";knpc", ";jerk", ";punch", ";invis2", ";invis", ";tel3", ";roa", ";akp1", ";akp2",
-    ";prox", ";rochips", ";fc1", ";fc2", ";tictactoe", ";tptool"
+    ";prox", ";rochips", ";fc1", ";fc2", ";fc3", ";tictactoe", ";tptool"
 }
 
 -- Обработчик нажатия кнопки Execute
@@ -290,6 +290,8 @@ elseif codeToExecute == ";roa" then
         loadstring(game:HttpGet('https://pastefy.app/9CDN9Kaj/raw'))()
     elseif codeToExecute == ";fc2" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/zephyr10101/CameraSpy/main/Script"))()
+    elseif codeToExecute == ";fc3" then
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/Freecam'))()
     elseif codeToExecute == ";fly2" then
         loadstring(game:HttpGet('https://pastebin.com/raw/YSL3xKYU'))()
     elseif codeToExecute == ";tfling" then
@@ -452,6 +454,8 @@ elseif spaceSplit[1] == ";roa" then
         loadstring(game:HttpGet('https://pastefy.app/9CDN9Kaj/raw'))()
     elseif spaceSplit[1] == ";fc2" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/zephyr10101/CameraSpy/main/Script"))()
+    elseif spaceSplit[1] == ";fc3" then
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/Freecam'))()
     elseif spaceSplit[1] == ";avtor" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Avtor1zaTion/Avtor/main/AvtorHub"))()
     elseif spaceSplit[1] == ";gh" then
