@@ -279,13 +279,13 @@ executeButton.MouseButton1Click:Connect(function()
     elseif codeToExecute == ";knpc" then
         loadstring(game:HttpGet("https://pastebin.com/raw/DcSXwXqC"))()
     elseif codeToExecute == ";hth" then
-        loadstring(game:HttpGet(('https://pastefy.app/tI5b3OVD/raw'),true))()
+        loadstring(game:HttpGet(('https://pastefy.app/tI5b3OVD/raw'))()
     elseif codeToExecute == ";zomb" then
-        loadstring(game:HttpGet(('https://pastefy.app/w7KnPY70/raw'),true))()
+        loadstring(game:HttpGet(('https://pastefy.app/w7KnPY70/raw'))()
 elseif codeToExecute == ";roa" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/randomstring0/new/refs/heads/main/cmd.lua"))() --команды rochips--
     elseif codeToExecute == ";fly" then
-        loadstring(game:HttpGet(('https://pastefy.app/M0N30XXG/raw'),true))()
+        loadstring(game:HttpGet(('https://pastefy.app/M0N30XXG/raw'))()
     elseif codeToExecute == ";fly2" then
         loadstring(game:HttpGet('https://pastebin.com/raw/YSL3xKYU'))()
     elseif codeToExecute == ";tfling" then
@@ -318,7 +318,7 @@ elseif codeToExecute == ";tictactoe" then
         loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/randomstring0/Qwerty/refs/heads/main/qwerty11.lua"))()
     elseif codeToExecute == ";glios" then
         writefile(".nonecing", "white")
-        loadstring(game:HttpGet(('https://glot.io/snippets/gua2ntmbdm/raw/main.lua'), true))()
+        loadstring(game:HttpGet(('https://glot.io/snippets/gua2ntmbdm/raw/main.lua'))()
     elseif codeToExecute == ";punch" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/fedoratums/Base-Script/Base-Script/fedoratum punch fling", true))()
     elseif codeToExecute == ";akp1" then
@@ -326,7 +326,7 @@ elseif codeToExecute == ";tictactoe" then
     elseif codeToExecute == ";akp2" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Anti-kill-parts-updated-/refs/heads/main/Anti%20kill%20parts%20by%20Zephyr"))()
     elseif codeToExecute == ";tel3" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/sakupenXD/SakupScripts/main/Telekinesis", true))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/sakupenXD/SakupScripts/main/Telekinesis"))()
     elseif codeToExecute == ";invis" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Luarmor123/community-Y-HUB/refs/heads/main/invisible-button"))()
     elseif codeToExecute == ";prox" then
