@@ -279,13 +279,13 @@ executeButton.MouseButton1Click:Connect(function()
     elseif codeToExecute == ";knpc" then
         loadstring(game:HttpGet("https://pastebin.com/raw/DcSXwXqC"))()
     elseif codeToExecute == ";hth" then
-        loadstring(game:HttpGet(('https://pastefy.app/tI5b3OVD/raw'), true))()
+        loadstring(game:HttpGet(('https://pastefy.app/tI5b3OVD/raw'),true))()
     elseif codeToExecute == ";zomb" then
-        loadstring(game:HttpGet(('https://pastefy.app/w7KnPY70/raw'), true))()
+        loadstring(game:HttpGet(('https://pastefy.app/w7KnPY70/raw'),true))()
 elseif codeToExecute == ";roa" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/randomstring0/new/refs/heads/main/cmd.lua"))() --команды rochips--
     elseif codeToExecute == ";fly" then
-        loadstring(game:HttpGet(('https://pastefy.app/M0N30XXG/raw'), true))()
+        loadstring(game:HttpGet(('https://pastefy.app/M0N30XXG/raw'),true))()
     elseif codeToExecute == ";fly2" then
         loadstring(game:HttpGet('https://pastebin.com/raw/YSL3xKYU'))()
     elseif codeToExecute == ";tfling" then
