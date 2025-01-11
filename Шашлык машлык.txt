@@ -258,7 +258,7 @@ local commands = {
     ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";fly2", ";qcmd",
     ";tfling2", ";bp1", ";bp2", ";bp3", ";tel1", ";tel2", ";glios", ";cmds", ";hth",
     ";zomb", ";knpc", ";jerk", ";punch", ";invis2", ";invis", ";tel3", ";roa", ";akp1", ";akp2",
-    ";prox", ";rochips", ";tptool"
+    ";prox", ";rochips", "tictactoe", ";tptool"
 }
 
 -- Обработчик нажатия кнопки Execute
@@ -298,6 +298,8 @@ elseif codeToExecute == ";roa" then
         loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/GhostHub'))()
     elseif codeToExecute == ";na2" then
         loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-Nameless-admin-14114"))()
+elseif codeToExecute == ";tictactoe" then
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/refs/heads/main/Tic%20Tac%20Toe'))()
     elseif codeToExecute == ";inf" then
         loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Infinite-Yield-Reborn-Legacy-21819"))()
     elseif codeToExecute == ";na1" then
@@ -436,6 +438,8 @@ cc = game.Players.LocalPlayer.Chatted:Connect(function(msg)
         loadstring(game:HttpGet("https://pastebin.com/raw/YSL3xKYU"))()
     elseif spaceSplit[1] == ";tfling" then
         loadstring(game:HttpGet("https://pastebin.com/raw/rfKaavP3"))()
+elseif spaceSplit[1] == ";tictactoe" then
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/refs/heads/main/Tic%20Tac%20Toe'))()
 elseif spaceSplit[1] == ";roa" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/randomstring0/new/refs/heads/main/cmd.lua"))() --команды rochips--
     elseif spaceSplit[1] == ";tfling2" then
