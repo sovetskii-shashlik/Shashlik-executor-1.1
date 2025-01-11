@@ -258,7 +258,7 @@ local commands = {
     ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";fly2", ";qcmd",
     ";tfling2", ";bp1", ";bp2", ";bp3", ";tel1", ";tel2", ";glios", ";cmds", ";hth",
     ";zomb", ";knpc", ";jerk", ";punch", ";invis2", ";invis", ";tel3", ";roa", ";akp1", ";akp2",
-    ";prox", ";rochips", "tictactoe", ";tptool"
+    ";prox", ";rochips", ";tictactoe", ";tptool"
 }
 
 -- Обработчик нажатия кнопки Execute
@@ -279,13 +279,13 @@ executeButton.MouseButton1Click:Connect(function()
     elseif codeToExecute == ";knpc" then
         loadstring(game:HttpGet("https://pastebin.com/raw/DcSXwXqC"))()
     elseif codeToExecute == ";hth" then
-        loadstring(game:HttpGet(('https://pastefy.app/tI5b3OVD/raw'))()
+        loadstring(game:HttpGet('https://pastefy.app/tI5b3OVD/raw'))()
     elseif codeToExecute == ";zomb" then
-        loadstring(game:HttpGet(('https://pastefy.app/w7KnPY70/raw'))()
+        loadstring(game:HttpGet('https://pastefy.app/w7KnPY70/raw'))()
 elseif codeToExecute == ";roa" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/randomstring0/new/refs/heads/main/cmd.lua"))() --команды rochips--
     elseif codeToExecute == ";fly" then
-        loadstring(game:HttpGet(('https://pastefy.app/M0N30XXG/raw'))()
+        loadstring(game:HttpGet('https://pastefy.app/M0N30XXG/raw'))()
     elseif codeToExecute == ";fly2" then
         loadstring(game:HttpGet('https://pastebin.com/raw/YSL3xKYU'))()
     elseif codeToExecute == ";tfling" then
@@ -318,7 +318,7 @@ elseif codeToExecute == ";tictactoe" then
         loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/randomstring0/Qwerty/refs/heads/main/qwerty11.lua"))()
     elseif codeToExecute == ";glios" then
         writefile(".nonecing", "white")
-        loadstring(game:HttpGet(('https://glot.io/snippets/gua2ntmbdm/raw/main.lua'))()
+        loadstring(game:HttpGet('https://glot.io/snippets/gua2ntmbdm/raw/main.lua'))()
     elseif codeToExecute == ";punch" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/fedoratums/Base-Script/Base-Script/fedoratum punch fling", true))()
     elseif codeToExecute == ";akp1" then
