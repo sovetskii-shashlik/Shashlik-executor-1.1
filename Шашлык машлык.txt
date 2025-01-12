@@ -258,7 +258,7 @@ local commands = {
     ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";fly2", ";qcmd",
     ";tfling2", ";bp1", ";bp2", ";bp3", ";tel1", ";tel2", ";glios", ";cmds", ";hth",
     ";zomb", ";knpc", ";jerk", ";punch", ";invis2", ";invis", ";tel3", ";roa", ";akp1", ";akp2",
-    ";prox", ";rochips", ";fc1", ";fc2", ";fc3", ";tictactoe", ";tptool"
+    ";prox", ";rochips", ";fc1", ";fc2", ";fc3", ";srp", ";tictactoe", ";tptool"
 }
 
 -- Обработчик нажатия кнопки Execute
@@ -286,6 +286,8 @@ elseif codeToExecute == ";roa" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/randomstring0/new/refs/heads/main/cmd.lua"))() --команды rochips--
     elseif codeToExecute == ";fly" then
         loadstring(game:HttpGet('https://pastefy.app/M0N30XXG/raw'))()
+    elseif codeToExecute == ";srp" then
+        loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-SUPER-RING-PARTS-V3-WITH-NO-MESSAGE-26385"))()
     elseif codeToExecute == ";fc1" then
         loadstring(game:HttpGet('https://pastefy.app/9CDN9Kaj/raw'))()
     elseif codeToExecute == ";fc2" then
@@ -444,12 +446,14 @@ cc = game.Players.LocalPlayer.Chatted:Connect(function(msg)
         loadstring(game:HttpGet("https://pastebin.com/raw/YSL3xKYU"))()
     elseif spaceSplit[1] == ";tfling" then
         loadstring(game:HttpGet("https://pastebin.com/raw/rfKaavP3"))()
-elseif spaceSplit[1] == ";tictactoe" then
+    elseif spaceSplit[1] == ";tictactoe" then
         loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/refs/heads/main/Tic%20Tac%20Toe'))()
-elseif spaceSplit[1] == ";roa" then
+    elseif spaceSplit[1] == ";roa" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/randomstring0/new/refs/heads/main/cmd.lua"))() --команды rochips--
     elseif spaceSplit[1] == ";tfling2" then
         loadstring(game:HttpGet("https://pastebin.com/raw/TXMNj1yy"))()
+    elseif spaceSplit[1] == ";srp" then
+        loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-SUPER-RING-PARTS-V3-WITH-NO-MESSAGE-26385"))()
     elseif spaceSplit[1] == ";fc1" then
         loadstring(game:HttpGet('https://pastefy.app/9CDN9Kaj/raw'))()
     elseif spaceSplit[1] == ";fc2" then
