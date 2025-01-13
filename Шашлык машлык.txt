@@ -258,7 +258,7 @@ local commands = {
     ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";fly2", ";qcmd",
     ";tfling2", ";bp1", ";bp2", ";bp3", ";tel1", ";tel2", ";glios", ";cmds", ";hth",
     ";zomb", ";knpc", ";jerk", ";punch", ";invis2", ";invis", ";tel3", ";roa", ";akp1", ";akp2",
-    ";prox", ";rochips", ";fc1", ";fc2", ";fc3", ";srp", ";tictactoe", ";tptool"
+    ";prox", ";rochips", ";fc1", ";fc2", ";fc3", ";srp", ";tictactoe", ";keyb", ";tptool"
 }
 
 -- Обработчик нажатия кнопки Execute
@@ -282,7 +282,9 @@ executeButton.MouseButton1Click:Connect(function()
         loadstring(game:HttpGet('https://pastefy.app/tI5b3OVD/raw'))()
     elseif codeToExecute == ";zomb" then
         loadstring(game:HttpGet('https://pastefy.app/w7KnPY70/raw'))()
-elseif codeToExecute == ";roa" then
+    elseif codeToExecute == ";keyb" then
+        loadstring(game:HttpGet('https://pastefy.app/Te4dwSw2/raw'))()
+    elseif codeToExecute == ";roa" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/randomstring0/new/refs/heads/main/cmd.lua"))() --команды rochips--
     elseif codeToExecute == ";fly" then
         loadstring(game:HttpGet('https://pastefy.app/M0N30XXG/raw'))()
@@ -438,6 +440,8 @@ cc = game.Players.LocalPlayer.Chatted:Connect(function(msg)
         loadstring(game:HttpGet("https://pastebin.com/raw/DcSXwXqC"))()
     elseif spaceSplit[1] == ";hth" then
         loadstring(game:HttpGet("https://pastefy.app/tI5b3OVD/raw"))()
+    elseif spaceSplit[1] == ";keyb" then
+        loadstring(game:HttpGet('https://pastefy.app/Te4dwSw2/raw'))()
     elseif spaceSplit[1] == ";zomb" then
         loadstring(game:HttpGet("https://pastefy.app/w7KnPY70/raw"))()
     elseif spaceSplit[1] == ";fly" then
