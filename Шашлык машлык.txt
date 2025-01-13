@@ -258,7 +258,7 @@ local commands = {
     ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";fly2", ";qcmd",
     ";tfling2", ";bp1", ";bp2", ";bp3", ";tel1", ";tel2", ";glios", ";cmds", ";hth",
     ";zomb", ";knpc", ";jerk", ";punch", ";invis2", ";invis", ";tel3", ";roa", ";akp1", ";akp2",
-    ";prox", ";rochips", ";fc1", ";fc2", ";fc3", ";srp", ";tictactoe", ";keyb", ";tptool"
+    ";prox", ";rochips", ";fc1", ";fc2", ";fc3", ";srp", ";srp2", ";tictactoe", ";keyb", ";tptool"
 }
 
 -- Обработчик нажатия кнопки Execute
@@ -278,6 +278,8 @@ executeButton.MouseButton1Click:Connect(function()
         loadstring(game:HttpGet("https://gist.github.com/someunknowndude/38cecea5be9d75cb743eac8b1eaf6758/raw"))()
     elseif codeToExecute == ";knpc" then
         loadstring(game:HttpGet("https://pastebin.com/raw/DcSXwXqC"))()
+    elseif codeToExecute == ";srp2" then
+        loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Open-Source-Ring-Parts-26702"))()
     elseif codeToExecute == ";hth" then
         loadstring(game:HttpGet('https://pastefy.app/tI5b3OVD/raw'))()
     elseif codeToExecute == ";zomb" then
@@ -308,7 +310,7 @@ executeButton.MouseButton1Click:Connect(function()
         loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/GhostHub'))()
     elseif codeToExecute == ";na2" then
         loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-Nameless-admin-14114"))()
-elseif codeToExecute == ";tictactoe" then
+    elseif codeToExecute == ";tictactoe" then
         loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/refs/heads/main/Tic%20Tac%20Toe'))()
     elseif codeToExecute == ";inf" then
         loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Infinite-Yield-Reborn-Legacy-21819"))()
@@ -476,6 +478,8 @@ cc = game.Players.LocalPlayer.Chatted:Connect(function(msg)
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Silly-Exploiter/NamedAdmin/main/bamed%20admen.txt"))()
     elseif spaceSplit[1] == ";le" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Lelele-bypasser/refs/heads/main/LeLeBypasser.txt"))()
+    elseif spaceSplit[1] == ";srp2" then
+        loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Open-Source-Ring-Parts-26702"))()
     elseif spaceSplit[1] == ";bp1" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Bac0nHck/Scripts/main/BringFlingPlayers"))()
     elseif spaceSplit[1] == ";bp2" then
