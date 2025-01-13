@@ -313,7 +313,7 @@ elseif codeToExecute == ";tictactoe" then
     elseif codeToExecute == ";na1" then
         loadstring(game:HttpGet('https://raw.githubusercontent.com/Silly-Exploiter/NamedAdmin/main/bamed%20admen.txt'))()
     elseif codeToExecute == ";le" then
-        loadstring(game:HttpGet("https://pastebin.com/raw/08QdLK2Y"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Lelele-bypasser/refs/heads/main/LeLeBypasser.txt"))()
     elseif codeToExecute == ";bp1" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Bac0nHck/Scripts/main/BringFlingPlayers"))()
     elseif codeToExecute == ";bp2" then
@@ -471,7 +471,7 @@ cc = game.Players.LocalPlayer.Chatted:Connect(function(msg)
     elseif spaceSplit[1] == ";na1" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Silly-Exploiter/NamedAdmin/main/bamed%20admen.txt"))()
     elseif spaceSplit[1] == ";le" then
-        loadstring(game:HttpGet("https://pastebin.com/raw/08QdLK2Y"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Lelele-bypasser/refs/heads/main/LeLeBypasser.txt"))()
     elseif spaceSplit[1] == ";bp1" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Bac0nHck/Scripts/main/BringFlingPlayers"))()
     elseif spaceSplit[1] == ";bp2" then
