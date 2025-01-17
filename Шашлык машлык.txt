@@ -258,7 +258,7 @@ local commands = {
     ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";fly2", ";qcmd",
     ";tfling2", ";bp1", ";bp2", ";bp3", ";tel1", ";tel2", ";glios", ";cmds", ";hth",
     ";zomb", ";knpc", ";jerk", ";punch", ";invis2", ";invis", ";tel3", ";roa", ";akp1", ";akp2",
-    ";prox", ";rochips", ";fc1", ";fc2", ";fc3", ";srp", ";srp2", ";tictactoe", ";illus", ";toolgui", ";keyb", ";tptool"
+    ";prox", ";rochips", ";fc1", ";fc2", ";fc3", ";srp", ";srp2", ";tictactoe", ";illus", ";toolgui", ";keyb", ";wibtt", ";tptool"
 }
 
 -- Обработчик нажатия кнопки Execute
@@ -288,6 +288,8 @@ executeButton.MouseButton1Click:Connect(function()
         loadstring(game:HttpGet('https://pastefy.app/tI5b3OVD/raw'))()
     elseif codeToExecute == ";zomb" then
         loadstring(game:HttpGet('https://pastefy.app/w7KnPY70/raw'))()
+    elseif codeToExecute == ";wibtt" then
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/BaconBossScript/Crazy/main/Crazy'))()
     elseif codeToExecute == ";keyb" then
         loadstring(game:HttpGet('https://pastefy.app/Te4dwSw2/raw'))()
     elseif codeToExecute == ";roa" then
@@ -468,6 +470,8 @@ cc = game.Players.LocalPlayer.Chatted:Connect(function(msg)
         loadstring(game:HttpGet("https://pastebin.com/raw/TXMNj1yy"))()
     elseif spaceSplit[1] == ";srp" then
         loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-SUPER-RING-PARTS-V3-WITH-NO-MESSAGE-26385"))()
+    elseif spaceSplit[1] == ";wibtt" then
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/BaconBossScript/Crazy/main/Crazy'))()
     elseif spaceSplit[1] == ";fc1" then
         loadstring(game:HttpGet('https://pastefy.app/9CDN9Kaj/raw'))()
     elseif spaceSplit[1] == ";fc2" then
