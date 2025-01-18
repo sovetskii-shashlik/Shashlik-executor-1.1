@@ -280,7 +280,7 @@ executeButton.MouseButton1Click:Connect(function()
         loadstring(game:HttpGet("https://gist.github.com/someunknowndude/38cecea5be9d75cb743eac8b1eaf6758/raw"))()
     elseif codeToExecute == ";knpc" then
         loadstring(game:HttpGet("https://pastebin.com/raw/DcSXwXqC"))()
-    elseif cideToExecute == ";krunox" then
+    elseif codeToExecute == ";krunox" then
         loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Krunox-13336"))()
     elseif codeToExecute == ";srp2" then
         loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Open-Source-Ring-Parts-26702"))()
