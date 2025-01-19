@@ -1,4 +1,4 @@
--- help from @Gerdroid
+-- help from @Geroindroid
 loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-MoreUNC-13110"))()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/AdonisAntikick/refs/heads/main/Antikick"))()
 
@@ -21,51 +21,8 @@ frame.BorderSizePixel = 0
 frame.Parent = screenGui
 frame.Visible = false
 frame.BackgroundTransparency = 1
-
--- Перетаскивание интерфейса
-local dragging = false
-local dragInput, dragStart, startPos
-
-local function startDrag(input)
-    if not dragging then
-        dragging = true
-        dragStart = input.Position
-        startPos = frame.Position
-        camera.CameraType = Enum.CameraType.Scriptable -- Блокируем тип камеры
-    end
-end
-
-local function dragMove(input)
-    if dragging then
-        local delta = input.Position - dragStart
-        frame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
-    end
-end
-
-local function endDrag(input)
-    if dragging then
-        dragging = false
-        camera.CameraType = Enum.CameraType.Custom -- Восстанавливаем тип камеры
-    end
-end
-
-frame.InputBegan:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-        startDrag(input)
-    end
-end)
-
-frame.InputChanged:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-        dragMove(input)
-    end
-end)
-
-frame.InputEnded:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-        endDrag(input)
-    end
-end)
+frame.Active = true
+frame.Draggable = true
 
 local gradientFrame = Instance.new("Frame")
 gradientFrame.Size = UDim2.new(1, 18, 1, 18)
@@ -125,7 +82,7 @@ topFrame.Parent = frame
 local titleLabel = Instance.new("TextLabel")
 titleLabel.Size = UDim2.new(1, -80, 1, 0) -- Укороченный размер
 titleLabel.Position = UDim2.new(0, 0, 0, 0)
-titleLabel.Text = "shashlik executor 3.5" -- Изменено на 3.0
+titleLabel.Text = "shashlik executor 3.6" -- Изменено на 3.0
 titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255) -- Белый цвет текста
 titleLabel.BackgroundTransparency = 1
 titleLabel.TextScaled = true
@@ -136,16 +93,17 @@ local textBox = Instance.new("TextBox")
 textBox.Size = UDim2.new(0.73, 0, 0.5, 0)
 textBox.Position = UDim2.new(0, 0, 0, 50)
 textBox.Text = ""
-textBox.PlaceholderText = "send ;cmds and execute" -- Устанавливаем плейсхолдер
+textBox.TextSize = 16
+textBox.PlaceholderText = "Welcome to shashlik exec! Made by: Maksimilianych228 and Geroindroid, Put on textbox ;cmds and execute" -- Устанавливаем плейсхолдер
 textBox.TextColor3 = Color3.fromRGB(255, 255, 255)
 textBox.BackgroundColor3 = Color3.fromRGB(70, 70, 70) -- Светлее темно-серого
 textBox.BorderSizePixel = 0
 textBox.TextWrapped = true
+textBox.Font = Enum.Font.Code 
 textBox.ClearTextOnFocus = false
 textBox.MultiLine = true
 textBox.Parent = frame
 
--- Функция для создания кнопок
 local function createButton(size, position, text, color, parent)
     local button = Instance.new("TextButton")
     button.Size = size
@@ -157,12 +115,11 @@ local function createButton(size, position, text, color, parent)
     return button
 end
 
--- Устанавливаем размеры и позиции кнопок с одинаковыми промежутками
 local buttonWidth = 0.2
 local buttonSpacing = 0.05
-local buttonOffset = 0.05 -- Смещение вниз для кнопок
+local buttonOffset = 0.05 
 local totalWidth = buttonWidth * 4 + buttonSpacing * 3 -- Общая ширина всех кнопок с промежутками
-local startX = (1 - totalWidth) / 2 -- Начальная позиция по оси X для центрирования
+local startX = (1 - totalWidth) / 2
 local verticalOffset = 0.8
 
 local executeButton = createButton(UDim2.new(buttonWidth, 0, 0.2, 0), UDim2.new(startX, 0, verticalOffset, 0), "Execute", Color3.fromRGB(128, 128, 128), frame)
@@ -171,15 +128,10 @@ local consoleButton = createButton(UDim2.new(buttonWidth, 0, 0.2, 0), UDim2.new(
 local clearButton = createButton(UDim2.new(buttonWidth, 0, 0.2, 0), UDim2.new(startX + 3 * (buttonWidth + buttonSpacing), 0, verticalOffset, 0), "Clear", Color3.fromRGB(128, 128, 128), frame)
 local copyButton = createButton(UDim2.new(buttonWidth, 0, 0.2, 0), UDim2.new(startX + 3 * (buttonWidth + buttonSpacing), 0, verticalOffset - 0.54, 0), "Copy", Color3.fromRGB(128, 128, 128), frame)
 local pasteButton = createButton(UDim2.new(buttonWidth, 0, 0.2, 0), UDim2.new(startX + 3 * (buttonWidth + buttonSpacing), 0, verticalOffset - 0.28, 0), "Paste", Color3.fromRGB(128, 128, 128), frame)
-
--- Создаем красный крестик в верхнем правом углу
 local closeButton = createButton(UDim2.new(0, 30, 0, 30), UDim2.new(1, -35, 0, 5), "X", Color3.fromRGB(255, 0, 0), topFrame)
-
--- Создаем желтую кнопку "минус" рядом с крестиком
 local minusButton = createButton(UDim2.new(0, 30, 0, 30), UDim2.new(1, -70, 0, 5), "-", Color3.fromRGB(255, 255, 0), topFrame)
 minusButton.TextColor3 = Color3.fromRGB(255, 255, 255) -- Белый цвет для символа "минус"
 
--- Создаем кнопку "Открыть" без фона
 local openButton = Instance.new("TextButton")
 openButton.Size = UDim2.new(0, 40, 0, 40)
 openButton.Position = UDim2.new(0.9, 0, 0.0, 0)
@@ -188,47 +140,9 @@ openButton.TextColor3 = Color3.fromRGB(0, 255, 0)
 openButton.TextSize = 30
 openButton.Parent = screenGui
 openButton.Visible = true
+openButton.Active = true
+openButton.Draggable = true
 
--- Перетаскивание кнопки "Открыть"
-local openButtonDragging = false
-local openButtonDragInput, openButtonDragStart, openButtonStartPos
-
-local function startOpenButtonDrag(input)
-    openButtonDragging = true
-    openButtonDragStart = input.Position
-    openButtonStartPos = openButton.Position
-end
-
-local function dragOpenButtonMove(input)
-    if openButtonDragging then
-        local delta = input.Position - openButtonDragStart
-        openButton.Position = UDim2.new(openButtonStartPos.X.Scale, openButtonStartPos.X.Offset + delta.X, openButtonStartPos.Y.Scale, openButtonStartPos.Y.Offset + delta.Y)
-    end
-end
-
-local function endOpenButtonDrag(input)
-    openButtonDragging = false
-end
-
-openButton.InputBegan:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-        startOpenButtonDrag(input)
-    end
-end)
-
-openButton.InputChanged:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-        dragOpenButtonMove(input)
-    end
-end)
-
-openButton.InputEnded:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-        endOpenButtonDrag(input)
-    end
-end)
-
--- Генерируем градиент для кнопки "Открыть"
 local openButtonGradient = Instance.new("UIGradient")
 openButtonGradient.Color = ColorSequence.new({
     ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 0)), -- Черный цвет внизу
@@ -236,7 +150,6 @@ openButtonGradient.Color = ColorSequence.new({
 })
 openButtonGradient.Parent = openButton
 
--- Функция для анимации scale up
 local function scaleUp(frame)
     frame.Visible = true
     frame.Size = UDim2.new(0, 0, 0, 0) -- Начальный размер 0
@@ -245,7 +158,6 @@ local function scaleUp(frame)
     tween.Completed:Wait()
 end
 
--- Функция для анимации scale down
 local function scaleDown(frame, callback)
     local tween = TweenService:Create(frame, TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), { Size = UDim2.new(0, 0, 0, 0) })
     tween:Play()
@@ -253,7 +165,7 @@ local function scaleDown(frame, callback)
     frame.Visible = false
     if callback then callback() end
 end
--- Обновленный список команд
+
 local commands = {
     ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";fly2", ";qcmd",
     ";tfling2", ";bp1", ";bp2", ";bp3", ";tel1", ";tel2", ";glios", ";cmds", ";hth",
@@ -261,11 +173,9 @@ local commands = {
     ";prox", ";rochips", ";fc1", ";fc2", ";fc3", ";srp", ";srp2", ";tictactoe", ";illus", ";toolgui", ";keyb", ";wibtt", ";acl", ";krunox", ";tptool"
 }
 
--- Обработчик нажатия кнопки Execute
 executeButton.MouseButton1Click:Connect(function()
     local codeToExecute = textBox.Text
     if codeToExecute == ";cmds" then
-        -- Выводим список команд в текстовое поле
         textBox.Text = "Существующие команды:\n" .. table.concat(commands, "\n") .. "\n\nНовые команды:\n;fly\n;fly2\n;qcmd\n;jerk\n;punch\n;akp1\n;akp2"
     elseif codeToExecute == ";tptool" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Tptool/refs/heads/main/Tptool"))()
