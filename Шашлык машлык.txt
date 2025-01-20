@@ -278,7 +278,7 @@ executeButton.MouseButton1Click:Connect(function()
         writefile(".nonecing", "white")
         loadstring(game:HttpGet('https://glot.io/snippets/gua2ntmbdm/raw/main.lua'))()
     elseif codeToExecute == ";punch" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/fedoratums/Base-Script/Base-Script/fedoratum punch fling", true))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/fedoratums/Base-Script/Base-Script/fedoratum punch fling"))()
     elseif codeToExecute == ";akp1" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/zephyr10101/ignore-touchinterests/main/main", true))()
     elseif codeToExecute == ";akp2" then
