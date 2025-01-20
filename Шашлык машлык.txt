@@ -1,4 +1,4 @@
--- help from @Geroindroid
+-- help from @Gerdroid
 loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-MoreUNC-13110"))()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/AdonisAntikick/refs/heads/main/Antikick"))()
 
@@ -94,15 +94,40 @@ textBox.Size = UDim2.new(0.73, 0, 0.5, 0)
 textBox.Position = UDim2.new(0, 0, 0, 50)
 textBox.Text = ""
 textBox.TextSize = 16
-textBox.PlaceholderText = "Welcome to shashlik exec! Made by: Maksimilianych228 and Geroindroid, Put on textbox ;cmds and execute" -- Устанавливаем плейсхолдер
+textBox.PlaceholderText = "Welcome to shashlik exec! Made by: Maksimilianych228 and Geroindroid, Put on textbox ;cmds and execute"
 textBox.TextColor3 = Color3.fromRGB(255, 255, 255)
-textBox.BackgroundColor3 = Color3.fromRGB(70, 70, 70) -- Светлее темно-серого
+textBox.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
 textBox.BorderSizePixel = 0
 textBox.TextWrapped = true
-textBox.Font = Enum.Font.Code 
+textBox.Font = Enum.Font.Code
 textBox.ClearTextOnFocus = false
 textBox.MultiLine = true
 textBox.Parent = frame
+
+local statsLabel = Instance.new("TextLabel")
+statsLabel.Size = UDim2.new(0, 200, 0, 20)
+statsLabel.Position = UDim2.new(1, -190, 1, -20) -- Чуть ниже и вправо
+statsLabel.Text = "FPS: 0 PING: 0"
+statsLabel.TextSize = 14
+statsLabel.TextColor3 = Color3.fromRGB(255, 255, 255) -- Белый цвет текста
+statsLabel.BackgroundTransparency = 1
+statsLabel.Font = Enum.Font.SourceSansBold
+statsLabel.Parent = textBox
+
+local RunService = game:GetService("RunService")
+local Stats = game:GetService("Stats")
+
+local lastUpdate = 0
+RunService.RenderStepped:Connect(function(deltaTime)
+    task.wait(1.5)
+    local fps = math.floor(1 / deltaTime)
+    local ping = Stats.Network.ServerStatsItem["Data Ping"]:GetValueString()
+    statsLabel.Text = string.format("FPS: %d PING: %s", fps, ping)
+end)
+
+local uiCorner = Instance.new("UICorner")
+uiCorner.CornerRadius = UDim.new(0, 15)
+uiCorner.Parent = frame
 
 local function createButton(size, position, text, color, parent)
     local button = Instance.new("TextButton")
@@ -130,6 +155,7 @@ local copyButton = createButton(UDim2.new(buttonWidth, 0, 0.2, 0), UDim2.new(sta
 local pasteButton = createButton(UDim2.new(buttonWidth, 0, 0.2, 0), UDim2.new(startX + 3 * (buttonWidth + buttonSpacing), 0, verticalOffset - 0.28, 0), "Paste", Color3.fromRGB(128, 128, 128), frame)
 local closeButton = createButton(UDim2.new(0, 30, 0, 30), UDim2.new(1, -35, 0, 5), "X", Color3.fromRGB(255, 0, 0), topFrame)
 local minusButton = createButton(UDim2.new(0, 30, 0, 30), UDim2.new(1, -70, 0, 5), "-", Color3.fromRGB(255, 255, 0), topFrame)
+
 minusButton.TextColor3 = Color3.fromRGB(255, 255, 255) -- Белый цвет для символа "минус"
 
 local openButton = Instance.new("TextButton")
