@@ -197,7 +197,7 @@ local commands = {
     ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";fly2", ";qcmd",
     ";tfling2", ";bp1", ";bp2", ";bp3", ";tel1", ";tel2", ";glios", ";cmds", ";hth",
     ";zomb", ";knpc", ";jerk", ";punch", ";invis2", ";invis", ";tel3", ";roa", ";akp1", ";akp2",
-    ";prox", ";rochips", ";fc1", ";fc2", ";fc3", ";rp", ";rp2", ";srp", ";srp2", ";tictactoe", ";illus", ";toolgui", ";keyb", ";wibtt", ";acl", ";krunox", ";srp3", ";tptool"
+    ";prox", ";rochips", ";fc1", ";fc2", ";fc3", ";rp", ";rp2", ";srp", ";srp2", ";tictactoe", ";illus", ";toolgui", ";keyb", ";wibtt", ";acl", ";krunox", ";srp3", ";srp4", ";tptool"
 }
 
 executeButton.MouseButton1Click:Connect(function()
@@ -213,6 +213,8 @@ executeButton.MouseButton1Click:Connect(function()
         loadstring(game:HttpGet("https://pastefy.app/YZoglOyJ/raw"))()
     elseif codeToExecute == ";acl" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/AnthonyIsntHere/anthonysrepository/main/scripts/AntiChatLogger.lua"))()
+    elseif codeToExecute == ";srp4" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Avtor-ring-parts-Updated/refs/heads/main/Avtor%20ring%20parts"))()
     elseif codeToExecute == ";qcmd" then
         loadstring(game:HttpGet("https://gist.github.com/someunknowndude/38cecea5be9d75cb743eac8b1eaf6758/raw"))()
     elseif codeToExecute == ";knpc" then
@@ -423,6 +425,8 @@ cc = game.Players.LocalPlayer.Chatted:Connect(function(msg)
         loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-SUPER-RING-PARTS-V3-WITH-NO-MESSAGE-26385"))()
     elseif spaceSplit[1] == ";wibtt" then
         loadstring(game:HttpGet('https://raw.githubusercontent.com/BaconBossScript/Crazy/main/Crazy'))()
+    elseif spaceSplit[1] == ";srp4" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Avtor-ring-parts-Updated/refs/heads/main/Avtor%20ring%20parts")()
     elseif spaceSplit[1] == ";rp" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Ritual-parts/refs/heads/main/Ritual%20parts%20without%20message"))()
     elseif spaceSplit[1] == ";fc1" then
