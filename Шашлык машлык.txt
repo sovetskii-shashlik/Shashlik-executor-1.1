@@ -426,7 +426,7 @@ cc = game.Players.LocalPlayer.Chatted:Connect(function(msg)
     elseif spaceSplit[1] == ";wibtt" then
         loadstring(game:HttpGet('https://raw.githubusercontent.com/BaconBossScript/Crazy/main/Crazy'))()
     elseif spaceSplit[1] == ";srp4" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Avtor-ring-parts-Updated/refs/heads/main/Avtor%20ring%20parts")()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Avtor-ring-parts-Updated/refs/heads/main/Avtor%20ring%20parts"))()
     elseif spaceSplit[1] == ";rp" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Ritual-parts/refs/heads/main/Ritual%20parts%20without%20message"))()
     elseif spaceSplit[1] == ";fc1" then
