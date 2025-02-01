@@ -1,18 +1,61 @@
--- help from @Geroindroid
+L--//fast console button
 loadstring(game:HttpGet("https://pastebin.com/raw/3KcF9M0m"))()
+--//moreunc
 loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-MoreUNC-13110"))()
+--//antikick
 loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/AdonisAntikick/refs/heads/main/Antikick"))()
 
+--[[
+Shashlik Executor Source!!! Version is: 3.7
+Credits to Maksimilianych228 and Gerdroid
+If gui dont spawn wait 5-10 sec
+]]--
+
+--[[ GUI CHECK ]]--
+if game:GetService("CoreGui"):FindFirstChild("shashlik") then
+  game:GetService("CoreGui").shashlik:Destroy()
+end
+
+--[[ VARIABLES ]]--
 local player = game.Players.LocalPlayer
+local speaker = game.Players.LocalPlayer
 local camera = workspace.CurrentCamera
 local TweenService = game:GetService("TweenService")
+local SoundService = game:GetService("SoundService")
+local RunService = game:GetService("RunService")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local UserInputService = game:GetService("UserInputService")
 
--- Создаем основной графический интерфейс
-local screenGui = Instance.new("ScreenGui")
-screenGui.Parent = game.CoreGui
+--[[ CHAT FUNCTION ]]--
+local function chat(message)
+   if ReplicatedStorage:FindFirstChild("DefaultChatSystemChatEvents") then
+     ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(message, "All")
+   elseif game:GetService("TextChatService"):FindFirstChild("TextChannels") then
+     game:GetService("TextChatService").TextChannels:FindFirstChild("RBXGeneral"):SendAsync(message)
+   end
+end
 
--- Создаем основной Frame для GUI
+--[[ FUNCTION TO GET PLAYER ]]--
+local function getPlr(name)
+
+    for i,v in pairs(game.Players:GetPlayers()) do
+
+        if v.Name:lower():match(name) or v.DisplayName:lower():match(name) then
+            return v
+        end
+    end
+end
+
+--[[ ADMIN ]]--
+if player.Name == "prespeshnikShashlika" or player.Name == "MRP76REBORN" then
+ print("Script Owner Detected!")
+end
+
+--[[ SCREEN GUI ]]--
+local shashlik = Instance.new("ScreenGui")
+shashlik.Parent = game:GetService("CoreGui")
+
+--[[ MAIN FRAME ]]--
 local frame = Instance.new("Frame")
 frame.Size = UDim2.new(0, 450, 0, 225)
 frame.Position = UDim2.new(0.5, 0, 0.475, 0)
@@ -25,6 +68,7 @@ frame.BackgroundTransparency = 1
 frame.Active = true
 frame.Draggable = true
 
+--[[ GRADIENT FRAME ]]--
 local gradientFrame = Instance.new("Frame")
 gradientFrame.Size = UDim2.new(1, 18, 1, 18)
 gradientFrame.Position = UDim2.new(0, -9, 0, -9)
@@ -41,6 +85,7 @@ local function lerpColor(color1, color2, alpha)
     )
 end
 
+--[[ GRADIENT ANIMATION ]]--
 local function animateGradient()
     local duration = 2
     local steps = 60
@@ -72,30 +117,30 @@ end
 task.spawn(animateGradient)
 
 
--- Создаем верхнюю панель
+--[[ TOPFRAME ]]--
 local topFrame = Instance.new("Frame")
 topFrame.Size = UDim2.new(1, 0, 0, 50)
 topFrame.Position = UDim2.new(0, 0, 0, 0)
-topFrame.BackgroundColor3 = Color3.fromRGB(50, 50, 50) -- Темно-серый цвет
+topFrame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
 topFrame.Parent = frame
 
--- Добавляем заголовок
+--[[ TITLELABEL ]]--
 local titleLabel = Instance.new("TextLabel")
-titleLabel.Size = UDim2.new(1, -80, 1, 0) -- Укороченный размер
+titleLabel.Size = UDim2.new(1, -80, 1, 0)
 titleLabel.Position = UDim2.new(0, 0, 0, 0)
-titleLabel.Text = "shashlik executor 3.6" -- Изменено на 3.0
-titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255) -- Белый цвет текста
+titleLabel.Text = "shashlik executor 3.7"
+titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 titleLabel.BackgroundTransparency = 1
 titleLabel.TextScaled = true
 titleLabel.Parent = topFrame
 
--- Создаем многострочное текстовое поле
+--[[ TEXTBOX ]]--
 local textBox = Instance.new("TextBox")
 textBox.Size = UDim2.new(0.73, 0, 0.5, 0)
 textBox.Position = UDim2.new(0, 0, 0, 50)
 textBox.Text = ""
 textBox.TextSize = 16
-textBox.PlaceholderText = "Welcome to shashlik exec! Made by: Maksimilianych228 and Geroindroid, Put on textbox ;cmds and execute"
+textBox.PlaceholderText = "Welcome to shashlik exec! Put on textbox ;cmds and execute"
 textBox.TextColor3 = Color3.fromRGB(255, 255, 255)
 textBox.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
 textBox.BorderSizePixel = 0
@@ -105,12 +150,13 @@ textBox.ClearTextOnFocus = false
 textBox.MultiLine = true
 textBox.Parent = frame
 
+--[[ FPS/PING DISPLAY ]]--
 local statsLabel = Instance.new("TextLabel")
 statsLabel.Size = UDim2.new(0, 200, 0, 20)
-statsLabel.Position = UDim2.new(1, -190, 1, -20) -- Чуть ниже и вправо
+statsLabel.Position = UDim2.new(1, -190, 1, -20)
 statsLabel.Text = "FPS: 0 PING: 0"
 statsLabel.TextSize = 14
-statsLabel.TextColor3 = Color3.fromRGB(255, 255, 255) -- Белый цвет текста
+statsLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 statsLabel.BackgroundTransparency = 1
 statsLabel.Font = Enum.Font.SourceSansBold
 statsLabel.Parent = textBox
@@ -130,6 +176,7 @@ local uiCorner = Instance.new("UICorner")
 uiCorner.CornerRadius = UDim.new(0, 15)
 uiCorner.Parent = frame
 
+--[[ BUTTONS SETUP ]]--
 local function createButton(size, position, text, color, parent)
     local button = Instance.new("TextButton")
     button.Size = size
@@ -144,7 +191,7 @@ end
 local buttonWidth = 0.2
 local buttonSpacing = 0.05
 local buttonOffset = 0.05 
-local totalWidth = buttonWidth * 4 + buttonSpacing * 3 -- Общая ширина всех кнопок с промежутками
+local totalWidth = buttonWidth * 4 + buttonSpacing * 3
 local startX = (1 - totalWidth) / 2
 local verticalOffset = 0.8
 
@@ -157,8 +204,9 @@ local pasteButton = createButton(UDim2.new(buttonWidth, 0, 0.2, 0), UDim2.new(st
 local closeButton = createButton(UDim2.new(0, 30, 0, 30), UDim2.new(1, -35, 0, 5), "X", Color3.fromRGB(255, 0, 0), topFrame)
 local minusButton = createButton(UDim2.new(0, 30, 0, 30), UDim2.new(1, -70, 0, 5), "-", Color3.fromRGB(255, 255, 0), topFrame)
 
-minusButton.TextColor3 = Color3.fromRGB(255, 255, 255) -- Белый цвет для символа "минус"
+minusButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 
+--[[ TOGGLE BUTTON ]]--
 local openButton = Instance.new("TextButton")
 openButton.Size = UDim2.new(0, 40, 0, 40)
 openButton.Position = UDim2.new(0.9, 0, 0.0, 0)
@@ -170,16 +218,18 @@ openButton.Visible = true
 openButton.Active = true
 openButton.Draggable = true
 
+--[[ TOGGLE BUTTON GRADIENT ]]--
 local openButtonGradient = Instance.new("UIGradient")
 openButtonGradient.Color = ColorSequence.new({
-    ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 0)), -- Черный цвет внизу
-    ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 0, 255)) -- Синий цвет вверху
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 0)),
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 0, 255))
 })
 openButtonGradient.Parent = openButton
 
+--[[ EXECUTOR ANIMATION ]]--
 local function scaleUp(frame)
     frame.Visible = true
-    frame.Size = UDim2.new(0, 0, 0, 0) -- Начальный размер 0
+    frame.Size = UDim2.new(0, 0, 0, 0)
     local tween = TweenService:Create(frame, TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), { Size = UDim2.new(0, 450, 0, 225) })
     tween:Play()
     tween.Completed:Wait()
@@ -193,11 +243,12 @@ local function scaleDown(frame, callback)
     if callback then callback() end
 end
 
+--[[ EXECUTOR COMMANDS ]]--
 local commands = {
     ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";fly2", ";qcmd",
     ";tfling2", ";bp1", ";bp2", ";bp3", ";tel1", ";tel2", ";glios", ";cmds", ";hth",
     ";zomb", ";knpc", ";jerk", ";punch", ";invis2", ";invis", ";tel3", ";roa", ";akp1", ";akp2",
-    ";prox", ";rochips", ";fc1", ";fc2", ";synapse", ";synapse2", ";krnl", ";krnl2", ";krnlk", ";fc3", ";rp", ";rp2", ";srp", ";srp2", ";tictactoe", ";illus", ";toolgui", ";keyb", ";wibtt", ";acl", ";krunox", ";srp3", ";srp4", ";crouch", ";tptool"
+    ";prox", ";rochips", ";fc1", ";fc2", ";synapse", ";synapse2", ";krnl", ";krnl2", ";krnlk", ";fc3", ";rp", ";rp2", ";srp", ";srp2", ";tictactoe", ";illus", ";toolgui", ";keyb", ";wibtt", ";acl", ";krunox", ";crouch", ";srp3", ";srp4", ";tptool"
 }
 
 executeButton.MouseButton1Click:Connect(function()
@@ -328,15 +379,13 @@ executeButton.MouseButton1Click:Connect(function()
     end
 end)
 
--- Обработчик нажатия кнопки Clear
 clearButton.MouseButton1Click:Connect(function()
     textBox.Text = ""
 end)
 
--- Обработчик нажатия кнопки Copy
 copyButton.MouseButton1Click:Connect(function()
     local textToCopy = textBox.Text
-    setclipboard(textToCopy) -- Копируем текст в буфер обмена
+    setclipboard(textToCopy)
     print("Текст скопирован в буфер обмена: " .. textToCopy)
 end)
 
@@ -345,7 +394,6 @@ pasteButton.MouseButton1Click:Connect(function()
     textBox.Text = clipboardText
 end)
 
--- Обработчик нажатия кнопки Close
 closeButton.MouseButton1Click:Connect(function()
     scaleDown(frame, function()
         frame:Destroy()
@@ -353,20 +401,17 @@ closeButton.MouseButton1Click:Connect(function()
     end)
 end)
 
--- Обработчик нажатия кнопки Minus
 minusButton.MouseButton1Click:Connect(function()
     scaleDown(frame, function()
-        openButton.Visible = true -- Показываем кнопку "Открыть" после исчезновения
+        openButton.Visible = true
     end)
 end)
 
--- Обработчик нажатия кнопки "Открыть"
 openButton.MouseButton1Click:Connect(function()
     scaleUp(frame)
-    openButton.Visible = false -- Скрываем кнопку "Открыть"
+    openButton.Visible = false
 end)
 
--- Восстанавливаем тип камеры при закрытии интерфейса
 frame:GetPropertyChangedSignal("Visible"):Connect(function()
     if not frame.Visible then
         camera.CameraType = Enum.CameraType.Custom
@@ -379,7 +424,7 @@ executeClipboardButton.MouseButton1Click:Connect(function()
         loadstring(codeToExecute)()
     end)
     if not success then
-        print("Ошибка выполнения кода: " .. errorMessage)
+        print("❌️Error Code: " .. errorMessage)
     end
 end)
 
@@ -506,7 +551,7 @@ cc = game.Players.LocalPlayer.Chatted:Connect(function(msg)
             return ("This will load in about 2 - 30 seconds" or "according to your device and executor")
         end
     else
-        print("wrong command")
+        print("❌️Wrong Command!")
     end
 end)
 
@@ -517,3 +562,14 @@ local notificationInfo = {
     Duration = "Seconds"
 }
 game:GetService("StarterGui"):SetCore("SendNotification", notificationInfo)
+
+--[[ SOUND PLAY ]]--
+local loaded = Instance.new("Sound")
+loaded.Parent = SoundService
+loaded.SoundId = "rbxassetid://9086208751"
+loaded.Volume = 5
+loaded:Play()
+
+--[[ PRINT ]]--
+hellotxt = "Shashlik Executor Succesfully Loaded!🍢 (v.3.7)"
+print(hellotxt)
