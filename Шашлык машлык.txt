@@ -2,10 +2,6 @@
 loadstring(game:HttpGet("https://pastebin.com/raw/3KcF9M0m"))()
 loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-MoreUNC-13110"))()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/AdonisAntikick/refs/heads/main/Antikick"))()
-while true do
-wait(0.01)
-game:GetService("CoreGui").DevConsoleMaster.DevConsoleWindow.BackgroundColor3 = Color3.fromHSV(tick()%5/5,1,1)
-end
 
 local player = game.Players.LocalPlayer
 local camera = workspace.CurrentCamera
