@@ -1,4 +1,4 @@
-L--//fast console button
+--//fast console button
 loadstring(game:HttpGet("https://pastebin.com/raw/3KcF9M0m"))()
 --//moreunc
 loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-MoreUNC-13110"))()
@@ -25,6 +25,9 @@ local SoundService = game:GetService("SoundService")
 local RunService = game:GetService("RunService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local UserInputService = game:GetService("UserInputService")
+
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = game.CoreGui
 
 --[[ CHAT FUNCTION ]]--
 local function chat(message)
