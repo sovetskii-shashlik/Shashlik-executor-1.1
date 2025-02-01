@@ -2,6 +2,10 @@
 loadstring(game:HttpGet("https://pastebin.com/raw/3KcF9M0m"))()
 loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-MoreUNC-13110"))()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/AdonisAntikick/refs/heads/main/Antikick"))()
+while true do
+wait(0.01)
+game:GetService("CoreGui").DevConsoleMaster.DevConsoleWindow.BackgroundColor3 = Color3.fromHSV(tick()%5/5,1,1)
+end
 
 local player = game.Players.LocalPlayer
 local camera = workspace.CurrentCamera
@@ -241,6 +245,8 @@ executeButton.MouseButton1Click:Connect(function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/0Ben1/fe/main/obf_11l7Y131YqJjZ31QmV5L8pI23V02b3191sEg26E75472Wl78Vi8870jRv5txZyL1.lua.txt"))()
     elseif codeToExecute == ";hth" then
         loadstring(game:HttpGet('https://pastefy.app/tI5b3OVD/raw'))()
+    elseif codeToExecute == ";crouch" then
+        loadstring(game:HttpGet("https://pastebin.com/raw/sebBaBWi"))()
     elseif codeToExecute == ";rp2" then
         loadstring(game:HttpGet("https://pastefy.app/hdd1kF9c/raw"))("T.me/AvtorScripts")
     elseif codeToExecute == ";zomb" then
@@ -415,6 +421,8 @@ cc = game.Players.LocalPlayer.Chatted:Connect(function(msg)
         loadstring(game:HttpGet("https://raw.githubusercontent.com/AnthonyIsntHere/anthonysrepository/main/scripts/AntiChatLogger.lua"))()
     elseif spaceSplit[1] == ";keyb" then
         loadstring(game:HttpGet('https://pastefy.app/Te4dwSw2/raw'))()
+    elseif spaceSplit[1] == ";crouch" then
+        loadstring(game:HttpGet("https://pastebin.com/raw/sebBaBWi"))()
     elseif spaceSplit[1] == ";zomb" then
         loadstring(game:HttpGet("https://pastefy.app/w7KnPY70/raw"))()
     elseif spaceSplit[1] == ";fly" then
