@@ -275,7 +275,7 @@ executeButton.MouseButton1Click:Connect(function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/wtfplayer/redemption/main/krnlnoui.lua"))()
     elseif codeToExecute == ";krnlk" then
         loadstring(game:HttpGet("https://pastebin.com/raw/RJe1HXrQ"))()
-    elseif codeToExecute == "bypass" then
+    elseif codeToExecute == ";bypass" then
         loadstring(game:HttpGet'https://raw.githubusercontent.com/m1kp0/universal_scripts/refs/heads/main/chat_bypass.lua')()
     elseif codeToExecute == ";acl" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/AnthonyIsntHere/anthonysrepository/main/scripts/AntiChatLogger.lua"))()
