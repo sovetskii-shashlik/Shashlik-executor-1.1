@@ -429,7 +429,7 @@ executeClipboardButton.MouseButton1Click:Connect(function()
         loadstring(codeToExecute)()
     end)
     if not success then
-        print("❌️Error Code: " .. errorMessage)
+        print("" .. errorMessage)
     end
 end)
 
@@ -558,7 +558,7 @@ cc = game.Players.LocalPlayer.Chatted:Connect(function(msg)
             return ("This will load in about 2 - 30 seconds" or "according to your device and executor")
         end
     else
-        print("❌️Wrong Command!")
+        print("")
     end
 end)
 
