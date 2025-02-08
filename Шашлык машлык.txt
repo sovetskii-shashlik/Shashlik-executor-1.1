@@ -250,7 +250,7 @@ end
 local commands = {
     ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";fly2", ";qcmd",
     ";tfling2", ";bp1", ";bp2", ";bp3", ";tel1", ";tel2", ";glios", ";cmds", ";hth",
-    ";zomb", ";knpc", ";jerk", ";punch", ";invis2", ";invis", ";tel3", ";roa", ";akp1", ";akp2",
+    ";zomb", ";search", ";knpc", ";jerk", ";punch", ";invis2", ";invis", ";tel3", ";roa", ";akp1", ";akp2",
     ";prox", ";rochips", ";fc1", ";fc2", "synapse", ";synapse2", ";krnl", ";krnl2", ";krnlk", ";bypass", ";fc3", ";rp", ";rp2", ";srp", ";srp2", ";tictactoe", ";illus", ";toolgui", ";keyb", ";wibtt", ";acl", ";krunox", ";crouch", ";srp3", ";srp4", ";tptool"
 }
 
@@ -297,6 +297,8 @@ executeButton.MouseButton1Click:Connect(function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/0Ben1/fe/main/obf_11l7Y131YqJjZ31QmV5L8pI23V02b3191sEg26E75472Wl78Vi8870jRv5txZyL1.lua.txt"))()
     elseif codeToExecute == ";hth" then
         loadstring(game:HttpGet('https://pastefy.app/tI5b3OVD/raw'))()
+    elseif codeToExecute == ";search" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/chillz-workshop/main/ScriptSearcher"))()
     elseif codeToExecute == ";crouch" then
         loadstring(game:HttpGet("https://pastebin.com/raw/sebBaBWi"))()
     elseif codeToExecute == ";rp2" then
@@ -459,6 +461,8 @@ cc = game.Players.LocalPlayer.Chatted:Connect(function(msg)
         loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Krunox-13336"))()
     elseif spaceSplit[1] == ";knpc" then
         loadstring(game:HttpGet("https://pastebin.com/raw/DcSXwXqC"))()
+    elseif spaceSplit[1] == ";search" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/chillz-workshop/main/ScriptSearcher"))()
     elseif spaceSplit[1] == ";illus" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/0Ben1/fe/main/obf_11l7Y131YqJjZ31QmV5L8pI23V02b3191sEg26E75472Wl78Vi8870jRv5txZyL1.lua.txt"))()
     elseif spaceSplit[1] == ";hth" then
@@ -557,8 +561,6 @@ cc = game.Players.LocalPlayer.Chatted:Connect(function(msg)
             z_c(lonely:HttpGet(z_z .. "" .. z_x))()
             return ("This will load in about 2 - 30 seconds" or "according to your device and executor")
         end
-    else
-        print("")
     end
 end)
 
