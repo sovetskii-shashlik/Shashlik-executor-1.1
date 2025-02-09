@@ -249,7 +249,7 @@ end
 --[[ EXECUTOR COMMANDS ]]--
 local commands = {
     ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";fly2", ";qcmd",
-    ";tfling2", ";bp1", ";bp2", ";bp3", ";tel1", ";tel2", ";glios", ";cmds", ";hth",
+    ";tfling2", ";bp1", ";bp2", ";bp3", ";bp4", ";tel1", ";tel2", ";glios", ";cmds", ";hth",
     ";zomb", ";search", ";knpc", ";jerk", ";punch", ";invis2", ";invis", ";tel3", ";roa", ";akp1", ";akp2",
     ";prox", ";rochips", ";fc1", ";fc2", "synapse", ";synapse2", ";krnl", ";krnl2", ";krnlk", ";bypass", ";fc3", ";rp", ";rp2", ";srp", ";srp2", ";tictactoe", ";illus", ";toolgui", ";keyb", ";wibtt", ";acl", ";krunox", ";crouch", ";srp3", ";srp4", ";tptool"
 }
@@ -297,6 +297,8 @@ executeButton.MouseButton1Click:Connect(function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/0Ben1/fe/main/obf_11l7Y131YqJjZ31QmV5L8pI23V02b3191sEg26E75472Wl78Vi8870jRv5txZyL1.lua.txt"))()
     elseif codeToExecute == ";hth" then
         loadstring(game:HttpGet('https://pastefy.app/tI5b3OVD/raw'))()
+    elseif codeToExecute == ";bp4" then
+        loadstring(game:HttpGet("https://pastebin.com/raw/TihMhyyh"))()
     elseif codeToExecute == ";search" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/chillz-workshop/main/ScriptSearcher"))()
     elseif codeToExecute == ";crouch" then
@@ -357,7 +359,7 @@ executeButton.MouseButton1Click:Connect(function()
         writefile(".nonecing", "white")
         loadstring(game:HttpGet('https://glot.io/snippets/gua2ntmbdm/raw/main.lua'))()
     elseif codeToExecute == ";punch" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/fedoratums/Base-Script/Base-Script/fedoratum punch fling"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/FE/main/punch",true))()
     elseif codeToExecute == ";akp1" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/zephyr10101/ignore-touchinterests/main/main", true))()
     elseif codeToExecute == ";akp2" then
@@ -491,6 +493,8 @@ cc = game.Players.LocalPlayer.Chatted:Connect(function(msg)
         loadstring(game:HttpGet("https://raw.githubusercontent.com/randomstring0/new/refs/heads/main/cmd.lua"))() --команды rochips--
     elseif spaceSplit[1] == ";tfling2" then
         loadstring(game:HttpGet("https://pastebin.com/raw/TXMNj1yy"))()
+    elseif spaceSplit[1] == ";bp4" then
+        loadstring(game:HttpGet("https://pastebin.com/raw/TihMhyyh"))()
     elseif spaceSplit[1] == ";srp" then
         loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-SUPER-RING-PARTS-V3-WITH-NO-MESSAGE-26385"))()
     elseif spaceSplit[1] == ";wibtt" then
@@ -537,7 +541,7 @@ cc = game.Players.LocalPlayer.Chatted:Connect(function(msg)
         writefile(".nonecing", "white")
         loadstring(game:HttpGet("https://glot.io/snippets/gua2ntmbdm/raw/main.lua"))()
     elseif spaceSplit[1] == ";punch" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/fedoratums/Base-Script/Base-Script/fedoratum punch fling"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/FE/main/punch",true))()
     elseif spaceSplit[1] == ";akp1" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/zephyr10101/ignore-touchinterests/main/main"))()
     elseif spaceSplit[1] == ";akp2" then
