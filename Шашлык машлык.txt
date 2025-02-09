@@ -251,7 +251,9 @@ local commands = {
     ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";fly2", ";qcmd",
     ";tfling2", ";bp1", ";bp2", ";bp3", ";bp4", ";tel1", ";tel2", ";glios", ";cmds", ";hth",
     ";zomb", ";search", ";knpc", ";jerk", ";punch", ";invis2", ";invis", ";tel3", ";roa", ";akp1", ";akp2",
-    ";prox", ";rochips", ";fc1", ";fc2", "synapse", ";synapse2", ";krnl", ";krnl2", ";krnlk", ";bypass", ";fc3", ";rp", ";rp2", ";srp", ";srp2", ";tictactoe", ";illus", ";toolgui", ";keyb", ";wibtt", ";acl", ";krunox", ";crouch", ";srp3", ";srp4", ";tptool"
+    ";prox", ";rochips", ";fc1", ";fc2", "synapse", ";synapse2", ";krnl", ";krnlk", ";bypass", ";fc3", ";rp", ";rp2", ";srp", ";srp2", ";tictactoe", ";illus", ";toolgui", ";keyb", ";wibtt", ";acl", ";krunox", ";crouch", ";srp3", ";srp4", ";tptool",
+    ";rc7 (key: MegaSecretPasswordForRC7)",
+    ";krnlk (key: 9X1L9ZPAXN4)"
 }
 
 executeButton.MouseButton1Click:Connect(function()
@@ -299,6 +301,8 @@ executeButton.MouseButton1Click:Connect(function()
         loadstring(game:HttpGet('https://pastefy.app/tI5b3OVD/raw'))()
     elseif codeToExecute == ";bp4" then
         loadstring(game:HttpGet("https://pastebin.com/raw/TihMhyyh"))()
+    elseif codeToExecute == ";rc7" then
+        loadstring(game:HttpGet"https://raw.githubusercontent.com/sovetskii-shashlik/RC7./refs/heads/main/RC7.txt")()
     elseif codeToExecute == ";search" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/chillz-workshop/main/ScriptSearcher"))()
     elseif codeToExecute == ";crouch" then
