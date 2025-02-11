@@ -278,7 +278,7 @@ executeButton.MouseButton1Click:Connect(function()
     elseif codeToExecute == ";krnlk" then
         loadstring(game:HttpGet("https://pastebin.com/raw/RJe1HXrQ"))()
     elseif codeToExecute == ";bhtool" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/evilionx3/blackholetool/refs/heads/main/skibidi.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Blackhole/refs/heads/main/Blackhole"))()
     elseif codeToExecute == ";bypass" then
         loadstring(game:HttpGet'https://raw.githubusercontent.com/m1kp0/universal_scripts/refs/heads/main/chat_bypass.lua')()
     elseif codeToExecute == ";acl" then
@@ -528,7 +528,7 @@ cc = game.Players.LocalPlayer.Chatted:Connect(function(msg)
     elseif spaceSplit[1] == ";rp2" then
         loadstring(game:HttpGet("https://pastefy.app/hdd1kF9c/raw"))("T.me/AvtorScripts")
     elseif spaceSplit[1] == ";bhtool" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/evilionx3/blackholetool/refs/heads/main/skibidi.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Blackhole/refs/heads/main/Blackhole"))()
     elseif spaceSplit[1] == ";na1" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Silly-Exploiter/NamedAdmin/main/bamed%20admen.txt"))()
     elseif spaceSplit[1] == ";le" then
