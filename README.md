@@ -13,3 +13,5 @@ loadstring(game:HttpGet("https://pastes.io/raw/shashlik-8"))()
 loadstring(game:HttpGet("https://gist.github.com/sovetskii-shashlik/538822fcd5a171e726800a573627543e/raw/3ea2b888609345258ddc872dca3f531b8b823033/Shashlik-executor-1.1.lua"))()
 
 loadstring(game:HttpGet("https://pastefy.app/IFiN7JKl/raw"))()
+
+loadstring(game:HttpGet("https://codeberg.org/Sovetskii-shashlik/Shashlik/raw/branch/master/Shashlik-executor-1.1"))()
