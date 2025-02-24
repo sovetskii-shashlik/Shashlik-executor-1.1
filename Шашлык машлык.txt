@@ -257,11 +257,11 @@ executeButton.MouseButton1Click:Connect(function()
     elseif codeToExecute == ";krnl" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/Chillz-s-scripts/refs/heads/main/KRNL%20UI%20Remake.lua"))()
 elseif codeToExecute == ";mvtool" then
-    loadstring(game:HttpGet("https://pastebin.com/raw/DfjrwJie"))()
+    loadstring(game:HttpGet("https://pastefy.app/Vcuyg09O/raw"))()
     elseif codeToExecute == ";krnl2" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/wtfplayer/redemption/main/krnlnoui.lua"))()
     elseif codeToExecute == ";krnlk" then
-        loadstring(game:HttpGet("https://pastebin.com/raw/RJe1HXrQ"))()
+        loadstring(game:HttpGet("https://pastebin.com/raw/DfjrwJie"))()
     elseif codeToExecute == ";akp3" then
         loadstring(game:HttpGet("https://pastefy.app/Vcuyg09O/raw"))()
     elseif codeToExecute == ";rtt" then
