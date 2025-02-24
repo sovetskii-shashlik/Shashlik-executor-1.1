@@ -1,23 +1,29 @@
---//fast console button
-loadstring(game:HttpGet("https://pastebin.com/raw/3KcF9M0m"))()
---//moreunc
-loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-MoreUNC-13110"))()
---//antikick
-loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/AdonisAntikick/refs/heads/main/Antikick"))()
 
 --[[
-Shashlik Executor Source!!! Version is: 3.7
+If gui dont spawn just wait 5-10 sec
+Shashlik Executor Source!!! Current Version is: 3.7
 Credits to Maksimilianych228 and Gerdroid
-If gui dont spawn wait 5-10 sec
-]]--
-
+]]
 --[[ GUI CHECK ]]--
 if game:GetService("CoreGui"):FindFirstChild("shashlik") then
   game:GetService("CoreGui").shashlik:Destroy()
+elseif game:GetService("CoreGui"):FindFirstChild("ScreenGui1") then
+  game:GetService("CoreGui").ScreenGui1:Destroy()
 end
 
+--[[ MAIN SCRIPTS ]]--
+task.spawn(function()
+  --//fast console button
+  loadstring(game:HttpGet("https://pastebin.com/raw/3KcF9M0m"))()
+  
+  --//adding more unc
+  loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-MoreUNC-13110"))()
+  
+  --//undetectable anti kick
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/AdonisAntikick/refs/heads/main/Antikick"))()
+end)
+
 --[[ VARIABLES ]]--
-local player = game.Players.LocalPlayer
 local speaker = game.Players.LocalPlayer
 local camera = workspace.CurrentCamera
 local TweenService = game:GetService("TweenService")
@@ -26,60 +32,39 @@ local RunService = game:GetService("RunService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local UserInputService = game:GetService("UserInputService")
 
-local screenGui = Instance.new("ScreenGui")
-screenGui.Parent = game.CoreGui
-
---[[ CHAT FUNCTION ]]--
-local function chat(message)
-   if ReplicatedStorage:FindFirstChild("DefaultChatSystemChatEvents") then
-     ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(message, "All")
-   elseif game:GetService("TextChatService"):FindFirstChild("TextChannels") then
-     game:GetService("TextChatService").TextChannels:FindFirstChild("RBXGeneral"):SendAsync(message)
-   end
-end
-
---[[ FUNCTION TO GET PLAYER ]]--
-local function getPlr(name)
-
-    for i,v in pairs(game.Players:GetPlayers()) do
-
-        if v.Name:lower():match(name) or v.DisplayName:lower():match(name) then
-            return v
-        end
-    end
-end
-
---[[ ADMIN ]]--
-if player.Name == "prespeshnikShashlika" or player.Name == "MRP76REBORN" then
- print("Script Owner Detected!")
+--[[ PLAYER DETECTION ]]--
+if speaker.Name == "prespeshnikShashlika" or speaker.Name == "MRP76REBORN" then
+ print("Shashlik Owner Detected!")
+elseif speaker.Name == "Roblox" or speaker.Name == "Skid" then
+  print("Fucking Nigger Ass Retard Detected!")
 end
 
 --[[ SCREEN GUI ]]--
-local shashlik = Instance.new("ScreenGui")
-shashlik.Parent = game:GetService("CoreGui")
+local shashlik = Instance.new("ScreenGui", game:GetService("CoreGui"))
+shashlik.ResetOnSpawn = false
 
 --[[ MAIN FRAME ]]--
-local frame = Instance.new("Frame")
+local frame = Instance.new("Frame", shashlik)
 frame.Size = UDim2.new(0, 450, 0, 225)
 frame.Position = UDim2.new(0.5, 0, 0.475, 0)
 frame.AnchorPoint = Vector2.new(0.5, 0.5)
 frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 frame.BorderSizePixel = 0
-frame.Parent = screenGui
 frame.Visible = false
 frame.BackgroundTransparency = 1
 frame.Active = true
 frame.Draggable = true
 
+-- 👇 btw this shit doesnt works fix it plz
+local frameCorner = Instance.new("UICorner", frame)
+frameCorner.CornerRadius = UDim.new(0, 20)
+
 --[[ GRADIENT FRAME ]]--
-local gradientFrame = Instance.new("Frame")
+local gradientFrame = Instance.new("Frame", frame)
 gradientFrame.Size = UDim2.new(1, 18, 1, 18)
 gradientFrame.Position = UDim2.new(0, -9, 0, -9)
-gradientFrame.Parent = frame
 
-local gradient = Instance.new("UIGradient")
-gradient.Parent = gradientFrame
-
+local gradient = Instance.new("UIGradient", gradientFrame)
 local function lerpColor(color1, color2, alpha)
     return Color3.new(
         color1.R + (color2.R - color1.R) * alpha,
@@ -175,22 +160,21 @@ RunService.RenderStepped:Connect(function(deltaTime)
     statsLabel.Text = string.format("FPS: %d PING: %s", fps, ping)
 end)
 
-local uiCorner = Instance.new("UICorner")
-uiCorner.CornerRadius = UDim.new(0, 15)
-uiCorner.Parent = frame
-
 --[[ BUTTONS SETUP ]]--
 local function createButton(size, position, text, color, parent)
     local button = Instance.new("TextButton")
     button.Size = size
     button.Position = position
     button.Text = text
+    button.TextSize = 15
     button.BackgroundColor3 = color
+    button.Font = Enum.Font.SourceSansBold
     button.TextColor3 = Color3.fromRGB(255, 255, 255)
     button.Parent = parent
     return button
 end
 
+--[[ BUTTONS OFFSET ]]--
 local buttonWidth = 0.2
 local buttonSpacing = 0.05
 local buttonOffset = 0.05 
@@ -198,6 +182,7 @@ local totalWidth = buttonWidth * 4 + buttonSpacing * 3
 local startX = (1 - totalWidth) / 2
 local verticalOffset = 0.8
 
+--[[ VARIABLES BUTTONS ]]--
 local executeButton = createButton(UDim2.new(buttonWidth, 0, 0.2, 0), UDim2.new(startX, 0, verticalOffset, 0), "Execute", Color3.fromRGB(128, 128, 128), frame)
 local executeClipboardButton = createButton(UDim2.new(buttonWidth, 0, 0.2, 0), UDim2.new(startX + buttonWidth + buttonSpacing, 0, verticalOffset, 0), "Execute Clipboard", Color3.fromRGB(128, 128, 128), frame)
 local consoleButton = createButton(UDim2.new(buttonWidth, 0, 0.2, 0), UDim2.new(startX + 2 * (buttonWidth + buttonSpacing), 0, verticalOffset, 0), "Console", Color3.fromRGB(128, 128, 128), frame)
@@ -205,29 +190,25 @@ local clearButton = createButton(UDim2.new(buttonWidth, 0, 0.2, 0), UDim2.new(st
 local copyButton = createButton(UDim2.new(buttonWidth, 0, 0.2, 0), UDim2.new(startX + 3 * (buttonWidth + buttonSpacing), 0, verticalOffset - 0.54, 0), "Copy", Color3.fromRGB(128, 128, 128), frame)
 local pasteButton = createButton(UDim2.new(buttonWidth, 0, 0.2, 0), UDim2.new(startX + 3 * (buttonWidth + buttonSpacing), 0, verticalOffset - 0.28, 0), "Paste", Color3.fromRGB(128, 128, 128), frame)
 local closeButton = createButton(UDim2.new(0, 30, 0, 30), UDim2.new(1, -35, 0, 5), "X", Color3.fromRGB(255, 0, 0), topFrame)
-local minusButton = createButton(UDim2.new(0, 30, 0, 30), UDim2.new(1, -70, 0, 5), "-", Color3.fromRGB(255, 255, 0), topFrame)
-
-minusButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+local minusButton = createButton(UDim2.new(0, 30, 0, 30), UDim2.new(1, -70, 0, 5), "–", Color3.fromRGB(255, 255, 0), topFrame)
 
 --[[ TOGGLE BUTTON ]]--
-local openButton = Instance.new("TextButton")
+local openButton = Instance.new("TextButton", shashlik)
 openButton.Size = UDim2.new(0, 40, 0, 40)
 openButton.Position = UDim2.new(0.9, 0, 0.0, 0)
 openButton.Text = "+"
 openButton.TextColor3 = Color3.fromRGB(0, 255, 0)
 openButton.TextSize = 30
-openButton.Parent = screenGui
 openButton.Visible = true
 openButton.Active = true
 openButton.Draggable = true
 
 --[[ TOGGLE BUTTON GRADIENT ]]--
-local openButtonGradient = Instance.new("UIGradient")
+local openButtonGradient = Instance.new("UIGradient", openButton)
 openButtonGradient.Color = ColorSequence.new({
     ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 0)),
     ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 0, 255))
 })
-openButtonGradient.Parent = openButton
 
 --[[ EXECUTOR ANIMATION ]]--
 local function scaleUp(frame)
@@ -237,7 +218,6 @@ local function scaleUp(frame)
     tween:Play()
     tween.Completed:Wait()
 end
-
 local function scaleDown(frame, callback)
     local tween = TweenService:Create(frame, TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), { Size = UDim2.new(0, 0, 0, 0) })
     tween:Play()
@@ -252,7 +232,7 @@ local commands = {
     ";tfling2", ";bp1", ";bp2", ";bp3", ";bp4", ";bhtool", ";mvtool", ";grtool", ";tel1", ";tel2", ";glios", ";cmds", ";hth",
     ";zomb", ";search", ";knpc", ";jerk", ";punch", ";invis2", ";invis", ";tel3", ";roa", ";akp1", ";akp2", ";akp3",
     ";prox", ";rochips", ";fc1", ";fc2", "synapse", ";synapse2", ";krnl", ";krnlk", ";bypass", ";fc3", ";rp", ";rp2", ";srp", ";srp2", ";tictactoe", ";illus", ";toolgui", ";keyb", ";wibtt", ";acl", ";krunox", ";crouch", ";srp3", ";srp4", ";tptool",
-    ";rc7 (key: MegaSecretPasswordForRC7)",
+    ";rc7 (key: MegaSecretPasswordForRC7)", "cunc",
     ";krnlk (key: 9X1L9ZPAXN4)"
 }
 
@@ -263,24 +243,27 @@ executeButton.MouseButton1Click:Connect(function()
     elseif codeToExecute == ";tptool" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Tptool/refs/heads/main/Tptool"))()
     elseif codeToExecute == ";jerk" then
-        -- This one is r6:
+      if speaker.Character.Humanoid.RigType == Enum.HumanoidRigType.R6 then
+        -- R6
         loadstring(game:HttpGet("https://pastefy.app/wa3v2Vgm/raw"))()
-        -- This one is r15:
+      elseif speaker.Character.Humanoid.RigType == Enum.HumanoidRigType.R15 then
+        -- R15
         loadstring(game:HttpGet("https://pastefy.app/YZoglOyJ/raw"))()
+      end
     elseif codeToExecute == ";synapse" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Synapse-x/refs/heads/main/Synapse%20x"))()
     elseif codeToExecute == ";synapse2" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/Chillz-s-scripts/main/Synapse-X-Remake.lua"))()
     elseif codeToExecute == ";krnl" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/Chillz-s-scripts/refs/heads/main/KRNL%20UI%20Remake.lua"))()
+elseif codeToExecute == ";mvtool" then
+    loadstring(game:HttpGet("https://pastebin.com/raw/DfjrwJie"))()
     elseif codeToExecute == ";krnl2" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/wtfplayer/redemption/main/krnlnoui.lua"))()
     elseif codeToExecute == ";krnlk" then
         loadstring(game:HttpGet("https://pastebin.com/raw/RJe1HXrQ"))()
-    elseif codeToExecute == ";mvtool" then
-        loadstring(game:HttpGet("https://pastefy.app/Vcuyg09O/raw"))()
     elseif codeToExecute == ";akp3" then
-        loadstring(game:HttpGet("https://pastebin.com/raw/DfjrwJie"))()
+        loadstring(game:HttpGet("https://pastefy.app/Vcuyg09O/raw"))()
     elseif codeToExecute == ";rtt" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/RTT-Tool/refs/heads/main/RTT%20Tool"))()
     elseif codeToExecute == ";bhtool" then
@@ -343,7 +326,7 @@ executeButton.MouseButton1Click:Connect(function()
         loadstring(game:HttpGet('https://pastebin.com/raw/YSL3xKYU'))()
     elseif codeToExecute == ";tfling" then
         loadstring(game:HttpGet("https://pastebin.com/raw/rfKaavP3"))()
-    elseif codeToExecute == ";tfling2" then -- fling ez
+    elseif codeToExecute == ";tfling2" then 
         loadstring(game:HttpGet('https://pastebin.com/raw/TXMNj1yy'))()
     elseif codeToExecute == ";avtor" then
         loadstring(game:HttpGet('https://raw.githubusercontent.com/Avtor1zaTion/Avtor/main/AvtorHub'))()
@@ -382,6 +365,8 @@ executeButton.MouseButton1Click:Connect(function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sakupenXD/SakupScripts/main/Telekinesis"))()
     elseif codeToExecute == ";invis" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Luarmor123/community-Y-HUB/refs/heads/main/invisible-button"))()
+    elseif codeToExecute == ";cunc" then
+        loadstring(game:HttpGet("https://glot.io/snippets/h4d9a8gprw/raw/main.lua"))()
     elseif codeToExecute == ";prox" then
         for i,v in ipairs(game:GetService("Workspace"):GetDescendants()) do
             if v.ClassName == "ProximityPrompt" then
@@ -420,7 +405,9 @@ end)
 closeButton.MouseButton1Click:Connect(function()
     scaleDown(frame, function()
         frame:Destroy()
+        shashlik:Destroy()
         openButton:Destroy()
+        game:GetService("CoreGui").ScreenGui1:Destroy()
     end)
 end)
 
@@ -455,16 +442,8 @@ consoleButton.MouseButton1Click:Connect(function()
     game:GetService("StarterGui"):SetCore("DevConsoleVisible", true)
 end)
 
-player.Chatted:Connect(function(message)
-    if message == ";na" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/main/Source"))()
-    elseif message == ";iy" then
-        loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Infinite-Yield-Reborn-Legacy-21819"))()
-    end
-end)
-
 local cc
-cc = game.Players.LocalPlayer.Chatted:Connect(function(msg)
+cc = speaker.Chatted:Connect(function(msg)
     local spaceSplit = msg:split(" ")
     if spaceSplit[1] == ";tptool" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Tptool/refs/heads/main/Tptool"))()
@@ -481,6 +460,8 @@ cc = game.Players.LocalPlayer.Chatted:Connect(function(msg)
         loadstring(game:HttpGet("https://pastefy.app/Vcuyg09O/raw"))()
     elseif spaceSplit[1] == ";grtool" then
         loadstring(game:HttpGet("https://pastebin.com/raw/gYxbMUwb"))()
+elseif spaceSplit[1] == ";akp3" then
+        loadstring(game:HttpGet("https://pastebin.com/raw/DfjrwJie"))()
     elseif spaceSplit[1] == ";search" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/chillz-workshop/main/ScriptSearcher"))()
     elseif spaceSplit[1] == ";illus" then
@@ -495,8 +476,6 @@ cc = game.Players.LocalPlayer.Chatted:Connect(function(msg)
         loadstring(game:HttpGet("https://raw.githubusercontent.com/AnthonyIsntHere/anthonysrepository/main/scripts/AntiChatLogger.lua"))()
     elseif spaceSplit[1] == ";keyb" then
         loadstring(game:HttpGet('https://pastefy.app/Te4dwSw2/raw'))()
-    elseif spaceSplit[1] == ";akp3" then
-        loadstring(game:HttpGet("https://pastebin.com/raw/DfjrwJie"))()
     elseif spaceSplit[1] == ";crouch" then
         loadstring(game:HttpGet("https://pastebin.com/raw/sebBaBWi"))()
     elseif spaceSplit[1] == ";zomb" then
@@ -574,6 +553,8 @@ cc = game.Players.LocalPlayer.Chatted:Connect(function(msg)
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sakupenXD/SakupScripts/main/Telekinesis"))()
     elseif spaceSplit[1] == ";invis" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Luarmor123/community-Y-HUB/refs/heads/main/invisible-button"))()
+    elseif spaceSplit[1] == ";cunc" then
+      loadstring(game:HttpGet("https://glot.io/snippets/h4d9a8gprw/raw/main.lua"))()
     elseif spaceSplit[1] == ";prox" then
         for i, v in ipairs(game:GetService("Workspace"):GetDescendants()) do
             if v.ClassName == "ProximityPrompt" then
@@ -592,10 +573,11 @@ cc = game.Players.LocalPlayer.Chatted:Connect(function(msg)
     end
 end)
 
+--[[ NOTIFICATION ]]--
 local notificationInfo = {
     Title = "Welcome!",
     Image = "",
-    Text = "shashlik executor loaded!", -- Изменено на "shashlik executor loaded!"
+    Text = "shashlik executor loaded!",
     Duration = "Seconds"
 }
 game:GetService("StarterGui"):SetCore("SendNotification", notificationInfo)
@@ -607,6 +589,19 @@ loaded.SoundId = "rbxassetid://9086208751"
 loaded.Volume = 5
 loaded:Play()
 
---[[ PRINT ]]--
-hellotxt = "Shashlik Executor Succesfully Loaded!🍢 (v.3.7)"
-print(hellotxt)
+--[[ PRINT ANY WORDS ]]--
+getgenv().printing = {
+  helloworld = "Shashlik Executor Succesfully Loaded!🍢 (v.3.7)",
+  byeworld = "Shashlik Executor Not Loaded! Re-Execute Shaslik⛔️ (v.3.7)",
+  fuckworld = "You Blacklisted On Shaslik Executor😂 (v.3.7)",
+}
+
+if game:IsLoaded() then
+  print(printing.helloworld)
+elseif not game:IsLoaded() then
+  print(printing.byeworld)
+  shashlik:Destroy()
+elseif speaker.Name == "Roblox" or speaker.Name == "Roblox" then
+  shashlik:Destroy()
+  speaker:kick(printing.fuckworld)
+end
