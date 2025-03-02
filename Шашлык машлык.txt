@@ -279,7 +279,7 @@ elseif codeToExecute == ";mvtool" then
     elseif codeToExecute == ";knpc" then
         loadstring(game:HttpGet("https://pastebin.com/raw/DcSXwXqC"))()
     elseif codeToExecute == ";grtool" then
-        loadstring(game:HttpGet("https://pastebin.com/raw/gYxbMUwb"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/GrabTool/refs/heads/main/GrabToolFix"))()
     elseif codeToExecute == ";krunox" then
         loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Krunox-13336"))()
     elseif codeToExecute == ";srp2" then
@@ -459,7 +459,7 @@ cc = speaker.Chatted:Connect(function(msg)
     elseif spaceSplit[1] == ";mvtool" then
         loadstring(game:HttpGet("https://pastefy.app/Vcuyg09O/raw"))()
     elseif spaceSplit[1] == ";grtool" then
-        loadstring(game:HttpGet("https://pastebin.com/raw/gYxbMUwb"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/GrabTool/refs/heads/main/GrabToolFix"))()
 elseif spaceSplit[1] == ";akp3" then
         loadstring(game:HttpGet("https://pastebin.com/raw/DfjrwJie"))()
     elseif spaceSplit[1] == ";search" then
