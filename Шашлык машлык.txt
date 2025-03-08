@@ -339,7 +339,7 @@ elseif codeToExecute == ";mvtool" then
     elseif codeToExecute == ";inf" then
         loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Infinite-Yield-Reborn-Legacy-21819"))()
     elseif codeToExecute == ";na1" then
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/Silly-Exploiter/NamedAdmin/main/bamed%20admen.txt'))()
+        loadstring(game:HttpGet("https://github.com/Silly-Exploiter/NamedAdmin/raw/refs/heads/main/Script"))()
     elseif codeToExecute == ";le" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Lelele-bypasser/refs/heads/main/LeLeBypasser.txt"))()
     elseif codeToExecute == ";bp1" then
@@ -525,7 +525,7 @@ elseif spaceSplit[1] == ";akp3" then
     elseif spaceSplit[1] == ";bhtool" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Blackhole/refs/heads/main/Blackhole"))()
     elseif spaceSplit[1] == ";na1" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Silly-Exploiter/NamedAdmin/main/bamed%20admen.txt"))()
+        loadstring(game:HttpGet("https://github.com/Silly-Exploiter/NamedAdmin/raw/refs/heads/main/Script"))()
     elseif spaceSplit[1] == ";le" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Lelele-bypasser/refs/heads/main/LeLeBypasser.txt"))()
     elseif spaceSplit[1] == ";srp2" then
