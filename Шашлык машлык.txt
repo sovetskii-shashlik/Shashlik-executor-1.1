@@ -293,7 +293,7 @@ elseif codeToExecute == ";mvtool" then
     elseif codeToExecute == ";hth" then
         loadstring(game:HttpGet('https://pastefy.app/tI5b3OVD/raw'))()
     elseif codeToExecute == ";bp4" then
-        loadstring(game:HttpGet("https://pastebin.com/raw/TihMhyyh"))()
+        loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Shashlik-bring-parts/raw/refs/heads/main/Shashlik%20bring%20parts"))()
     elseif codeToExecute == ";rc7" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/FE/main/rc7"))()
     elseif codeToExecute == ";search" then
@@ -495,7 +495,7 @@ elseif spaceSplit[1] == ";akp3" then
     elseif spaceSplit[1] == ";tfling2" then
         loadstring(game:HttpGet("https://pastebin.com/raw/TXMNj1yy"))()
     elseif spaceSplit[1] == ";bp4" then
-        loadstring(game:HttpGet("https://pastebin.com/raw/TihMhyyh"))()
+        loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Shashlik-bring-parts/raw/refs/heads/main/Shashlik%20bring%20parts"))()
     elseif spaceSplit[1] == ";srp" then
         loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-SUPER-RING-PARTS-V3-WITH-NO-MESSAGE-26385"))()
     elseif spaceSplit[1] == ";wibtt" then
