@@ -16,6 +16,9 @@ task.spawn(function()
   --//fast console button
   loadstring(game:HttpGet("https://pastebin.com/raw/3KcF9M0m"))()
   
+  --//anti local kick
+loadstring(game:HttpGet("https://raw.githubusercontent.com/spokooo/Anti-Kick/refs/heads/main/Source"))()
+
   --//undetectable anti kick
   loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/AdonisAntikick/refs/heads/main/Antikick"))()
 end)
