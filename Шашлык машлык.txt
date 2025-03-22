@@ -1,4 +1,4 @@
-
+--//random shit text
 --[[
 If gui dont spawn just wait 5-10 sec
 Shashlik Executor Source!!! Current Version is: 3.7
