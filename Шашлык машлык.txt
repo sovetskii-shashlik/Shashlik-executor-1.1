@@ -1,24 +1,13 @@
---//random shit text
 --[[
-If gui dont spawn just wait 5-10 sec
-Shashlik Executor Source!!! Current Version is: 3.7
+Shashlik Executor Source!!! Current Version is: 4.0
 Credits to Maksimilianych228 and Gerdroid
 ]]
---[[ GUI CHECK ]]--
-if game:GetService("CoreGui"):FindFirstChild("shashlik") then
-  game:GetService("CoreGui").shashlik:Destroy()
-elseif game:GetService("CoreGui"):FindFirstChild("ScreenGui1") then
-  game:GetService("CoreGui").ScreenGui1:Destroy()
-end
 
 --[[ MAIN SCRIPTS ]]--
 task.spawn(function()
   --//fast console button
   loadstring(game:HttpGet("https://pastebin.com/raw/3KcF9M0m"))()
   
-  --//anti local kick
-loadstring(game:HttpGet("https://raw.githubusercontent.com/spokooo/Anti-Kick/refs/heads/main/Source"))()
-
   --//undetectable anti kick
   loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/AdonisAntikick/refs/heads/main/Antikick"))()
 end)
@@ -26,21 +15,28 @@ end)
 --[[ VARIABLES ]]--
 local speaker = game.Players.LocalPlayer
 local camera = workspace.CurrentCamera
+local CoreGui = game:GetService("CoreGui")
+local StarterGui = game:GetService("StarterGui")
 local TweenService = game:GetService("TweenService")
 local SoundService = game:GetService("SoundService")
 local RunService = game:GetService("RunService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local UserInputService = game:GetService("UserInputService")
 
+--[[ GUI CHECK ]]--
+if CoreGui:FindFirstChild("shashlik") then
+  CoreGui.shashlik:Destroy()
+end
+
 --[[ PLAYER DETECTION ]]--
 if speaker.Name == "prespeshnikShashlika" or speaker.Name == "MRP76REBORN" then
- print("Shashlik Owner Detected!")
+  print("Shashlik Owner Detected!")
 elseif speaker.Name == "Roblox" or speaker.Name == "Skid" then
   print("Fucking Nigger Ass Retard Detected!")
 end
 
 --[[ SCREEN GUI ]]--
-local shashlik = Instance.new("ScreenGui", game:GetService("CoreGui"))
+local shashlik = Instance.new("ScreenGui", CoreGui)
 shashlik.ResetOnSpawn = false
 
 --[[ MAIN FRAME ]]--
@@ -48,23 +44,43 @@ local frame = Instance.new("Frame", shashlik)
 frame.Size = UDim2.new(0, 450, 0, 225)
 frame.Position = UDim2.new(0.5, 0, 0.475, 0)
 frame.AnchorPoint = Vector2.new(0.5, 0.5)
-frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 frame.BorderSizePixel = 0
-frame.Visible = false
-frame.BackgroundTransparency = 1
+frame.Visible = true
+frame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+frame.BackgroundTransparency = 0.4
 frame.Active = true
 frame.Draggable = true
 
--- 👇 btw this shit doesnt works fix it plz
 local frameCorner = Instance.new("UICorner", frame)
 frameCorner.CornerRadius = UDim.new(0, 20)
 
---[[ GRADIENT FRAME ]]--
-local gradientFrame = Instance.new("Frame", frame)
-gradientFrame.Size = UDim2.new(1, 18, 1, 18)
-gradientFrame.Position = UDim2.new(0, -9, 0, -9)
+local frameShadow = Instance.new("UIStroke", frame)
+frameShadow.Color = Color3.fromRGB(0, 0, 0) 
+frameShadow.Thickness = 5
+frameShadow.Transparency = 0.5 
+frameShadow.ApplyStrokeMode = Enum.ApplyStrokeMode.Border 
 
-local gradient = Instance.new("UIGradient", gradientFrame)
+--[[ TOPFRAME ]]--
+local topFrame = Instance.new("Frame", frame)
+topFrame.Size = UDim2.new(1, 0, 0, 50)
+topFrame.Position = UDim2.new(0, 0, 0, 0)
+topFrame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+topFrame.Visible = true
+
+local topFrameCorner = Instance.new("UICorner", topFrame)
+topFrameCorner.CornerRadius = UDim.new(0, 20)
+
+--[[ TITLELABEL ]]--
+local titleLabel = Instance.new("TextLabel", topFrame)
+titleLabel.Size = UDim2.new(1, -80, 1, 0)
+titleLabel.Position = UDim2.new(0, 0, 0, 0)
+titleLabel.Text = "shashlik executor 4.0"
+titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+titleLabel.BackgroundTransparency = 1
+titleLabel.TextScaled = true
+
+--[[ TITLELABEL GRADIENT ]]--
+local textGradient = Instance.new("UIGradient", titleLabel)
 local function lerpColor(color1, color2, alpha)
     return Color3.new(
         color1.R + (color2.R - color1.R) * alpha,
@@ -72,9 +88,7 @@ local function lerpColor(color1, color2, alpha)
         color1.B + (color2.B - color1.B) * alpha
     )
 end
-
---[[ GRADIENT ANIMATION ]]--
-local function animateGradient()
+local function animateTextGradient()
     local duration = 2
     local steps = 60
     local stepTime = duration / steps
@@ -84,16 +98,16 @@ local function animateGradient()
     while true do
         for i = 0, steps do
             local alpha = i / steps
-            gradient.Color = ColorSequence.new({
+            textGradient.Color = ColorSequence.new({
                 ColorSequenceKeypoint.new(0, lerpColor(color1, color2, alpha)),
                 ColorSequenceKeypoint.new(1, lerpColor(color2, color1, alpha))
             })
             task.wait(stepTime)
         end
-        
+
         for i = 0, steps do
             local alpha = i / steps
-            gradient.Color = ColorSequence.new({
+            textGradient.Color = ColorSequence.new({
                 ColorSequenceKeypoint.new(0, lerpColor(color2, color1, alpha)),
                 ColorSequenceKeypoint.new(1, lerpColor(color1, color2, alpha))
             })
@@ -101,29 +115,10 @@ local function animateGradient()
         end
     end
 end
-
-task.spawn(animateGradient)
-
-
---[[ TOPFRAME ]]--
-local topFrame = Instance.new("Frame")
-topFrame.Size = UDim2.new(1, 0, 0, 50)
-topFrame.Position = UDim2.new(0, 0, 0, 0)
-topFrame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-topFrame.Parent = frame
-
---[[ TITLELABEL ]]--
-local titleLabel = Instance.new("TextLabel")
-titleLabel.Size = UDim2.new(1, -80, 1, 0)
-titleLabel.Position = UDim2.new(0, 0, 0, 0)
-titleLabel.Text = "shashlik executor 3.7"
-titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-titleLabel.BackgroundTransparency = 1
-titleLabel.TextScaled = true
-titleLabel.Parent = topFrame
+task.spawn(animateTextGradient)
 
 --[[ TEXTBOX ]]--
-local textBox = Instance.new("TextBox")
+local textBox = Instance.new("TextBox", frame)
 textBox.Size = UDim2.new(0.73, 0, 0.5, 0)
 textBox.Position = UDim2.new(0, 0, 0, 50)
 textBox.Text = ""
@@ -136,42 +131,55 @@ textBox.TextWrapped = true
 textBox.Font = Enum.Font.Code
 textBox.ClearTextOnFocus = false
 textBox.MultiLine = true
-textBox.Parent = frame
+
+local textBoxCorner = Instance.new("UICorner", textBox)
+textBoxCorner.CornerRadius = UDim.new(0, 10)
 
 --[[ FPS/PING DISPLAY ]]--
-local statsLabel = Instance.new("TextLabel")
+local statsLabel = Instance.new("TextLabel", textBox)
 statsLabel.Size = UDim2.new(0, 200, 0, 20)
 statsLabel.Position = UDim2.new(1, -190, 1, -20)
 statsLabel.Text = "FPS: 0 PING: 0"
 statsLabel.TextSize = 14
 statsLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 statsLabel.BackgroundTransparency = 1
-statsLabel.Font = Enum.Font.SourceSansBold
-statsLabel.Parent = textBox
+statsLabel.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json")
 
-local RunService = game:GetService("RunService")
 local Stats = game:GetService("Stats")
 
 local lastUpdate = 0
 RunService.RenderStepped:Connect(function(deltaTime)
-    task.wait(1.5)
-    local fps = math.floor(1 / deltaTime)
-    local ping = Stats.Network.ServerStatsItem["Data Ping"]:GetValueString()
-    statsLabel.Text = string.format("FPS: %d PING: %s", fps, ping)
+  task.wait(1.5)
+  local fps = math.floor(1 / deltaTime)
+  local ping = Stats.Network.ServerStatsItem["Data Ping"]:GetValueString()
+  statsLabel.Text = string.format("FPS: %d PING: %s", fps, ping)
 end)
 
 --[[ BUTTONS SETUP ]]--
 local function createButton(size, position, text, color, parent)
-    local button = Instance.new("TextButton")
-    button.Size = size
-    button.Position = position
-    button.Text = text
-    button.TextSize = 15
-    button.BackgroundColor3 = color
-    button.Font = Enum.Font.SourceSansBold
-    button.TextColor3 = Color3.fromRGB(255, 255, 255)
-    button.Parent = parent
-    return button
+  local button = Instance.new("TextButton")
+  button.Size = size
+  button.Position = position
+  button.Text = text
+  button.TextSize = 15
+  button.BackgroundColor3 = color
+  button.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json")
+  button.TextColor3 = Color3.fromRGB(255, 255, 255)
+  button.Parent = parent
+  
+  local buttonCorner = Instance.new("UICorner", button)
+  buttonCorner.CornerRadius = UDim.new(0, 10)
+
+  return button
+end
+
+--[[ BUTTONS SOUND ]]--
+local function PlayButtonSound()
+  local ButtonClick = Instance.new("Sound", SoundService)
+  ButtonClick.Name = "SHASHLIK_BUTTON_CLICK_LMAO"
+  ButtonClick.SoundId = "rbxasset://sounds/button.wav"
+  ButtonClick.Volume = 5
+  ButtonClick:Play()
 end
 
 --[[ BUTTONS OFFSET ]]--
@@ -192,39 +200,61 @@ local pasteButton = createButton(UDim2.new(buttonWidth, 0, 0.2, 0), UDim2.new(st
 local closeButton = createButton(UDim2.new(0, 30, 0, 30), UDim2.new(1, -35, 0, 5), "X", Color3.fromRGB(255, 0, 0), topFrame)
 local minusButton = createButton(UDim2.new(0, 30, 0, 30), UDim2.new(1, -70, 0, 5), "–", Color3.fromRGB(255, 255, 0), topFrame)
 
---[[ TOGGLE BUTTON ]]--
-local openButton = Instance.new("TextButton", shashlik)
-openButton.Size = UDim2.new(0, 40, 0, 40)
-openButton.Position = UDim2.new(0.9, 0, 0.0, 0)
-openButton.Text = "+"
-openButton.TextColor3 = Color3.fromRGB(0, 255, 0)
-openButton.TextSize = 30
-openButton.Visible = true
-openButton.Active = true
-openButton.Draggable = true
+--[[ TOGGLE BUTTON (BY MINI CAPY) ]]--
+local DragButton = Instance.new("TextButton", shashlik)
+DragButton.Name = "DragButton"
+DragButton.Size = UDim2.new(0, 50, 0, 40)
+DragButton.Position = UDim2.new(0.9, 0, 0.0, 0)
+DragButton.BackgroundColor3 = Color3.fromRGB(0, 116, 217)
+DragButton.BackgroundTransparency = 0.7
+DragButton.Text = "🍢"
+DragButton.TextColor3 = Color3.new(1, 1, 1)
+DragButton.TextSize = 18
+DragButton.BorderSizePixel = 0
+DragButton.Active = true
+DragButton.Draggable = true
+
+local DragButtonCorner = Instance.new("UICorner", DragButton)
+DragButtonCorner.CornerRadius = UDim.new(0.4, 0)
+
+local DragButtonStroke = Instance.new("UIStroke", DragButton)
+DragButtonStroke.Color = DragButton.BackgroundColor3
+DragButtonStroke.Thickness = 2
+DragButtonStroke.Transparency = 0
+DragButtonStroke.LineJoinMode = Enum.LineJoinMode.Round
+DragButtonStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+
+--[[ EXECUTOR ANIMATION ]]--
+local function fadeIn(frame)
+  frame.Visible = true
+  frame.Size = UDim2.new(0, 0, 0, 0)
+  local tween = TweenService:Create(frame, TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), { Size = UDim2.new(0, 450, 0, 225) })
+  tween:Play()
+  tween.Completed:Wait()
+end
+local function fadeOut(frame, callback)
+  local tween = TweenService:Create(frame, TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), { Size = UDim2.new(0, 0, 0, 0) })
+  tween:Play()
+  tween.Completed:Wait()
+  frame.Visible = false
+  if callback then callback() end
+end
+
+--[[ TOGGLE BUTTON FUNCTIONALLY ]]--
+DragButton.MouseButton1Click:Connect(function()
+  if frame.Visible then
+    fadeOut(frame)
+  else
+    fadeIn(frame)
+  end
+end)
 
 --[[ TOGGLE BUTTON GRADIENT ]]--
-local openButtonGradient = Instance.new("UIGradient", openButton)
+local openButtonGradient = Instance.new("UIGradient", DragButton)
 openButtonGradient.Color = ColorSequence.new({
     ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 0)),
     ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 0, 255))
 })
-
---[[ EXECUTOR ANIMATION ]]--
-local function scaleUp(frame)
-    frame.Visible = true
-    frame.Size = UDim2.new(0, 0, 0, 0)
-    local tween = TweenService:Create(frame, TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), { Size = UDim2.new(0, 450, 0, 225) })
-    tween:Play()
-    tween.Completed:Wait()
-end
-local function scaleDown(frame, callback)
-    local tween = TweenService:Create(frame, TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), { Size = UDim2.new(0, 0, 0, 0) })
-    tween:Play()
-    tween.Completed:Wait()
-    frame.Visible = false
-    if callback then callback() end
-end
 
 --[[ EXECUTOR COMMANDS ]]--
 local commands = {
@@ -255,8 +285,8 @@ executeButton.MouseButton1Click:Connect(function()
     elseif codeToExecute == ";synapse2" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/Chillz-s-scripts/main/Synapse-X-Remake.lua"))()
     elseif codeToExecute == ";krnl" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/Chillz-s-scripts/refs/heads/main/KRNL%20UI%20Remake.lua"))()
-elseif codeToExecute == ";mvtool" then
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/Chillz-s-scripts/refs/heads/main/KRNL%20UI%20Remake.lua"))()
+    elseif codeToExecute == ";mvtool" then
     loadstring(game:HttpGet("https://pastefy.app/Vcuyg09O/raw"))()
     elseif codeToExecute == ";krnl2" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/wtfplayer/redemption/main/krnlnoui.lua"))()
@@ -382,64 +412,76 @@ elseif codeToExecute == ";mvtool" then
             loadstring(codeToExecute)()
         end)
         if not success then
-            print("Ошибка выполнения кода: " .. errorMessage)
+            error("Error string: " .. errorMessage)
         end
     end
+  PlayButtonSound()
+  executeButton.Text = "Executed!"
+  task.wait(.1)
+  executeButton.Text = "Execute"
 end)
 
 clearButton.MouseButton1Click:Connect(function()
-    textBox.Text = ""
+  textBox.Text = ""
+  PlayButtonSound()
+  clearButton.Text = "Cleared!"
+  task.wait(.1)
+  clearButton.Text = "Clear"
 end)
 
 copyButton.MouseButton1Click:Connect(function()
-    local textToCopy = textBox.Text
-    setclipboard(textToCopy)
-    print("Текст скопирован в буфер обмена: " .. textToCopy)
+  local textToCopy = textBox.Text
+  setclipboard(textToCopy)
+  print("Text copyed to clipboard: " .. textToCopy)
+  PlayButtonSound()
+  copyButton.Text = "Copyed!"
+  task.wait(.1)
+  copyButton.Text = "Copy"
 end)
 
 pasteButton.MouseButton1Click:Connect(function()
-    local clipboardText = getclipboard()
-    textBox.Text = clipboardText
+  local clipboardText = getclipboard()
+  textBox.Text = clipboardText
+  PlayButtonSound()
+  pasteButton.Text = "Pasted!"
+  task.wait(.1)
+  pasteButton.Text = "Paste"
 end)
 
 closeButton.MouseButton1Click:Connect(function()
-    scaleDown(frame, function()
-        frame:Destroy()
-        shashlik:Destroy()
-        openButton:Destroy()
-        game:GetService("CoreGui").ScreenGui1:Destroy()
-    end)
+  fadeOut(frame, function()
+    frame:Destroy()
+    shashlik:Destroy()
+    DragButton:Destroy()
+  end)
 end)
 
 minusButton.MouseButton1Click:Connect(function()
-    scaleDown(frame, function()
-        openButton.Visible = true
-    end)
-end)
-
-openButton.MouseButton1Click:Connect(function()
-    scaleUp(frame)
-    openButton.Visible = false
+  fadeOut(frame, function()
+    DragButton.Visible = true
+  end)
 end)
 
 frame:GetPropertyChangedSignal("Visible"):Connect(function()
-    if not frame.Visible then
-        camera.CameraType = Enum.CameraType.Custom
-    end
+  if not frame.Visible then
+    camera.CameraType = Enum.CameraType.Custom
+  end
 end)
 
 executeClipboardButton.MouseButton1Click:Connect(function()
-    local codeToExecute = getclipboard()
-    local success, errorMessage = pcall(function()
-        loadstring(codeToExecute)()
-    end)
-    if not success then
-        print("" .. errorMessage)
-    end
+  local codeToExecute = getclipboard()
+  local success, errorMessage = pcall(function()
+    loadstring(codeToExecute)()
+  end)
+  PlayButtonSound()
+  if not success then
+    print("" .. errorMessage)
+  end
 end)
 
 consoleButton.MouseButton1Click:Connect(function()
-    game:GetService("StarterGui"):SetCore("DevConsoleVisible", true)
+  PlayButtonSound()
+  StarterGui:SetCore("DevConsoleVisible", true)
 end)
 
 local cc
@@ -459,8 +501,8 @@ cc = speaker.Chatted:Connect(function(msg)
     elseif spaceSplit[1] == ";mvtool" then
         loadstring(game:HttpGet("https://pastefy.app/Vcuyg09O/raw"))()
     elseif spaceSplit[1] == ";grtool" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/GrabTool/refs/heads/main/GrabToolFix"))()
-elseif spaceSplit[1] == ";akp3" then
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/GrabTool/refs/heads/main/GrabToolFix"))()
+    elseif spaceSplit[1] == ";akp3" then
         loadstring(game:HttpGet("https://pastebin.com/raw/DfjrwJie"))()
     elseif spaceSplit[1] == ";search" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/chillz-workshop/main/ScriptSearcher"))()
@@ -575,27 +617,26 @@ end)
 
 --[[ NOTIFICATION ]]--
 local notificationInfo = {
-    Title = "Welcome!",
-    Image = "",
-    Text = "shashlik executor loaded!",
-    Duration = "Seconds"
+  Title = "Welcome!",
+  Image = "",
+  Text = "shashlik executor loaded!",
+  Duration = "Seconds",
+  Button1 = "Yay"
 }
-game:GetService("StarterGui"):SetCore("SendNotification", notificationInfo)
+StarterGui:SetCore("SendNotification", notificationInfo)
 
---[[ SOUND PLAY ]]--
-local loaded = Instance.new("Sound")
-loaded.Parent = SoundService
+--[[ INTRO SOUND PLAY ]]--
+local loaded = Instance.new("Sound", SoundService)
 loaded.SoundId = "rbxassetid://9086208751"
 loaded.Volume = 5
 loaded:Play()
 
 --[[ PRINT ANY WORDS ]]--
 getgenv().printing = {
-  helloworld = "Shashlik Executor Succesfully Loaded!🍢 (v.3.7)",
-  byeworld = "Shashlik Executor Not Loaded! Re-Execute Shaslik⛔️ (v.3.7)",
-  fuckworld = "You Blacklisted On Shaslik Executor😂 (v.3.7)",
+  helloworld = "Shashlik Executor Succesfully Loaded! 🍢 (v.4.0)",
+  byeworld = "Shashlik Executor Not Loaded! Re-Execute ⛔️ (v.4.0)",
+  fuckworld = "You Blacklisted On Shashlik Executor 💀 (v.4.0)",
 }
-
 if game:IsLoaded() then
   print(printing.helloworld)
 elseif not game:IsLoaded() then
