@@ -65,7 +65,7 @@ local topFrame = Instance.new("Frame", frame)
 topFrame.Size = UDim2.new(1, 0, 0, 50)
 topFrame.Position = UDim2.new(0, 0, 0, 0)
 topFrame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-topFrame.Visible = true
+topFrame.Visible = true -- трах трах труе
 
 local topFrameCorner = Instance.new("UICorner", topFrame)
 topFrameCorner.CornerRadius = UDim.new(0, 20)
@@ -394,7 +394,7 @@ executeButton.MouseButton1Click:Connect(function()
     elseif codeToExecute == ";tel3" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sakupenXD/SakupScripts/main/Telekinesis"))()
     elseif codeToExecute == ";invis" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Luarmor123/community-Y-HUB/refs/heads/main/invisible-button"))()
+        loadstring(game:HttpGet("https://pastebin.com/raw/3Rnd9rHf"))()
     elseif codeToExecute == ";cunc" then
         loadstring(game:HttpGet("https://glot.io/snippets/h4d9a8gprw/raw/main.lua"))()
     elseif codeToExecute == ";prox" then
@@ -594,7 +594,7 @@ cc = speaker.Chatted:Connect(function(msg)
     elseif spaceSplit[1] == ";tel3" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sakupenXD/SakupScripts/main/Telekinesis"))()
     elseif spaceSplit[1] == ";invis" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Luarmor123/community-Y-HUB/refs/heads/main/invisible-button"))()
+        loadstring(game:HttpGet("https://pastebin.com/raw/3Rnd9rHf"))()
     elseif spaceSplit[1] == ";cunc" then
       loadstring(game:HttpGet("https://glot.io/snippets/h4d9a8gprw/raw/main.lua"))()
     elseif spaceSplit[1] == ";prox" then
