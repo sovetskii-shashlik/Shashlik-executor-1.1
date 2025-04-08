@@ -261,7 +261,7 @@ local commands = {
     ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";fly2", ";rtt", ";qcmd",
     ";tfling2", ";bp1", ";bp2", ";bp3", ";bp4", ";bhtool", ";mvtool", ";grtool", ";tel1", ";tel2", ";glios", ";cmds", ";hth",
     ";zomb", ";search", ";knpc", ";jerk", ";punch", ";invis2", ";invis", ";tel3", ";roa", ";akp1", ";akp2", ";akp3",
-    ";prox", ";rochips", ";fc1", ";fc2", ";synapse", ";synapse2", ";krnl", ";krnlk", ";bypass", ";fc3", ";rp", ";rp2", ";srp", ";srp2", ";tictactoe", ";illus", ";toolgui", ";keyb", ";wibtt", ";acl", ";krunox", ";crouch", ";srp3", ";srp4", ";tptool",
+    ";prox", ";rochips", ";fc1", ";fc2", ";synapse", ";synapse2", ";krnl", ";krnlk", ";bypass", ";fc3", ";rp", ";rp2", ";srp", ";srp2", ";tictactoe", ";illus", ";toolgui", ";keyb", ";wibtt", ";acl", ";krunox", ";crouch", ";srp3", ";srp4", ";tptool", ";ngp",
     ";rc7", "cunc",
     ";krnlk (key: 9X1L9ZPAXN4)"
 }
@@ -282,6 +282,8 @@ executeButton.MouseButton1Click:Connect(function()
       end
     elseif codeToExecute == ";synapse" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Synapse-x/refs/heads/main/Synapse%20x"))()
+    elseif codeToExecute == ";ngp" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/hm5650/Gravity-inverter/refs/heads/main/GI"))()
     elseif codeToExecute == ";synapse2" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/Chillz-s-scripts/main/Synapse-X-Remake.lua"))()
     elseif codeToExecute == ";krnl" then
@@ -566,6 +568,8 @@ cc = speaker.Chatted:Connect(function(msg)
         loadstring(game:HttpGet("https://pastefy.app/hdd1kF9c/raw"))("T.me/AvtorScripts")
     elseif spaceSplit[1] == ";bhtool" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Blackhole/refs/heads/main/Blackhole"))()
+    elseif spaceSplit[1] == ";ngp" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/hm5650/Gravity-inverter/refs/heads/main/GI"))()
     elseif spaceSplit[1] == ";na1" then
         loadstring(game:HttpGet("https://github.com/Silly-Exploiter/NamedAdmin/raw/refs/heads/main/Script"))()
     elseif spaceSplit[1] == ";le" then
