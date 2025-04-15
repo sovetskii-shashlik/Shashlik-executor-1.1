@@ -261,7 +261,7 @@ local commands = {
     ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";fly2", ";rtt", ";qcmd",
     ";tfling2", ";bp1", ";bp2", ";bp3", ";bp4", ";bp5", ";bhtool", ";mvtool", ";grtool", ";tel1", ";tel2", ";glios", ";cmds", ";hth",
     ";zomb", ";search", ";knpc", ";jerk", ";punch", ";invis2", ";invis", ";tel3", ";roa", ";akp1", ";akp2", ";akp3",
-    ";prox", ";rochips", ";fc1", ";fc2", ";synapse", ";synapse2", ";krnl", ";krnlk", ";bypass", ";fc3", ";rp", ";rp2", ";srp", ";srp2", ";tictactoe", ";illus", ";toolgui", ";keyb", ";wibtt", ";acl", ";krunox", ";crouch", ";srp3", ";srp4", ";tptool", ";ngp",
+    ";prox", ";rochips", ";fc1", ";fc2", ";synapse", ";synapse2", ";krnl", ";krnlk", ";bypass", ";fc3", ";rp", ";rp2", ";srp", ";srp2", ";tictactoe", ";illus", ";toolgui", ";keyb", ";wibtt", ";acl", ";krunox", ";crouch", ";srp3", ";srp4", ";tptool", ";ngp", ";sfly",
     ";rc7", "cunc",
     ";krnlk (key: 9X1L9ZPAXN4)"
 }
@@ -282,6 +282,8 @@ executeButton.MouseButton1Click:Connect(function()
       end
     elseif codeToExecute == ";synapse" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Synapse-x/refs/heads/main/Synapse%20x"))()
+    elseif codeToExecute == ";sfly" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/8973951821973068216/11374577211057006363/refs/heads/main/supermanfly.luau"))()
     elseif codeToExecute == ";ngp" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/hm5650/Gravity-inverter/refs/heads/main/GI"))()
     elseif codeToExecute == ";bp5" then
@@ -510,6 +512,8 @@ cc = speaker.Chatted:Connect(function(msg)
         loadstring(game:HttpGet("https://pastebin.com/raw/DfjrwJie"))()
     elseif spaceSplit[1] == ";search" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/chillz-workshop/main/ScriptSearcher"))()
+    elseif spaceSplit[1] == ";sfly" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/8973951821973068216/11374577211057006363/refs/heads/main/supermanfly.luau"))()
     elseif spaceSplit[1] == ";illus" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/0Ben1/fe/main/obf_11l7Y131YqJjZ31QmV5L8pI23V02b3191sEg26E75472Wl78Vi8870jRv5txZyL1.lua.txt"))()
     elseif spaceSplit[1] == ";hth" then
