@@ -7,7 +7,7 @@ Credits to Maksimilianych228 and Gerdroid
 task.spawn(function()
   --//fast console button
   loadstring(game:HttpGet("https://pastebin.com/raw/3KcF9M0m"))()
-  
+
   --//undetectable anti kick
   loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/AdonisAntikick/refs/heads/main/Antikick"))()
 end)
@@ -166,7 +166,7 @@ local function createButton(size, position, text, color, parent)
   button.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json")
   button.TextColor3 = Color3.fromRGB(255, 255, 255)
   button.Parent = parent
-  
+
   local buttonCorner = Instance.new("UICorner", button)
   buttonCorner.CornerRadius = UDim.new(0, 10)
 
@@ -283,7 +283,7 @@ executeButton.MouseButton1Click:Connect(function()
     elseif codeToExecute == ";synapse" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Synapse-x/refs/heads/main/Synapse%20x"))()
     elseif codeToExecute == ";sfly" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/8973951821973068216/11374577211057006363/refs/heads/main/supermanfly.luau"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Bac0nHck/Scripts/refs/heads/main/superman_fly.lua"))()
     elseif codeToExecute == ";ngp" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/hm5650/Gravity-inverter/refs/heads/main/GI"))()
     elseif codeToExecute == ";bp5" then
@@ -422,7 +422,7 @@ elseif codeToExecute == ";backpack" then
     elseif codeToExecute == ";invis2" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/CloudHub111/Scripts/refs/heads/main/Fe%20Invisible%20Beta", Beta))()
     elseif codeToExecute == ";rochips" then
-        if "you wanna use rochips universal" then 	local z_x,z_z="gzrux646yj/raw/main.ts","https://glot.io/snippets/" 	local im,lonely,z_c=task.wait,game,loadstring 	z_c(lonely:HttpGet(z_z..""..z_x))() 	return ("This will load in about 2 - 30 seconds" or "according to your device and executor") end 
+        if "you wanna use rochips universal" then         local z_x,z_z="gzrux646yj/raw/main.ts","https://glot.io/snippets/"         local im,lonely,z_c=task.wait,game,loadstring         z_c(lonely:HttpGet(z_z..""..z_x))()         return ("This will load in about 2 - 30 seconds" or "according to your device and executor") end 
     else
         local success, errorMessage = pcall(function()
             loadstring(codeToExecute)()
@@ -523,7 +523,7 @@ cc = speaker.Chatted:Connect(function(msg)
     elseif spaceSplit[1] == ";search" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/chillz-workshop/main/ScriptSearcher"))()
     elseif spaceSplit[1] == ";sfly" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/8973951821973068216/11374577211057006363/refs/heads/main/supermanfly.luau"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Bac0nHck/Scripts/refs/heads/main/superman_fly.lua"))()
     elseif spaceSplit[1] == ";illus" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/0Ben1/fe/main/obf_11l7Y131YqJjZ31QmV5L8pI23V02b3191sEg26E75472Wl78Vi8870jRv5txZyL1.lua.txt"))()
     elseif spaceSplit[1] == ";hth" then
