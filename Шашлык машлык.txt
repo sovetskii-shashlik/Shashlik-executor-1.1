@@ -283,7 +283,7 @@ executeButton.MouseButton1Click:Connect(function()
     elseif codeToExecute == ";synapse" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Synapse-x/refs/heads/main/Synapse%20x"))()
     elseif codeToExecute == ";hitbox" then
-        loadstring(game:HttpGet("https://glot.io/snippets/h7o7qi4xuh/raw/hitbox.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/hm5650/Hitblox/refs/heads/main/Hitblox"))()
     elseif codeToExecute == ";cvb" then
         loadstring(game:HttpGet("https://glot.io/snippets/h7je4skic1/raw/cvb.lua"))()
     elseif codeToExecute == ";ska" then
