@@ -260,8 +260,8 @@ openButtonGradient.Color = ColorSequence.new({
 local commands = {
     ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";fly2", ";rtt", ";rkt", ";qcmd",
     ";tfling2", ";bp1", ";bp2", ";bp3", ";bp4", ";bp5", ";bhtool", ";mvtool", ";grtool", ";tel1", ";tel2", ";glios", ";cmds", ";hth",
-    ";zomb", ";search", ";knpc", ";jerk", ";punch", ";invis2", ";invis", ";tel3", ";roa", ";akp1", ";akp2", ";akp3", ";keyb3", ";keyb4", ";cvb", ";ska", ";reach", ";reach2", ";hitbox", ";aimbot", ";cfling", ";finger", ";spdmtr",
-    ";prox", ";rochips", ";fc1", ";fc2", ";synapse", ";synapse2", ";krnl", ";krnlk", ";bypass", ";fc3", ";rp", ";rp2", ";srp", ";srp2", ";tictactoe", ";illus", ";toolgui", ";keyb", ";wibtt", ";acl", ";krunox", ";crouch", ";srp3", ";srp4", ";tptool", ";ngp", ";sfly",
+    ";zomb", ";search", ";knpc", ";jerk", ";punch", ";invis2", ";invis", ";invis3", ";tel3", ";roa", ";akp1", ";akp2", ";akp3", ";keyb3", ";keyb4", ";cvb", ";ska", ";reach", ";reach2", ";hitbox", ";aimbot", ";cfling", ";finger", ";spdmtr",
+    ";prox", ";rochips", ";fc1", ";fc2", ";synapse", ";synapse2", ";krnl", ";krnlk", ";bypass", ";fc3", ";rp", ";rp2", ";srp", ";srp2", ";tictactoe", ";illus", ";toolgui", ";keyb", ";wibtt", ";acl", ";krunox", ";crouch", ";srp3", ";srp4", ";tptool", ";ngp",
     ";rc7", ";cunc", ";keyb2", ";na3", ";backpack",
     ";krnlk (key: 9X1L9ZPAXN4)"
 }
@@ -300,8 +300,8 @@ executeButton.MouseButton1Click:Connect(function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/ChomikDev/ShitScripts/refs/heads/main/FE%20Finger%20Obfuscated.txt"))()
     elseif codeToExecute == ";spdmtr" then
         loadstring(game:HttpGet("https://pastebin.com/raw/WYi7Bm8u"))()
-    elseif codeToExecute == ";sfly" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Bac0nHck/Scripts/refs/heads/main/superman_fly.lua"))()
+    elseif codeToExecute == ";invis3" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/hm5650/Invis/refs/heads/main/Invistoggle"))()
     elseif codeToExecute == ";ngp" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/hm5650/Gravity-inverter/refs/heads/main/GI"))()
     elseif codeToExecute == ";rkt" then
