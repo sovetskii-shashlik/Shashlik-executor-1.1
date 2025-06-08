@@ -258,7 +258,7 @@ openButtonGradient.Color = ColorSequence.new({
 
 --[[ EXECUTOR COMMANDS ]]--
 local commands = {
-    ";krunox", ";dhex", ";qcmd", ";strawberry",
+    ";krunox", ";dhex", ";qcmd", ";straw",
     ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";fly2", ";rtt", ";rkt",
     ";tfling2", ";bp1", ";bp2", ";bp3", ";bp4", ";bp5", ";bhtool", ";mvtool", ";grtool", ";tel1", ";tel2", ";glios", ";cmds", ";hth",
     ";zomb", ";search", ";knpc", ";jerk", ";punch", ";invis2", ";invis", ";invis3", ";tel3", ";roa", ";akp1", ";akp2", ";akp3", ";keyb3", ";keyb4", ";cvb", ";ska", ";reach", ";reach2", ";hitbox", ";aimbot", ";cfling", ";finger", ";spdmtr",
@@ -285,7 +285,7 @@ executeButton.MouseButton1Click:Connect(function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Synapse-x/refs/heads/main/Synapse%20x"))()
     elseif codeToExecute == ";dhex" then
         loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Destructed-hex/raw/refs/heads/main/Destructed%20hex%20gui"))()
-    elseif codeToExecute == ";strawberry" then
+    elseif codeToExecute == ";straw" then
         loadstring(game:HttpGet("https://github.com/C-Dr1ve/Strawberry/raw/refs/heads/main/Scanner_Source/V3.00.lua"))()
     elseif codeToExecute == ";hitbox" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/hm5650/Hitblox/refs/heads/main/Hitblox"))()
