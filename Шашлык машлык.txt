@@ -259,7 +259,7 @@ openButtonGradient.Color = ColorSequence.new({
 --[[ EXECUTOR COMMANDS ]]--
 local commands = {
     ";krunox", ";dhex", ";qcmd", ";straw",
-    ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";fly2", ";rtt", ";rkt",
+    ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";sfly", ";rtt", ";rkt",
     ";tfling2", ";bp1", ";bp2", ";bp3", ";bp4", ";bp5", ";bhtool", ";mvtool", ";grtool", ";tel1", ";tel2", ";glios", ";cmds", ";hth",
     ";zomb", ";search", ";knpc", ";jerk", ";punch", ";invis2", ";invis", ";invis3", ";tel3", ";roa", ";akp1", ";akp2", ";akp3", ";keyb3", ";keyb4", ";cvb", ";ska", ";reach", ";reach2", ";hitbox", ";aimbot", ";cfling", ";finger", ";spdmtr",
     ";prox", ";rochips", ";fc1", ";fc2", ";synapse", ";synapse2", ";krnl", ";krnlk", ";bypass", ";fc3", ";rp", ";rp2", ";srp", ";srp2", ";tictactoe", ";illus", ";toolgui", ";keyb", ";wibtt", ";acl", ";crouch", ";srp3", ";srp4", ";tptool", ";ngp", ";fling",
@@ -391,8 +391,8 @@ executeButton.MouseButton1Click:Connect(function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/zephyr10101/CameraSpy/main/Script"))()
     elseif codeToExecute == ";fc3" then
         loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/Freecam'))()
-    elseif codeToExecute == ";fly2" then
-        loadstring(game:HttpGet('https://pastebin.com/raw/YSL3xKYU'))()
+    elseif codeToExecute == ";sfly" then
+        loadstring(game:HttpGet("https://glot.io/snippets/h8id91ebrx/raw/supermanfly.lua"))()
     elseif codeToExecute == ";tfling" then
         loadstring(game:HttpGet("https://pastebin.com/raw/rfKaavP3"))()
     elseif codeToExecute == ";tfling2" then 
@@ -571,8 +571,8 @@ cc = speaker.Chatted:Connect(function(msg)
         loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Shashlik-bring-parts/raw/refs/heads/main/Shashlik%20Bring%20Parts%20v2"))()
     elseif spaceSplit[1] == ";fly" then
         loadstring(game:HttpGet("https://pastefy.app/M0N30XXG/raw"))()
-    elseif spaceSplit[1] == ";fly2" then
-        loadstring(game:HttpGet("https://pastebin.com/raw/YSL3xKYU"))()
+    elseif spaceSplit[1] == ";sfly" then
+        loadstring(game:HttpGet("https://glot.io/snippets/h8id91ebrx/raw/supermanfly.lua"))()
     elseif spaceSplit[1] == ";tfling" then
         loadstring(game:HttpGet("https://pastebin.com/raw/rfKaavP3"))()
     elseif spaceSplit[1] == ";toolgui" then
