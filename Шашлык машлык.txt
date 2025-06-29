@@ -302,7 +302,7 @@ executeButton.MouseButton1Click:Connect(function()
     elseif codeToExecute == ";cfling" then
         loadstring(game:HttpGet("https://glot.io/snippets/h7t99b052l/raw/FlingTool.lua"))()
     elseif codeToExecute == ";finger" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/ChomikDev/ShitScripts/refs/heads/main/FE%20Finger%20Obfuscated.txt"))()
+        loadstring(game:HttpGet("https://gitlab.com/sovetskii-shashlik/fingerguiv3/-/raw/main/FingerGuiV3.lua"))()
     elseif codeToExecute == ";spdmtr" then
         loadstring(game:HttpGet("https://pastebin.com/raw/WYi7Bm8u"))()
     elseif codeToExecute == ";invis3" then
