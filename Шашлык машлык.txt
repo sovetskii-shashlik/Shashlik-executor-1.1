@@ -260,7 +260,7 @@ openButtonGradient.Color = ColorSequence.new({
 local commands = {
     ";krunox", ";dhex", ";qcmd", ";straw",
     ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";sfly", ";rtt", ";rkt",
-    ";tfling2", ";bp1", ";bp2", ";bp3", ";bp4", ";bp5", ";bp6", ";bhtool", ";mvtool", ";grtool", ";tel1", ";tel2", ";glios", ";cmds", ";hth",
+    ";tfling2", ";bp1", ";bp2", ";bp3", ";bp4", ";bp5", ";bp6", ";bp7", ";bhtool", ";mvtool", ";grtool", ";tel1", ";tel2", ";glios", ";cmds", ";hth",
     ";zomb", ";search", ";knpc", ";jerk", ";punch", ";invis2", ";invis", ";invis3", ";tel3", ";roa", ";akp1", ";akp2", ";akp3", ";keyb3", ";keyb4", ";cvb", ";ska", ";reach", ";reach2", ";hitbox", ";aimbot", ";cfling", ";finger", ";spdmtr",
     ";prox", ";rochips", ";fc1", ";fc2", ";synapse", ";synapse2", ";krnl", ";krnlk", ";bypass", ";fc3", ";rp", ";rp2", ";srp", ";srp2", ";tictactoe", ";illus", ";toolgui", ";keyb", ";wibtt", ";acl", ";crouch", ";srp3", ";srp4", ";tptool", ";ngp", ";fling", ";esp",
     ";rc7", ";cunc", ";keyb2", ";na3", ";backpack",
@@ -319,6 +319,8 @@ executeButton.MouseButton1Click:Connect(function()
         loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Shashlik-bring-parts/raw/refs/heads/main/Shashlik%20Bring%20Parts%20v2"))()
     elseif codeToExecute == ";bp6" then
         loadstring(game:HttpGet("https://glot.io/snippets/h6k1ijlqsv/raw/vagina.lua"))()
+    elseif codeToExecute == ";bp7" then
+        loadstring(game:HttpGet("https://pastebin.com/raw/bbBracWG"))()
     elseif codeToExecute == ";synapse2" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/Chillz-s-scripts/main/Synapse-X-Remake.lua"))()
     elseif codeToExecute == ";krnl" then
