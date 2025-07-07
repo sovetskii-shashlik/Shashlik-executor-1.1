@@ -426,7 +426,7 @@ executeButton.MouseButton1Click:Connect(function()
     elseif codeToExecute == ";bp2" then
         loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Better-Bring-Parts-Ui-SOLARA-and-Fixed-Lags-21780"))()
     elseif codeToExecute == ";bp3" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/GoofyBlox/GoofyZ/refs/heads/main/Best/Vortex.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/GoofyBlox/GoofyZ/refs/heads/main/Best/VorteX.lua"))()
     elseif codeToExecute == ";tel1" then
         loadstring(game:HttpGet("https://rawscripts.net/raw/a-literal-baseplate.-FE-Telekinesis-15523"))()
     elseif codeToExecute == ";tel2" then
@@ -632,7 +632,7 @@ cc = speaker.Chatted:Connect(function(msg)
     elseif spaceSplit[1] == ";bp2" then
         loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Better-Bring-Parts-Ui-SOLARA-and-Fixed-Lags-21780"))()
     elseif spaceSplit[1] == ";bp3" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/GoofyBlox/GoofyZ/refs/heads/main/Best/Vortex.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/GoofyBlox/GoofyZ/refs/heads/main/Best/VorteX.lua"))()
     elseif spaceSplit[1] == ";tel1" then
         loadstring(game:HttpGet("https://rawscripts.net/raw/a-literal-baseplate.-FE-Telekinesis-15523"))()
     elseif spaceSplit[1] == ";tel2" then
