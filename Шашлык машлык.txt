@@ -430,7 +430,7 @@ executeButton.MouseButton1Click:Connect(function()
     elseif codeToExecute == ";tictactoe" then
         loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/refs/heads/main/Tic%20Tac%20Toe'))()
     elseif codeToExecute == ";inf" then
-        loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Infinite-Yield-Reborn-Legacy-21819"))()
+        loadstring(game:HttpGet("https://github.com/mxsynry/infiniteyield-reborn/raw/refs/heads/master/source"))()
     elseif codeToExecute == ";na1" then
         loadstring(game:HttpGet("https://github.com/Silly-Exploiter/NamedAdmin/raw/refs/heads/main/Script"))()
     elseif codeToExecute == ";le" then
@@ -626,7 +626,7 @@ cc = speaker.Chatted:Connect(function(msg)
     elseif spaceSplit[1] == ";na2" then
         loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-Nameless-admin-14114"))()
     elseif spaceSplit[1] == ";inf" then
-        loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Infinite-Yield-Reborn-Legacy-21819"))()
+        loadstring(game:HttpGet("https://github.com/mxsynry/infiniteyield-reborn/raw/refs/heads/master/source"))()
     elseif spaceSplit[1] == ";srp3" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Super-ring-parts-without-massage/refs/heads/main/Super%20ring%20parts"))()
     elseif spaceSplit[1] == ";rp2" then
