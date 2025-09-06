@@ -261,7 +261,7 @@ local commands = {
     ";krunox", ";dhex", ";qcmd", ";straw",
     ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";sfly", ";fly2", ";sfly2", ";rtt", ";rkt",
     ";tfling2", ";bp1", ";bp2", ";bp3", ";bp4", ";bp5", ";bp6", ";bp7", ";bhtool", ";mvtool", ";grtool", ";tel1", ";tel2", ";glios", ";cmds", ";hth",
-    ";zomb", ";search", ";knpc", ";jerk", ";punch", ";invis2", ";invis", ";invis3", ";tel3", ";roa", ";akp1", ";akp2", ";akp3", ";keyb3", ";keyb4", ";cvb", ";ska", ";reach", ";reach2", ";hitbox", ";aimbot", ";cfling", ";finger", ";spdmtr",
+    ";zomb", ";search", ";knpc", ";jerk", ";punch", ";invis2", ";invis", ";invis3", ";tel3", ";roa", ";akp1", ";akp2", ";akp3", ";keyb3", ";keyb4", ";cvb", ";ska", ";reach", ";reach2", ";hitbox", ";aimbot", ";cfling", ";finger", ";finger2", ";spdmtr",
     ";prox", ";rochips", ";fc1", ";fc2", ";synapse", ";synapse2", ";krnl", ";krnlk", ";bypass", ";fc3", ";rp", ";rp2", ";srp", ";srp2", ";tictactoe", ";illus", ";toolgui", ";keyb", ";cspy", ";slock", ";wibtt", ";acl", ";crouch", ";srp3", ";srp4", ";tptool", ";ngp", ";fling", ";esp", ";radar", ";OCDtool", ";fc4",
     ";rc7", ";cunc", ";keyb2", ";na3", ";backpack", ";backpack2",
     ";krnlk (key: 9X1L9ZPAXN4)"
@@ -313,6 +313,8 @@ executeButton.MouseButton1Click:Connect(function()
         loadstring(game:HttpGet("https://glot.io/snippets/h7t99b052l/raw/FlingTool.lua"))()
     elseif codeToExecute == ";finger" then
         loadstring(game:HttpGet("https://gitlab.com/sovetskii-shashlik/fingerguiv3/-/raw/main/FingerGuiV3.lua"))()
+    elseif codeToExecute == ";finger2" then
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/ChomikDev/ShitScripts/refs/heads/main/Finger%20FE.lua', true))()
     elseif codeToExecute == ";spdmtr" then
         loadstring(game:HttpGet("https://pastebin.com/raw/WYi7Bm8u"))()
     elseif codeToExecute == ";fly2" then
