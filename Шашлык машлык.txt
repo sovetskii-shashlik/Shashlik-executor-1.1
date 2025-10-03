@@ -36,9 +36,8 @@ end
 --[[ GUI ]]--
 local screenGui = Instance.new("ScreenGui")
 screenGui.Name = "ShashlikExecutor"
-screenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 screenGui.ResetOnSpawn = false
-screenGui.Parent = playerGui
+screenGui.Parent = CoreGui
 
 --[[ Main Container ]]--
 local mainContainer = Instance.new("Frame")
