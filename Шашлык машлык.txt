@@ -1,5 +1,5 @@
 --[[
-Shashlik Executor Source!!! Current Version is: 4.0 → GUI Updated to Modern Style
+Shashlik Executor Source!!! Current Version is: 5.0 → GUI Updated to Modern Style
 Credits to Maksimilianych228 and Gerdroid
 ]]
 --[[ MAIN SCRIPTS ]]--
@@ -558,4 +558,4 @@ loaded.SoundId = "rbxassetid://9086208751"
 loaded.Volume = 5
 loaded:Play()
 
-print("Shashlik Executor v4.0 (Modern GUI) loaded successfully! 🍢")
+print("Shashlik Executor v5.0 (Modern GUI) loaded successfully! 🍢")
