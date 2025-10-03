@@ -40,7 +40,7 @@ screenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 screenGui.ResetOnSpawn = false
 screenGui.Parent = playerGui
 
--- Main Container
+--[[ Main Container ]]
 local mainContainer = Instance.new("Frame")
 mainContainer.Size = UDim2.new(0, 600, 0, 300)
 mainContainer.Position = UDim2.new(0.5, -300, 0.5, -200)
