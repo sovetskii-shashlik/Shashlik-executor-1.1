@@ -1,262 +1,217 @@
 --[[
-Shashlik Executor Source!!! Current Version is: 4.0
+Shashlik Executor Source!!! Current Version is: 5.0 → GUI Updated to Modern Style
 Credits to Maksimilianych228 and Gerdroid
 ]]
-
 --[[ MAIN SCRIPTS ]]--
 task.spawn(function()
   --//fast console button
   loadstring(game:HttpGet("https://pastebin.com/raw/3KcF9M0m"))()
-
   --//undetectable anti kick
   loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/AdonisAntikick/refs/heads/main/Antikick"))()
 end)
 
---[[ VARIABLES ]]--
-local speaker = game.Players.LocalPlayer
-local camera = workspace.CurrentCamera
-local CoreGui = game:GetService("CoreGui")
+--[[ SERVICES ]]--
+local Players = game:GetService("Players")
 local StarterGui = game:GetService("StarterGui")
 local TweenService = game:GetService("TweenService")
 local SoundService = game:GetService("SoundService")
 local RunService = game:GetService("RunService")
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Stats = game:GetService("Stats")
 local UserInputService = game:GetService("UserInputService")
-
---[[ GUI CHECK ]]--
-if CoreGui:FindFirstChild("shashlik") then
-  CoreGui.shashlik:Destroy()
-end
+local player = Players.LocalPlayer
 
 --[[ PLAYER DETECTION ]]--
-if speaker.Name == "prespeshnikShashlika" or speaker.Name == "MRP76REBORN" then
+if player.Name == "prespeshnikShashlika" or player.Name == "MRP76REBORN" then
   print("Shashlik Owner Detected!")
-elseif speaker.Name == "Roblox" or speaker.Name == "Skid" then
+elseif player.Name == "Roblox" or player.Name == "Skid" then
   print("Fucking Nigger Ass Retard Detected!")
 end
 
---[[ SCREEN GUI ]]--
-local shashlik = Instance.new("ScreenGui", CoreGui)
-shashlik.ResetOnSpawn = false
-
---[[ MAIN FRAME ]]--
-local frame = Instance.new("Frame", shashlik)
-frame.Size = UDim2.new(0, 450, 0, 225)
-frame.Position = UDim2.new(0.5, 0, 0.475, 0)
-frame.AnchorPoint = Vector2.new(0.5, 0.5)
-frame.BorderSizePixel = 0
-frame.Visible = false
-frame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-frame.BackgroundTransparency = 0.4
-
-local dragDetector = Instance.new("UIDragDetector", frame)
-
-local frameCorner = Instance.new("UICorner", frame)
-frameCorner.CornerRadius = UDim.new(0, 20)
-
-local frameShadow = Instance.new("UIStroke", frame)
-frameShadow.Color = Color3.fromRGB(0, 0, 0) 
-frameShadow.Thickness = 5
-frameShadow.Transparency = 0.5 
-frameShadow.ApplyStrokeMode = Enum.ApplyStrokeMode.Border 
-
---[[ TOPFRAME ]]--
-local topFrame = Instance.new("Frame", frame)
-topFrame.Size = UDim2.new(1, 0, 0, 50)
-topFrame.Position = UDim2.new(0, 0, 0, 0)
-topFrame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-topFrame.Visible = true -- трах трах труе
-
-local topFrameCorner = Instance.new("UICorner", topFrame)
-topFrameCorner.CornerRadius = UDim.new(0, 20)
-
---[[ TITLELABEL ]]--
-local titleLabel = Instance.new("TextLabel", topFrame)
-titleLabel.Size = UDim2.new(1, -80, 1, 0)
-titleLabel.Position = UDim2.new(0, 0, 0, 0)
-titleLabel.Text = "shashlik executor 4.0"
-titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-titleLabel.BackgroundTransparency = 1
-titleLabel.TextScaled = true
-
---[[ TITLELABEL GRADIENT ]]--
-local textGradient = Instance.new("UIGradient", titleLabel)
-local function lerpColor(color1, color2, alpha)
-    return Color3.new(
-        color1.R + (color2.R - color1.R) * alpha,
-        color1.G + (color2.G - color1.G) * alpha,
-        color1.B + (color2.B - color1.B) * alpha
-    )
+--[[ CLEANUP ]]--
+local playerGui = player:WaitForChild("PlayerGui")
+if playerGui:FindFirstChild("ShashlikExecutor") then
+    playerGui:FindFirstChild("ShashlikExecutor"):Destroy()
 end
-local function animateTextGradient()
-    local duration = 2
-    local steps = 60
-    local stepTime = duration / steps
-    local color1 = Color3.fromRGB(0, 0, 255)
-    local color2 = Color3.fromRGB(0, 0, 0)
 
-    while true do
-        for i = 0, steps do
-            local alpha = i / steps
-            textGradient.Color = ColorSequence.new({
-                ColorSequenceKeypoint.new(0, lerpColor(color1, color2, alpha)),
-                ColorSequenceKeypoint.new(1, lerpColor(color2, color1, alpha))
-            })
-            task.wait(stepTime)
-        end
+--[[ GUI ]]--
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "ShashlikExecutor"
+screenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+screenGui.ResetOnSpawn = false
+screenGui.Parent = playerGui
 
-        for i = 0, steps do
-            local alpha = i / steps
-            textGradient.Color = ColorSequence.new({
-                ColorSequenceKeypoint.new(0, lerpColor(color2, color1, alpha)),
-                ColorSequenceKeypoint.new(1, lerpColor(color1, color2, alpha))
-            })
-            task.wait(stepTime)
-        end
-    end
-end
-task.spawn(animateTextGradient)
+-- Main Container
+local mainContainer = Instance.new("Frame")
+mainContainer.Size = UDim2.new(0, 600, 0, 300)
+mainContainer.Position = UDim2.new(0.5, -300, 0.5, -200)
+mainContainer.BackgroundColor3 = Color3.fromRGB(20, 20, 25)
+mainContainer.BorderSizePixel = 0
+mainContainer.ClipsDescendants = true
+mainContainer.Active = true
+mainContainer.Draggable = true
+mainContainer.Visible = false
+mainContainer.Parent = screenGui
 
---[[ TEXTBOX ]]--
-local textBox = Instance.new("TextBox", frame)
-textBox.Size = UDim2.new(0.73, 0, 0.5, 0)
-textBox.Position = UDim2.new(0, 0, 0, 50)
-textBox.Text = ""
-textBox.TextSize = 16
-textBox.PlaceholderText = "Welcome to shashlik exec! Put on textbox ;cmds and execute"
-textBox.TextColor3 = Color3.fromRGB(255, 255, 255)
-textBox.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
-textBox.BorderSizePixel = 0
-textBox.TextWrapped = true
-textBox.Font = Enum.Font.Code
-textBox.ClearTextOnFocus = false
-textBox.MultiLine = true
+--[[ Corner & Shadow ]]
+local corner = Instance.new("UICorner", mainContainer)
+corner.CornerRadius = UDim.new(0, 8)
 
-local textBoxCorner = Instance.new("UICorner", textBox)
-textBoxCorner.CornerRadius = UDim.new(0, 10)
+local shadow = Instance.new("ImageLabel", mainContainer)
+shadow.Size = UDim2.new(1, 20, 1, 20)
+shadow.Position = UDim2.new(0, -10, 0, -10)
+shadow.BackgroundTransparency = 1
+shadow.Image = "rbxassetid://1316045217"
+shadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
+shadow.ImageTransparency = 0.8
+shadow.ScaleType = Enum.ScaleType.Slice
+shadow.SliceCenter = Rect.new(10, 10, 118, 118)
+shadow.ZIndex = -1
 
---[[ FPS/PING DISPLAY ]]--
-local statsLabel = Instance.new("TextLabel", textBox)
-statsLabel.Size = UDim2.new(0, 200, 0, 20)
-statsLabel.Position = UDim2.new(1, -190, 1, -20)
+--[[ Top Bar ]]
+local topBar = Instance.new("Frame", mainContainer)
+topBar.Size = UDim2.new(1, 0, 0, 30)
+topBar.BackgroundColor3 = Color3.fromRGB(30, 30, 40)
+topBar.BorderSizePixel = 0
+
+local topBarCorner = Instance.new("UICorner", topBar)
+topBarCorner.CornerRadius = UDim.new(0, 8)
+
+--[[ Title ]]
+local title = Instance.new("TextLabel", topBar)
+title.Size = UDim2.new(1, -80, 1, 0)
+title.Position = UDim2.new(0, 10, 0, 0)
+title.BackgroundTransparency = 1
+title.TextColor3 = Color3.fromRGB(255, 255, 255)
+title.Text = "SHASHLIK EXECUTOR v5.0"
+title.Font = Enum.Font.GothamBold
+title.TextSize = 14
+title.TextXAlignment = Enum.TextXAlignment.Left
+
+--[[ Close & Minimize ]]
+local closeButton = Instance.new("TextButton", topBar)
+closeButton.Size = UDim2.new(0, 25, 0, 25)
+closeButton.Position = UDim2.new(1, -30, 0, 2)
+closeButton.BackgroundColor3 = Color3.fromRGB(255, 60, 60)
+closeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+closeButton.Text = "X"
+closeButton.Font = Enum.Font.GothamBold
+closeButton.TextSize = 12
+
+local closeCorner = Instance.new("UICorner", closeButton)
+closeCorner.CornerRadius = UDim.new(0, 4)
+
+local minusButton = Instance.new("TextButton", topBar)
+minusButton.Size = UDim2.new(0, 25, 0, 25)
+minusButton.Position = UDim2.new(1, -60, 0, 2)
+minusButton.BackgroundColor3 = Color3.fromRGB(255, 200, 60)
+minusButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+minusButton.Text = "–"
+minusButton.Font = Enum.Font.GothamBold
+minusButton.TextSize = 16
+
+local minusCorner = Instance.new("UICorner", minusButton)
+minusCorner.CornerRadius = UDim.new(0, 4)
+
+--[[ Editor Frame ]]
+local editorFrame = Instance.new("Frame", mainContainer)
+editorFrame.Size = UDim2.new(1, -20, 0, 190)
+editorFrame.Position = UDim2.new(0, 10, 0, 40)
+editorFrame.BackgroundColor3 = Color3.fromRGB(15, 15, 20)
+editorFrame.BorderSizePixel = 0
+editorFrame.ClipsDescendants = true
+
+local editorCorner = Instance.new("UICorner", editorFrame)
+editorCorner.CornerRadius = UDim.new(0, 6)
+
+--[[ Script Box ]]
+local scriptBox = Instance.new("TextBox", editorFrame)
+scriptBox.Size = UDim2.new(1, -10, 1, -10)
+scriptBox.Position = UDim2.new(0, 5, 0, 5)
+scriptBox.BackgroundTransparency = 1
+scriptBox.TextColor3 = Color3.fromRGB(220, 220, 220)
+scriptBox.Text = "--// Welcome to shashlik exec! Put on textbox ;cmds and execute"
+scriptBox.Font = Enum.Font.Code
+scriptBox.TextSize = 12
+scriptBox.TextXAlignment = Enum.TextXAlignment.Left
+scriptBox.TextYAlignment = Enum.TextYAlignment.Top
+scriptBox.ClearTextOnFocus = false
+scriptBox.MultiLine = true
+scriptBox.TextWrapped = false
+
+--[[ FPS/Ping ]]
+local statsLabel = Instance.new("TextLabel", scriptBox)
+statsLabel.Size = UDim2.new(0, 180, 0, 20)
+statsLabel.Position = UDim2.new(1, -180, 1, -20)
 statsLabel.Text = "FPS: 0 PING: 0"
-statsLabel.TextSize = 14
-statsLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+statsLabel.TextSize = 12
+statsLabel.TextColor3 = Color3.fromRGB(200, 200, 200)
 statsLabel.BackgroundTransparency = 1
-statsLabel.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json")
+statsLabel.Font = Enum.Font.Gotham
 
-local Stats = game:GetService("Stats")
-
-local lastUpdate = 0
-RunService.RenderStepped:Connect(function(deltaTime)
-  task.wait(1.5)
-  local fps = math.floor(1 / deltaTime)
-  local ping = Stats.Network.ServerStatsItem["Data Ping"]:GetValueString()
-  statsLabel.Text = string.format("FPS: %d PING: %s", fps, ping)
+RunService.RenderStepped:Connect(function(dt)
+    task.delay(1.5, function()
+        local fps = math.floor(1 / dt)
+        local ping = Stats.Network.ServerStatsItem["Data Ping"]:GetValueString()
+        statsLabel.Text = string.format("FPS: %d PING: %s", fps, ping)
+    end)
 end)
 
---[[ BUTTONS SETUP ]]--
-local function createButton(size, position, text, color, parent)
-  local button = Instance.new("TextButton")
-  button.Size = size
-  button.Position = position
-  button.Text = text
-  button.TextSize = 15
-  button.BackgroundColor3 = color
-  button.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json")
-  button.TextColor3 = Color3.fromRGB(255, 255, 255)
-  button.Parent = parent
+--[[ Button Frame ]]
+local buttonFrame = Instance.new("Frame", mainContainer)
+buttonFrame.Size = UDim2.new(1, -20, 0, 50)
+buttonFrame.Position = UDim2.new(0, 10, 0, 240)
+buttonFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 30)
+buttonFrame.BorderSizePixel = 0
 
-  local buttonCorner = Instance.new("UICorner", button)
-  buttonCorner.CornerRadius = UDim.new(0, 10)
+local buttonFrameCorner = Instance.new("UICorner", buttonFrame)
+buttonFrameCorner.CornerRadius = UDim.new(0, 6)
 
-  return button
+local buttonPanel = Instance.new("Frame", buttonFrame)
+buttonPanel.Size = UDim2.new(1, -20, 1, -10)
+buttonPanel.Position = UDim2.new(0, 10, 0, 5)
+buttonPanel.BackgroundTransparency = 1
+
+--[[ Helper to create buttons ]]
+local function makeButton(parent, pos, text, color)
+    local btn = Instance.new("TextButton")
+    btn.Size = UDim2.new(0, 100, 1, 0)
+    btn.Position = pos
+    btn.Text = text
+    btn.Font = Enum.Font.GothamBold
+    btn.TextSize = 14
+    btn.BackgroundColor3 = color
+    btn.TextColor3 = Color3.fromRGB(255, 255, 255)
+    btn.Parent = parent
+    local c = Instance.new("UICorner", btn)
+    c.CornerRadius = UDim.new(0, 6)
+    return btn
 end
 
---[[ BUTTONS SOUND ]]--
+local executeButton = makeButton(buttonPanel, UDim2.new(0, 10, 0, 0), "EXECUTE", Color3.fromRGB(80, 180, 80))
+local clearButton = makeButton(buttonPanel, UDim2.new(0, 120, 0, 0), "CLEAR", Color3.fromRGB(180, 80, 80))
+local copyButton = makeButton(buttonPanel, UDim2.new(0, 230, 0, 0), "COPY", Color3.fromRGB(80, 120, 200))
+local pasteButton = makeButton(buttonPanel, UDim2.new(0, 340, 0, 0), "PASTE", Color3.fromRGB(120, 80, 200))
+local execClipButton = makeButton(buttonPanel, UDim2.new(0, 450, 0, 0), "CLIPBOARD", Color3.fromRGB(200, 120, 80))
+
+--[[ Hover effect ]]
+local function setupHover(btn)
+    btn.MouseEnter:Connect(function() TweenService:Create(btn, TweenInfo.new(0.2), {BackgroundTransparency = 0.2}):Play() end)
+    btn.MouseLeave:Connect(function() TweenService:Create(btn, TweenInfo.new(0.2), {BackgroundTransparency = 0}):Play() end)
+end
+for _, b in ipairs({executeButton, clearButton, copyButton, pasteButton, execClipButton, consoleButton, closeButton, minusButton}) do
+    setupHover(b)
+end
+
+--[[ Sound ]]
 local function PlayButtonSound()
-  local ButtonClick = Instance.new("Sound", SoundService)
-  ButtonClick.Name = "SHASHLIK_BUTTON_CLICK_LMAO"
-  ButtonClick.SoundId = "rbxasset://sounds/button.wav"
-  ButtonClick.Volume = 5
-  ButtonClick:Play()
+    local snd = Instance.new("Sound", SoundService)
+    snd.SoundId = "rbxasset://sounds/button.wav"
+    snd.Volume = 5
+    snd:Play()
+    task.delay(1, function() snd:Destroy() end)
 end
 
---[[ BUTTONS OFFSET ]]--
-local buttonWidth = 0.2
-local buttonSpacing = 0.05
-local buttonOffset = 0.05 
-local totalWidth = buttonWidth * 4 + buttonSpacing * 3
-local startX = (1 - totalWidth) / 2
-local verticalOffset = 0.8
-
---[[ VARIABLES BUTTONS ]]--
-local executeButton = createButton(UDim2.new(buttonWidth, 0, 0.2, 0), UDim2.new(startX, 0, verticalOffset, 0), "Execute", Color3.fromRGB(128, 128, 128), frame)
-local executeClipboardButton = createButton(UDim2.new(buttonWidth, 0, 0.2, 0), UDim2.new(startX + buttonWidth + buttonSpacing, 0, verticalOffset, 0), "Execute Clipboard", Color3.fromRGB(128, 128, 128), frame)
-local consoleButton = createButton(UDim2.new(buttonWidth, 0, 0.2, 0), UDim2.new(startX + 2 * (buttonWidth + buttonSpacing), 0, verticalOffset, 0), "Console", Color3.fromRGB(128, 128, 128), frame)
-local clearButton = createButton(UDim2.new(buttonWidth, 0, 0.2, 0), UDim2.new(startX + 3 * (buttonWidth + buttonSpacing), 0, verticalOffset, 0), "Clear", Color3.fromRGB(128, 128, 128), frame)
-local copyButton = createButton(UDim2.new(buttonWidth, 0, 0.2, 0), UDim2.new(startX + 3 * (buttonWidth + buttonSpacing), 0, verticalOffset - 0.54, 0), "Copy", Color3.fromRGB(128, 128, 128), frame)
-local pasteButton = createButton(UDim2.new(buttonWidth, 0, 0.2, 0), UDim2.new(startX + 3 * (buttonWidth + buttonSpacing), 0, verticalOffset - 0.28, 0), "Paste", Color3.fromRGB(128, 128, 128), frame)
-local closeButton = createButton(UDim2.new(0, 30, 0, 30), UDim2.new(1, -35, 0, 5), "X", Color3.fromRGB(255, 0, 0), topFrame)
-local minusButton = createButton(UDim2.new(0, 30, 0, 30), UDim2.new(1, -70, 0, 5), "–", Color3.fromRGB(255, 255, 0), topFrame)
-
---[[ TOGGLE BUTTON (BY MINI CAPY) ]]--
-local DragButton = Instance.new("TextButton", shashlik)
-DragButton.Name = "DragButton"
-DragButton.Size = UDim2.new(0, 50, 0, 40)
-DragButton.Position = UDim2.new(0.9, 0, 0.0, 0)
-DragButton.BackgroundColor3 = Color3.fromRGB(0, 116, 217)
-DragButton.BackgroundTransparency = 0.7
-DragButton.Text = "🍢"
-DragButton.TextColor3 = Color3.new(1, 1, 1)
-DragButton.TextSize = 18
-DragButton.BorderSizePixel = 0
-DragButton.Active = true
-DragButton.Draggable = true
-
-local DragButtonCorner = Instance.new("UICorner", DragButton)
-DragButtonCorner.CornerRadius = UDim.new(0.4, 0)
-
-local DragButtonStroke = Instance.new("UIStroke", DragButton)
-DragButtonStroke.Color = DragButton.BackgroundColor3
-DragButtonStroke.Thickness = 2
-DragButtonStroke.Transparency = 0
-DragButtonStroke.LineJoinMode = Enum.LineJoinMode.Round
-DragButtonStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-
---[[ EXECUTOR ANIMATION ]]--
-local function fadeIn(frame)
-  frame.Visible = true
-  frame.Size = UDim2.new(0, 0, 0, 0)
-  local tween = TweenService:Create(frame, TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), { Size = UDim2.new(0, 450, 0, 225) })
-  tween:Play()
-  tween.Completed:Wait()
-end
-local function fadeOut(frame, callback)
-  local tween = TweenService:Create(frame, TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), { Size = UDim2.new(0, 0, 0, 0) })
-  tween:Play()
-  tween.Completed:Wait()
-  frame.Visible = false
-  if callback then callback() end
-end
-
---[[ TOGGLE BUTTON FUNCTIONALLY ]]--
-DragButton.MouseButton1Click:Connect(function()
-  if frame.Visible then
-    fadeOut(frame)
-  else
-    fadeIn(frame)
-  end
-end)
-
---[[ TOGGLE BUTTON GRADIENT ]]--
-local openButtonGradient = Instance.new("UIGradient", DragButton)
-openButtonGradient.Color = ColorSequence.new({
-    ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 0)),
-    ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 0, 255))
-})
-
---[[ EXECUTOR COMMANDS ]]--
+--[[ FULL COMMAND LIST ]]
 local commands = {
     ";krunox", ";dhex", ";qcmd", ";straw",
     ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";sfly", ";fly2", ";sfly2", ";rtt", ";rkt",
@@ -267,459 +222,338 @@ local commands = {
     ";krnlk (key: 9X1L9ZPAXN4)"
 }
 
-executeButton.MouseButton1Click:Connect(function()
-    local codeToExecute = textBox.Text
-    if codeToExecute == ";cmds" then
-        textBox.Text = "Существующие команды:\n" .. table.concat(commands, "\n") .. "\n\nНовые команды:\n;fly\n;fly2\n;qcmd\n;jerk\n;punch\n;akp1\n;akp2"
-    elseif codeToExecute == ";tptool" then
+--[[ EXECUTE LOGIC ]]
+local function executeCode(code)
+    if code == ";cmds" then
+        scriptBox.Text = "Существующие команды:\n" .. table.concat(commands, "\n") .. "
+    elseif code == ";tptool" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Tptool/refs/heads/main/Tptool"))()
-    elseif codeToExecute == ";jerk" then
-      if speaker.Character.Humanoid.RigType == Enum.HumanoidRigType.R6 then
-        -- R6
-        loadstring(game:HttpGet("https://pastefy.app/wa3v2Vgm/raw"))()
-      elseif speaker.Character.Humanoid.RigType == Enum.HumanoidRigType.R15 then
-        -- R15
-        loadstring(game:HttpGet("https://pastefy.app/YZoglOyJ/raw"))()
-      end
-    elseif codeToExecute == ";synapse" then
+    elseif code == ";jerk" then
+        if player.Character.Humanoid.RigType == Enum.HumanoidRigType.R6 then
+            loadstring(game:HttpGet("https://pastefy.app/wa3v2Vgm/raw"))()
+        else
+            loadstring(game:HttpGet("https://pastefy.app/YZoglOyJ/raw"))()
+        end
+    elseif code == ";synapse" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Synapse-x/refs/heads/main/Synapse%20x"))()
-    elseif codeToExecute == ";slock" then
+    elseif code == ";slock" then
         loadstring(game:HttpGet("https://glot.io/snippets/h9d5rkcl47/raw/ShiftLock.lua"))()
-    elseif codeToExecute == ";cspy" then
+    elseif code == ";cspy" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Dan41/Roblox-Scripts/refs/heads/main/CHAT%20SPY%20-%202025/ChatSpy2025.lua"))()
-    elseif codeToExecute == ";dhex" then
+    elseif code == ";dhex" then
         loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Destructed-hex/raw/refs/heads/main/Destructed%20hex%20gui"))()
-    elseif codeToExecute == ";straw" then
+    elseif code == ";straw" then
         loadstring(game:HttpGet("https://github.com/C-Dr1ve/Strawberry/raw/refs/heads/main/Scanner_Source/V3.00.lua"))()
-    elseif codeToExecute == ";fc4" then
+    elseif code == ";fc4" then
         loadstring(game:HttpGet("https://pastebin.com/raw/H3281zhD"))()
-    elseif codeToExecute == ";r15anims" then
+    elseif code == ";r15anims" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/7yd7/Hub/refs/heads/Branch/GUIS/Emotes.lua"))()
-    elseif codeToExecute == ";OCDtool" then
+    elseif code == ";OCDtool" then
         loadstring(game:HttpGet("https://glot.io/snippets/h9l8vsvzz6/raw/OCDT.lua"))()
-    elseif codeToExecute == ";esp" then
+    elseif code == ";esp" then
         loadstring(game:HttpGet("https://glot.io/snippets/h8wks8n8p4/raw/Esp.lua"))()
-    elseif codeToExecute == ";hitbox" then
+    elseif code == ";hitbox" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/hm5650/Hitblox/refs/heads/main/Hitblox"))()
-    elseif codeToExecute == ";cvb" then
+    elseif code == ";cvb" then
         loadstring(game:HttpGet("https://glot.io/snippets/h7je4skic1/raw/cvb.lua"))()
-    elseif codeToExecute == ";ska" then
+    elseif code == ";ska" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/hm5650/InstantKillig/refs/heads/main/Coolkillguithingy"))()
-    elseif codeToExecute == ";reach" then
+    elseif code == ";reach" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/wuxuin/Reach-sword/refs/heads/main/Reach%20sword"))()
-    elseif codeToExecute == ";reach2" then
+    elseif code == ";reach2" then
         loadstring(game:HttpGet("https://glot.io/snippets/h7i90cj5s8/raw/reach.lua"))()
-    elseif codeToExecute == ";aim" then
-        loadstring(game:HttpGet("https://glot.io/snippets/h7sums3610/raw/ArceusAimModified.lua"))()
-    elseif codeToExecute == ";cfling" then
+    elseif code == ";cfling" then
         loadstring(game:HttpGet("https://glot.io/snippets/h7t99b052l/raw/FlingTool.lua"))()
-    elseif codeToExecute == ";finger" then
+    elseif code == ";finger" then
         loadstring(game:HttpGet("https://gitlab.com/sovetskii-shashlik/fingerguiv3/-/raw/main/FingerGuiV3.lua"))()
-    elseif codeToExecute == ";finger2" then
+    elseif code == ";finger2" then
         loadstring(game:HttpGet('https://raw.githubusercontent.com/ChomikDev/ShitScripts/refs/heads/main/Finger%20FE.lua', true))()
-    elseif codeToExecute == ";spdmtr" then
+    elseif code == ";spdmtr" then
         loadstring(game:HttpGet("https://pastebin.com/raw/WYi7Bm8u"))()
-    elseif codeToExecute == ";fly2" then
+    elseif code == ";fly2" then
         loadstring(game:HttpGet("https://glot.io/snippets/h9empzjulm/raw/FlyGui.lua"))()
-    elseif codeToExecute == ";invis3" then
+    elseif code == ";invis3" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/hm5650/Invis/refs/heads/main/Invistoggle"))()
-    elseif codeToExecute == ";fling" then
+    elseif code == ";fling" then
         loadstring(game:HttpGet("https://glot.io/snippets/h86gnsdgud/raw/FlingGui.lua"))()
-    elseif codeToExecute == ";ngp" then
+    elseif code == ";ngp" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/hm5650/Gravity-inverter/refs/heads/main/GI"))()
-    elseif codeToExecute == ";rkt" then
+    elseif code == ";rkt" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/RTT-Tool/main/RKT%20Tool"))()
-    elseif codeToExecute == ";radar" then
+    elseif code == ";radar" then
         loadstring(game:HttpGet("https://glot.io/snippets/h94bz03sm6/raw/Radar.lua"))()
-    elseif codeToExecute == ";bp5" then
+    elseif code == ";bp5" then
         loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Shashlik-bring-parts/raw/refs/heads/main/Shashlik%20Bring%20Parts%20v2"))()
-    elseif codeToExecute == ";bp6" then
+    elseif code == ";bp6" then
         loadstring(game:HttpGet("https://glot.io/snippets/h6k1ijlqsv/raw/vagina.lua"))()
-    elseif codeToExecute == ";bp7" then
+    elseif code == ";bp7" then
         loadstring(game:HttpGet("https://pastebin.com/raw/bbBracWG"))()
-    elseif codeToExecute == ";bp8" then
+    elseif code == ";bp8" then
         loadstring(game:HttpGet("https://glot.io/snippets/h6k1ijlqsv/raw/klitor.lua"))()
-    elseif codeToExecute == ";synapse2" then
+    elseif code == ";synapse2" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/Chillz-s-scripts/main/Synapse-X-Remake.lua"))()
-    elseif codeToExecute == ";krnl" then
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/Chillz-s-scripts/refs/heads/main/KRNL%20UI%20Remake.lua"))()
-    elseif codeToExecute == ";mvtool" then
-    loadstring(game:HttpGet("https://pastefy.app/Vcuyg09O/raw"))()
-    elseif codeToExecute == ";krnl2" then
+    elseif code == ";krnl" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/Chillz-s-scripts/refs/heads/main/KRNL%20UI%20Remake.lua"))()
+    elseif code == ";mvtool" then
+        loadstring(game:HttpGet("https://pastefy.app/Vcuyg09O/raw"))()
+    elseif code == ";krnl2" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/wtfplayer/redemption/main/krnlnoui.lua"))()
-    elseif codeToExecute == ";krnlk" then
+    elseif code == ";krnlk" then
         loadstring(game:HttpGet("https://pastebin.com/raw/DfjrwJie"))()
-    elseif codeToExecute == ";akp3" then
+    elseif code == ";akp3" then
         loadstring(game:HttpGet("https://pastebin.com/raw/DfjrwJie"))()
-    elseif codeToExecute == ";rtt" then
+    elseif code == ";rtt" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/RTT-Tool/refs/heads/main/RTT%20Tool"))()
-    elseif codeToExecute == ";bhtool" then
+    elseif code == ";bhtool" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Blackhole/refs/heads/main/Blackhole"))()
-    elseif codeToExecute == ";bypass" then
+    elseif code == ";bypass" then
         loadstring(game:HttpGet'https://raw.githubusercontent.com/m1kp0/universal_scripts/refs/heads/main/chat_bypass.lua')()
-    elseif codeToExecute == ";keyb2" then
+    elseif code == ";keyb2" then
         loadstring(game:HttpGet("https://github.com/ltseverydayyou/uuuuuuu/raw/refs/heads/main/VirtualKeyboard.lua"))()
-    elseif codeToExecute == ";na3" then
+    elseif code == ";na3" then
         loadstring(game:HttpGet("https://github.com/ltseverydayyou/Nameless-Admin/raw/refs/heads/main/Source.lua"))()
-    elseif codeToExecute == ";backpack" then
+    elseif code == ";backpack" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/uuuuuuu/refs/heads/main/mobileBACKPACK.lua"))()
-    elseif codeToExecute == ";backpack2" then
+    elseif code == ";backpack2" then
         loadstring(game:HttpGet("https://glot.io/snippets/h9u1v79k2y/raw/CusInv.lua"))()
-    elseif codeToExecute == ";acl" then
+    elseif code == ";acl" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/AnthonyIsntHere/anthonysrepository/main/scripts/AntiChatLogger.lua"))()
-    elseif codeToExecute == ";srp4" then
+    elseif code == ";srp4" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Avtor-ring-parts-Updated/refs/heads/main/Avtor%20ring%20parts"))()
-    elseif codeToExecute == ";qcmd" then
+    elseif code == ";qcmd" then
         loadstring(game:HttpGet("https://gist.github.com/someunknowndude/38cecea5be9d75cb743eac8b1eaf6758/raw"))()
-    elseif codeToExecute == ";knpc" then
+    elseif code == ";knpc" then
         loadstring(game:HttpGet("https://pastebin.com/raw/DcSXwXqC"))()
-    elseif codeToExecute == ";grtool" then
+    elseif code == ";grtool" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/GrabTool/refs/heads/main/GrabToolFix"))()
-    elseif codeToExecute == ";krunox" then
+    elseif code == ";krunox" then
         loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Krunox-13336"))()
-    elseif codeToExecute == ";srp2" then
+    elseif code == ";srp2" then
         loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Open-Source-Ring-Parts-26702"))()
-    elseif codeToExecute == ";toolgui" then
+    elseif code == ";toolgui" then
         loadstring(game:HttpGet("https://pastebin.com/raw/ZvstfPXM"))()
-    elseif codeToExecute == ";srp3" then
+    elseif code == ";srp3" then
         loadstring(game:HttpGet('https://raw.githubusercontent.com/sovetskii-shashlik/Super-ring-parts-without-massage/refs/heads/main/Super%20ring%20parts'))()
-    elseif codeToExecute == ";illus" then
+    elseif code == ";illus" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/0Ben1/fe/main/obf_11l7Y131YqJjZ31QmV5L8pI23V02b3191sEg26E75472Wl78Vi8870jRv5txZyL1.lua.txt"))()
-    elseif codeToExecute == ";hth" then
+    elseif code == ";hth" then
         loadstring(game:HttpGet('https://pastefy.app/tI5b3OVD/raw'))()
-    elseif codeToExecute == ";bp4" then
+    elseif code == ";bp4" then
         loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Shashlik-bring-parts/raw/refs/heads/main/Shashlik%20bring%20parts"))()
-    elseif codeToExecute == ";rc7" then
+    elseif code == ";rc7" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/FE/main/rc7"))()
-    elseif codeToExecute == ";search" then
+    elseif code == ";search" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/chillz-workshop/main/ScriptSearcher"))()
-    elseif codeToExecute == ";crouch" then
+    elseif code == ";crouch" then
         loadstring(game:HttpGet("https://pastebin.com/raw/sebBaBWi"))()
-    elseif codeToExecute == ";rp2" then
+    elseif code == ";rp2" then
         loadstring(game:HttpGet("https://pastefy.app/hdd1kF9c/raw"))("T.me/AvtorScripts")
-    elseif codeToExecute == ";zomb" then
+    elseif code == ";zomb" then
         loadstring(game:HttpGet('https://pastefy.app/w7KnPY70/raw'))()
-    elseif codeToExecute == ";rp" then
+    elseif code == ";rp" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Ritual-parts/refs/heads/main/Ritual%20parts%20without%20message"))()
-    elseif codeToExecute == ";wibtt" then
+    elseif code == ";wibtt" then
         loadstring(game:HttpGet('https://raw.githubusercontent.com/BaconBossScript/Crazy/main/Crazy'))()
-    elseif codeToExecute == ";keyb" then
+    elseif code == ";keyb" then
         loadstring(game:HttpGet('https://pastefy.app/Te4dwSw2/raw'))()
-    elseif codeToExecute == ";roa" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/randomstring0/new/refs/heads/main/cmd.lua"))() --команды rochips--
-    elseif codeToExecute == ";fly" then
+    elseif code == ";roa" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/randomstring0/new/refs/heads/main/cmd.lua"))()
+    elseif code == ";fly" then
         loadstring(game:HttpGet('https://pastefy.app/M0N30XXG/raw'))()
-    elseif codeToExecute == ";srp" then
+    elseif code == ";srp" then
         loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-SUPER-RING-PARTS-V3-WITH-NO-MESSAGE-26385"))()
-    elseif codeToExecute == ";fc1" then
+    elseif code == ";fc1" then
         loadstring(game:HttpGet('https://pastefy.app/9CDN9Kaj/raw'))()
-    elseif codeToExecute == ";fc2" then
+    elseif code == ";fc2" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/zephyr10101/CameraSpy/main/Script"))()
-    elseif codeToExecute == ";fc3" then
+    elseif code == ";fc3" then
         loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/Freecam'))()
-    elseif codeToExecute == ";sfly" then
+    elseif code == ";sfly" then
         loadstring(game:HttpGet("https://glot.io/snippets/h8id91ebrx/raw/supermanfly.lua"))()
-    elseif codeToExecute == ";sfly2" then
+    elseif code == ";sfly2" then
         loadstring(game:HttpGet("https://glot.io/snippets/hag0gpvlf0/raw/sfly2.lua"))()
-    elseif codeToExecute == ";tfling" then
+    elseif code == ";tfling" then
         loadstring(game:HttpGet("https://pastebin.com/raw/rfKaavP3"))()
-    elseif codeToExecute == ";tfling2" then 
+    elseif code == ";tfling2" then 
         loadstring(game:HttpGet('https://pastebin.com/raw/TXMNj1yy'))()
-    elseif codeToExecute == ";avtor" then
+    elseif code == ";avtor" then
         loadstring(game:HttpGet('https://raw.githubusercontent.com/Avtor1zaTion/Avtor/main/AvtorHub'))()
-    elseif codeToExecute == ";gh" then
+    elseif code == ";gh" then
         loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/GhostHub'))()
-    elseif codeToExecute == ";keyb3" then
+    elseif code == ";keyb3" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Xxtan31/Ata/main/deltakeyboardcrack.txt"))()
-    elseif codeToExecute == ";keyb4" then
+    elseif code == ";keyb4" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt"))()
-    elseif codeToExecute == ";na2" then
+    elseif code == ";na2" then
         loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-Nameless-admin-14114"))()
-    elseif codeToExecute == ";tictactoe" then
+    elseif code == ";tictactoe" then
         loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/refs/heads/main/Tic%20Tac%20Toe'))()
-    elseif codeToExecute == ";inf" then
+    elseif code == ";inf" then
         loadstring(game:HttpGet("https://github.com/mxsynry/infiniteyield-reborn/raw/refs/heads/master/source"))()
-    elseif codeToExecute == ";na1" then
+    elseif code == ";na1" then
         loadstring(game:HttpGet("https://github.com/Silly-Exploiter/NamedAdmin/raw/refs/heads/main/Script"))()
-    elseif codeToExecute == ";le" then
+    elseif code == ";le" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Lelele-bypasser/refs/heads/main/LeLeBypasser.txt"))()
-    elseif codeToExecute == ";bp1" then
+    elseif code == ";bp1" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Bac0nHck/Scripts/main/BringFlingPlayers"))()
-    elseif codeToExecute == ";bp2" then
+    elseif code == ";bp2" then
         loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Better-Bring-Parts-Ui-SOLARA-and-Fixed-Lags-21780"))()
-    elseif codeToExecute == ";bp3" then
+    elseif code == ";bp3" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/GoofyBlox/GoofyZ/refs/heads/main/Best/VorteX.lua"))()
-    elseif codeToExecute == ";tel1" then
+    elseif code == ";tel1" then
         loadstring(game:HttpGet("https://rawscripts.net/raw/a-literal-baseplate.-FE-Telekinesis-15523"))()
-    elseif codeToExecute == ";tel2" then
+    elseif code == ";tel2" then
         loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/randomstring0/Qwerty/refs/heads/main/qwerty11.lua"))()
-    elseif codeToExecute == ";glios" then
+    elseif code == ";glios" then
         writefile(".nonecing", "white")
         loadstring(game:HttpGet('https://glot.io/snippets/gua2ntmbdm/raw/main.lua'))()
-    elseif codeToExecute == ";punch" then
+    elseif code == ";punch" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/FE/main/punch",true))()
-    elseif codeToExecute == ";akp1" then
+    elseif code == ";akp1" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/zephyr10101/ignore-touchinterests/main/main", true))()
-    elseif codeToExecute == ";akp2" then
+    elseif code == ";akp2" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Anti-kill-parts-updated-/refs/heads/main/Anti%20kill%20parts%20by%20Zephyr"))()
-    elseif codeToExecute == ";tel3" then
+    elseif code == ";tel3" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sakupenXD/SakupScripts/main/Telekinesis"))()
-    elseif codeToExecute == ";invis" then
+    elseif code == ";invis" then
         loadstring(game:HttpGet("https://pastebin.com/raw/3Rnd9rHf"))()
-    elseif codeToExecute == ";cunc" then
+    elseif code == ";cunc" then
         loadstring(game:HttpGet("https://glot.io/snippets/h4d9a8gprw/raw/main.lua"))()
-    elseif codeToExecute == ";prox" then
-        for i,v in ipairs(game:GetService("Workspace"):GetDescendants()) do
+    elseif code == ";prox" then
+        for i,v in ipairs(workspace:GetDescendants()) do
             if v.ClassName == "ProximityPrompt" then
                 v.HoldDuration = 0
             end
         end
-    elseif codeToExecute == ";invis2" then
+    elseif code == ";invis2" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/CloudHub111/Scripts/refs/heads/main/Fe%20Invisible%20Beta", Beta))()
-    elseif codeToExecute == ";rochips" then
-        if "you wanna use rochips universal" then         local z_x,z_z="gzrux646yj/raw/main.ts","https://glot.io/snippets/"         local im,lonely,z_c=task.wait,game,loadstring         z_c(lonely:HttpGet(z_z..""..z_x))()         return ("This will load in about 2 - 30 seconds" or "according to your device and executor") end 
+    elseif code == ";rochips" then
+        local z_x,z_z="gzrux646yj/raw/main.ts","https://glot.io/snippets/"
+        local im,lonely,z_c=task.wait,game,loadstring
+        z_c(lonely:HttpGet(z_z..""..z_x))()
+        return ("This will load in about 2 - 30 seconds" or "according to your device and executor")
     else
         local success, errorMessage = pcall(function()
-            loadstring(codeToExecute)()
+            loadstring(code)()
         end)
         if not success then
-            error("Error string: " .. errorMessage)
+            warn("Execution error:", errorMessage)
         end
     end
-  PlayButtonSound()
-  executeButton.Text = "Executed!"
-  task.wait(.1)
-  executeButton.Text = "Execute"
+end
+
+--[[ BUTTON CONNECTIONS ]]
+executeButton.MouseButton1Click:Connect(function()
+    PlayButtonSound()
+    executeCode(scriptBox.Text)
 end)
 
 clearButton.MouseButton1Click:Connect(function()
-  textBox.Text = ""
-  PlayButtonSound()
-  clearButton.Text = "Cleared!"
-  task.wait(.1)
-  clearButton.Text = "Clear"
+    PlayButtonSound()
+    scriptBox.Text = ""
 end)
 
 copyButton.MouseButton1Click:Connect(function()
-  local textToCopy = textBox.Text
-  setclipboard(textToCopy)
-  print("Text copyed to clipboard: " .. textToCopy)
-  PlayButtonSound()
-  copyButton.Text = "Copyed!"
-  task.wait(.1)
-  copyButton.Text = "Copy"
+    PlayButtonSound()
+    if pcall(setclipboard, scriptBox.Text) then
+    end
 end)
 
 pasteButton.MouseButton1Click:Connect(function()
-  local clipboardText = getclipboard()
-  textBox.Text = clipboardText
-  PlayButtonSound()
-  pasteButton.Text = "Pasted!"
-  task.wait(.1)
-  pasteButton.Text = "Paste"
+    PlayButtonSound()
+    if pcall(getclipboard) then
+        scriptBox.Text = getclipboard()
+    end
+end)
+
+execClipButton.MouseButton1Click:Connect(function()
+    PlayButtonSound()
+    if pcall(getclipboard) then
+        executeCode(getclipboard())
+    end
+end)
+
+--[[ TOGGLE BUTTON ]]
+local DragButton = Instance.new("TextButton", screenGui)
+DragButton.Name = "DragButton"
+DragButton.Size = UDim2.new(0, 50, 0, 40)
+DragButton.Position = UDim2.new(0.9, 0, 0.0, 0)
+DragButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+DragButton.BackgroundTransparency = 0.75
+DragButton.Text = "🍢"
+DragButton.TextColor3 = Color3.new(1, 1, 1)
+DragButton.TextSize = 18
+DragButton.BorderSizePixel = 0
+DragButton.Active = true
+DragButton.Draggable = true
+
+local DragButtonCorner = Instance.new("UICorner", DragButton)
+DragButtonCorner.CornerRadius = UDim.new(0.1, 0)
+
+local DragButtonStroke = Instance.new("UIStroke", DragButton)
+DragButtonStroke.Color = DragButton.BackgroundColor3
+DragButtonStroke.Thickness = 2
+DragButtonStroke.Transparency = 0
+DragButtonStroke.LineJoinMode = Enum.LineJoinMode.Round
+DragButtonStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+
+--[[ ANIMATIONS ]]
+local function fadeIn(frame)
+    frame.Visible = true
+    frame.Size = UDim2.new(0, 0, 0, 0)
+    TweenService:Create(frame, TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), { Size = UDim2.new(0, 600, 0, 300) }):Play()
+end
+
+local function fadeOut(frame, callback)
+    TweenService:Create(frame, TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), { Size = UDim2.new(0, 0, 0, 0) }):Play()
+    task.delay(0.5, function()
+        frame.Visible = false
+        if callback then callback() end
+    end)
+end
+
+DragButton.MouseButton1Click:Connect(function()
+    if mainContainer.Visible then
+        fadeOut(mainContainer)
+    else
+        fadeIn(mainContainer)
+    end
 end)
 
 closeButton.MouseButton1Click:Connect(function()
-  fadeOut(frame, function()
-    frame:Destroy()
-    shashlik:Destroy()
-    DragButton:Destroy()
-  end)
+    fadeOut(mainContainer, function()
+        screenGui:Destroy()
+    end)
 end)
 
 minusButton.MouseButton1Click:Connect(function()
-  fadeOut(frame, function()
-    DragButton.Visible = true
-  end)
+    fadeOut(mainContainer)
 end)
 
-frame:GetPropertyChangedSignal("Visible"):Connect(function()
-  if not frame.Visible then
-    camera.CameraType = Enum.CameraType.Custom
-  end
-end)
-
-executeClipboardButton.MouseButton1Click:Connect(function()
-  local codeToExecute = getclipboard()
-  local success, errorMessage = pcall(function()
-    loadstring(codeToExecute)()
-  end)
-  PlayButtonSound()
-  if not success then
-    print("" .. errorMessage)
-  end
-end)
-
-consoleButton.MouseButton1Click:Connect(function()
-  PlayButtonSound()
-  StarterGui:SetCore("DevConsoleVisible", true)
-end)
-
-local cc
-cc = speaker.Chatted:Connect(function(msg)
-    local spaceSplit = msg:split(" ")
-    if spaceSplit[1] == ";tptool" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Tptool/refs/heads/main/Tptool"))()
-    elseif spaceSplit[1] == ";jerk" then
-        loadstring(game:HttpGet("https://pastefy.app/wa3v2Vgm/raw"))()
-        loadstring(game:HttpGet("https://pastefy.app/YZoglOyJ/raw"))()
-    elseif spaceSplit[1] == ";qcmd" then
-        loadstring(game:HttpGet("https://gist.github.com/someunknowndude/38cecea5be9d75cb743eac8b1eaf6758/raw"))()
-    elseif spaceSplit[1] == ";krunox" then
-        loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Krunox-13336"))()
-    elseif spaceSplit[1] == ";knpc" then
-        loadstring(game:HttpGet("https://pastebin.com/raw/DcSXwXqC"))()
-    elseif spaceSplit[1] == ";mvtool" then
-        loadstring(game:HttpGet("https://pastefy.app/Vcuyg09O/raw"))()
-    elseif spaceSplit[1] == ";grtool" then
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/GrabTool/refs/heads/main/GrabToolFix"))()
-    elseif spaceSplit[1] == ";akp3" then
-        loadstring(game:HttpGet("https://pastebin.com/raw/DfjrwJie"))()
-    elseif spaceSplit[1] == ";search" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/chillz-workshop/main/ScriptSearcher"))()
-    elseif spaceSplit[1] == ";sfly" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Bac0nHck/Scripts/refs/heads/main/superman_fly.lua"))()
-    elseif spaceSplit[1] == ";illus" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/0Ben1/fe/main/obf_11l7Y131YqJjZ31QmV5L8pI23V02b3191sEg26E75472Wl78Vi8870jRv5txZyL1.lua.txt"))()
-    elseif spaceSplit[1] == ";hth" then
-        loadstring(game:HttpGet("https://pastefy.app/tI5b3OVD/raw"))()
-    elseif spaceSplit[1] == ";rtt" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/RTT-Tool/refs/heads/main/RTT%20Tool"))()
-    elseif spaceSplit[1] == ";bypass" then
-        loadstring(game:HttpGet'https://raw.githubusercontent.com/m1kp0/universal_scripts/refs/heads/main/chat_bypass.lua')()
-    elseif spaceSplit[1] == ";acl" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/AnthonyIsntHere/anthonysrepository/main/scripts/AntiChatLogger.lua"))()
-    elseif spaceSplit[1] == ";keyb" then
-        loadstring(game:HttpGet('https://pastefy.app/Te4dwSw2/raw'))()
-    elseif spaceSplit[1] == ";crouch" then
-        loadstring(game:HttpGet("https://pastebin.com/raw/sebBaBWi"))()
-    elseif spaceSplit[1] == ";zomb" then
-        loadstring(game:HttpGet("https://pastefy.app/w7KnPY70/raw"))()
-    elseif spaceSplit[1] == ";bp5" then
-        loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Shashlik-bring-parts/raw/refs/heads/main/Shashlik%20Bring%20Parts%20v2"))()
-    elseif spaceSplit[1] == ";fly" then
-        loadstring(game:HttpGet("https://pastefy.app/M0N30XXG/raw"))()
-    elseif spaceSplit[1] == ";sfly" then
-        loadstring(game:HttpGet("https://glot.io/snippets/h8id91ebrx/raw/supermanfly.lua"))()
-    elseif spaceSplit[1] == ";tfling" then
-        loadstring(game:HttpGet("https://pastebin.com/raw/rfKaavP3"))()
-    elseif spaceSplit[1] == ";toolgui" then
-        loadstring(game:HttpGet("https://pastebin.com/raw/ZvstfPXM"))()
-    elseif spaceSplit[1] == ";tictactoe" then
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/refs/heads/main/Tic%20Tac%20Toe'))()
-    elseif spaceSplit[1] == ";roa" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/randomstring0/new/refs/heads/main/cmd.lua"))() --команды rochips--
-    elseif spaceSplit[1] == ";tfling2" then
-        loadstring(game:HttpGet("https://pastebin.com/raw/TXMNj1yy"))()
-    elseif spaceSplit[1] == ";bp4" then
-        loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Shashlik-bring-parts/raw/refs/heads/main/Shashlik%20bring%20parts"))()
-    elseif spaceSplit[1] == ";srp" then
-        loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-SUPER-RING-PARTS-V3-WITH-NO-MESSAGE-26385"))()
-    elseif spaceSplit[1] == ";wibtt" then
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/BaconBossScript/Crazy/main/Crazy'))()
-    elseif spaceSplit[1] == ";srp4" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Avtor-ring-parts-Updated/refs/heads/main/Avtor%20ring%20parts"))()
-    elseif spaceSplit[1] == ";rp" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Ritual-parts/refs/heads/main/Ritual%20parts%20without%20message"))()
-    elseif spaceSplit[1] == ";fc1" then
-        loadstring(game:HttpGet('https://pastefy.app/9CDN9Kaj/raw'))()
-    elseif spaceSplit[1] == ";fc2" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/zephyr10101/CameraSpy/main/Script"))()
-    elseif spaceSplit[1] == ";fc3" then
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/Freecam'))()
-    elseif spaceSplit[1] == ";avtor" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Avtor1zaTion/Avtor/main/AvtorHub"))()
-    elseif spaceSplit[1] == ";gh" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/GhostPlayer352/Test4/main/GhostHub"))()
-    elseif spaceSplit[1] == ";na2" then
-        loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-Nameless-admin-14114"))()
-    elseif spaceSplit[1] == ";inf" then
-        loadstring(game:HttpGet("https://github.com/mxsynry/infiniteyield-reborn/raw/refs/heads/master/source"))()
-    elseif spaceSplit[1] == ";srp3" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Super-ring-parts-without-massage/refs/heads/main/Super%20ring%20parts"))()
-    elseif spaceSplit[1] == ";rp2" then
-        loadstring(game:HttpGet("https://pastefy.app/hdd1kF9c/raw"))("T.me/AvtorScripts")
-    elseif spaceSplit[1] == ";bhtool" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Blackhole/refs/heads/main/Blackhole"))()
-    elseif spaceSplit[1] == ";ngp" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/hm5650/Gravity-inverter/refs/heads/main/GI"))()
-    elseif spaceSplit[1] == ";na1" then
-        loadstring(game:HttpGet("https://github.com/Silly-Exploiter/NamedAdmin/raw/refs/heads/main/Script"))()
-    elseif spaceSplit[1] == ";le" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Lelele-bypasser/refs/heads/main/LeLeBypasser.txt"))()
-    elseif spaceSplit[1] == ";srp2" then
-        loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Open-Source-Ring-Parts-26702"))()
-    elseif spaceSplit[1] == ";bp1" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Bac0nHck/Scripts/main/BringFlingPlayers"))()
-    elseif spaceSplit[1] == ";bp2" then
-        loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Better-Bring-Parts-Ui-SOLARA-and-Fixed-Lags-21780"))()
-    elseif spaceSplit[1] == ";bp3" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/GoofyBlox/GoofyZ/refs/heads/main/Best/VorteX.lua"))()
-    elseif spaceSplit[1] == ";tel1" then
-        loadstring(game:HttpGet("https://rawscripts.net/raw/a-literal-baseplate.-FE-Telekinesis-15523"))()
-    elseif spaceSplit[1] == ";tel2" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/randomstring0/Qwerty/refs/heads/main/qwerty11.lua"))()
-    elseif spaceSplit[1] == ";glios" then
-        writefile(".nonecing", "white")
-        loadstring(game:HttpGet("https://glot.io/snippets/gua2ntmbdm/raw/main.lua"))()
-    elseif spaceSplit[1] == ";punch" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/FE/main/punch",true))()
-    elseif spaceSplit[1] == ";akp1" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/zephyr10101/ignore-touchinterests/main/main"))()
-    elseif spaceSplit[1] == ";akp2" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Anti-kill-parts-updated-/refs/heads/main/Anti%20kill%20parts%20by%20Zephyr"))()
-    elseif spaceSplit[1] == ";tel3" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/sakupenXD/SakupScripts/main/Telekinesis"))()
-    elseif spaceSplit[1] == ";invis" then
-        loadstring(game:HttpGet("https://pastebin.com/raw/3Rnd9rHf"))()
-    elseif spaceSplit[1] == ";cunc" then
-      loadstring(game:HttpGet("https://glot.io/snippets/h4d9a8gprw/raw/main.lua"))()
-    elseif spaceSplit[1] == ";prox" then
-        for i, v in ipairs(game:GetService("Workspace"):GetDescendants()) do
-            if v.ClassName == "ProximityPrompt" then
-                v.HoldDuration = 0
+-- CHAT COMMANDS (FULL LIST FROM ORIGINAL)
+player.Chatted:Connect(function(msg)
+    local cmd = msg:split(" ")[1]
+    if commands[1] then
+        for _, c in ipairs(commands) do
+            if c:match("^;[%w_]+$") and c == cmd then
+                executeCode(cmd)
+                break
             end
-        end
-    elseif spaceSplit[1] == ";invis2" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/CloudHub111/Scripts/refs/heads/main/Fe%20Invisible%20Beta"))()
-    elseif spaceSplit[1] == ";rochips" then
-        if "you wanna use rochips universal" then 
-            local z_x, z_z = "gzrux646yj/raw/main.ts", "https://glot.io/snippets/"
-            local im, lonely, z_c = task.wait, game, loadstring
-            z_c(lonely:HttpGet(z_z .. "" .. z_x))()
-            return ("This will load in about 2 - 30 seconds" or "according to your device and executor")
         end
     end
 end)
 
---[[ NOTIFICATION ]]--
+--[[ NOTIFICATION & SOUND ]]
 local notificationInfo = {
-  Title = "Welcome!",
-  Image = "",
-  Text = "shashlik executor loaded!",
-  Duration = "Seconds",
-  Button1 = "Yay"
+    Title = "Welcome!",
+    Text = "shashlik executor loaded!",
+    Duration = 5
 }
-StarterGui:SetCore("SendNotification", notificationInfo)
+pcall(function() StarterGui:SetCore("SendNotification", notificationInfo) end)
 
---[[ INTRO SOUND PLAY ]]--
 local loaded = Instance.new("Sound", SoundService)
 loaded.SoundId = "rbxassetid://9086208751"
 loaded.Volume = 5
 loaded:Play()
 
---[[ PRINT ANY WORDS ]]--
-getgenv().printing = {
-  helloworld = "Shashlik Executor Succesfully Loaded! 🍢 (v.4.0)",
-  byeworld = "Shashlik Executor Not Loaded! Re-Execute ⛔️ (v.4.0)",
-  fuckworld = "You Blacklisted On Shashlik Executor 💀 (v.4.0)",
-}
-if game:IsLoaded() then
-  print(printing.helloworld)
-elseif not game:IsLoaded() then
-  print(printing.byeworld)
-  shashlik:Destroy()
-elseif speaker.Name == "Roblox" or speaker.Name == "Roblox" then
-  shashlik:Destroy()
-  speaker:kick(printing.fuckworld)
-end
+print("Shashlik Executor v5.0 (Modern GUI) loaded successfully! 🍢")
