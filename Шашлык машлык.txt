@@ -34,10 +34,9 @@ if playerGui:FindFirstChild("ShashlikExecutor") then
 end
 
 --[[ GUI ]]--
-local screenGui = Instance.new("ScreenGui")
+local screenGui = Instance.new("ScreenGui", game:GetService("CoreGui"))
 screenGui.Name = "ShashlikExecutor"
 screenGui.ResetOnSpawn = false
-screenGui.Parent = CoreGui
 
 --[[ Main Container ]]--
 local mainContainer = Instance.new("Frame")
