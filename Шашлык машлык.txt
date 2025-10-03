@@ -1,5 +1,5 @@
 --[[
-Shashlik Executor Source!!! Current Version is: 5.0 → GUI Updated to Modern Style
+Shashlik Executor Source!!! Current Version is: 4.0 → GUI Updated to Modern Style
 Credits to Maksimilianych228 and Gerdroid
 ]]
 --[[ MAIN SCRIPTS ]]--
@@ -40,7 +40,7 @@ screenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 screenGui.ResetOnSpawn = false
 screenGui.Parent = playerGui
 
---[[ Main Container ]]
+--[[ Main Container ]]--
 local mainContainer = Instance.new("Frame")
 mainContainer.Size = UDim2.new(0, 600, 0, 300)
 mainContainer.Position = UDim2.new(0.5, -300, 0.5, -200)
@@ -52,7 +52,7 @@ mainContainer.Draggable = true
 mainContainer.Visible = false
 mainContainer.Parent = screenGui
 
---[[ Corner & Shadow ]]
+--[[ Corner & Shadow ]]--
 local corner = Instance.new("UICorner", mainContainer)
 corner.CornerRadius = UDim.new(0, 8)
 
@@ -67,7 +67,7 @@ shadow.ScaleType = Enum.ScaleType.Slice
 shadow.SliceCenter = Rect.new(10, 10, 118, 118)
 shadow.ZIndex = -1
 
---[[ Top Bar ]]
+--[[ Top Bar ]]--
 local topBar = Instance.new("Frame", mainContainer)
 topBar.Size = UDim2.new(1, 0, 0, 30)
 topBar.BackgroundColor3 = Color3.fromRGB(30, 30, 40)
@@ -76,7 +76,7 @@ topBar.BorderSizePixel = 0
 local topBarCorner = Instance.new("UICorner", topBar)
 topBarCorner.CornerRadius = UDim.new(0, 8)
 
---[[ Title ]]
+--[[ Title ]]--
 local title = Instance.new("TextLabel", topBar)
 title.Size = UDim2.new(1, -80, 1, 0)
 title.Position = UDim2.new(0, 10, 0, 0)
@@ -87,7 +87,7 @@ title.Font = Enum.Font.GothamBold
 title.TextSize = 14
 title.TextXAlignment = Enum.TextXAlignment.Left
 
---[[ Close & Minimize ]]
+--[[ Close & Minimize ]]--
 local closeButton = Instance.new("TextButton", topBar)
 closeButton.Size = UDim2.new(0, 25, 0, 25)
 closeButton.Position = UDim2.new(1, -30, 0, 2)
@@ -112,7 +112,7 @@ minusButton.TextSize = 16
 local minusCorner = Instance.new("UICorner", minusButton)
 minusCorner.CornerRadius = UDim.new(0, 4)
 
---[[ Editor Frame ]]
+--[[ Editor Frame ]]--
 local editorFrame = Instance.new("Frame", mainContainer)
 editorFrame.Size = UDim2.new(1, -20, 0, 190)
 editorFrame.Position = UDim2.new(0, 10, 0, 40)
@@ -123,7 +123,7 @@ editorFrame.ClipsDescendants = true
 local editorCorner = Instance.new("UICorner", editorFrame)
 editorCorner.CornerRadius = UDim.new(0, 6)
 
---[[ Script Box ]]
+--[[ Script Box ]]--
 local scriptBox = Instance.new("TextBox", editorFrame)
 scriptBox.Size = UDim2.new(1, -10, 1, -10)
 scriptBox.Position = UDim2.new(0, 5, 0, 5)
@@ -138,7 +138,7 @@ scriptBox.ClearTextOnFocus = false
 scriptBox.MultiLine = true
 scriptBox.TextWrapped = false
 
---[[ FPS/Ping ]]
+--[[ FPS/Ping ]]--
 local statsLabel = Instance.new("TextLabel", scriptBox)
 statsLabel.Size = UDim2.new(0, 180, 0, 20)
 statsLabel.Position = UDim2.new(1, -180, 1, -20)
@@ -156,7 +156,7 @@ RunService.RenderStepped:Connect(function(dt)
     end)
 end)
 
---[[ Button Frame ]]
+--[[ Button Frame ]]--
 local buttonFrame = Instance.new("Frame", mainContainer)
 buttonFrame.Size = UDim2.new(1, -20, 0, 50)
 buttonFrame.Position = UDim2.new(0, 10, 0, 240)
@@ -171,7 +171,7 @@ buttonPanel.Size = UDim2.new(1, -20, 1, -10)
 buttonPanel.Position = UDim2.new(0, 10, 0, 5)
 buttonPanel.BackgroundTransparency = 1
 
---[[ Helper to create buttons ]]
+--[[ Helper to create buttons ]]--
 local function makeButton(parent, pos, text, color)
     local btn = Instance.new("TextButton")
     btn.Size = UDim2.new(0, 100, 1, 0)
@@ -193,7 +193,7 @@ local copyButton = makeButton(buttonPanel, UDim2.new(0, 230, 0, 0), "COPY", Colo
 local pasteButton = makeButton(buttonPanel, UDim2.new(0, 340, 0, 0), "PASTE", Color3.fromRGB(120, 80, 200))
 local execClipButton = makeButton(buttonPanel, UDim2.new(0, 450, 0, 0), "CLIPBOARD", Color3.fromRGB(200, 120, 80))
 
---[[ Hover effect ]]
+--[[ Hover effect ]]--
 local function setupHover(btn)
     btn.MouseEnter:Connect(function() TweenService:Create(btn, TweenInfo.new(0.2), {BackgroundTransparency = 0.2}):Play() end)
     btn.MouseLeave:Connect(function() TweenService:Create(btn, TweenInfo.new(0.2), {BackgroundTransparency = 0}):Play() end)
@@ -202,7 +202,7 @@ for _, b in ipairs({executeButton, clearButton, copyButton, pasteButton, execCli
     setupHover(b)
 end
 
---[[ Sound ]]
+--[[ Sound ]]--
 local function PlayButtonSound()
     local snd = Instance.new("Sound", SoundService)
     snd.SoundId = "rbxasset://sounds/button.wav"
@@ -211,7 +211,7 @@ local function PlayButtonSound()
     task.delay(1, function() snd:Destroy() end)
 end
 
---[[ FULL COMMAND LIST ]]
+--[[ FULL COMMAND LIST ]]--
 local commands = {
     ";krunox", ";dhex", ";qcmd", ";straw",
     ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";sfly", ";fly2", ";sfly2", ";rtt", ";rkt",
@@ -222,10 +222,10 @@ local commands = {
     ";krnlk (key: 9X1L9ZPAXN4)"
 }
 
---[[ EXECUTE LOGIC ]]
+--[[ EXECUTE LOGIC ]]--
 local function executeCode(code)
     if code == ";cmds" then
-        scriptBox.Text = "Существующие команды:\n" .. table.concat(commands, "\n") .. "
+        scriptBox.Text = "Существующие команды:\n" .. table.concat(commands, "\n") .. "\nНовые команды:\nnope"
     elseif code == ";tptool" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Tptool/refs/heads/main/Tptool"))()
     elseif code == ";jerk" then
@@ -442,7 +442,7 @@ local function executeCode(code)
     end
 end
 
---[[ BUTTON CONNECTIONS ]]
+--[[ BUTTON CONNECTIONS ]]--
 executeButton.MouseButton1Click:Connect(function()
     PlayButtonSound()
     executeCode(scriptBox.Text)
@@ -456,6 +456,7 @@ end)
 copyButton.MouseButton1Click:Connect(function()
     PlayButtonSound()
     if pcall(setclipboard, scriptBox.Text) then
+        -- success
     end
 end)
 
@@ -473,7 +474,7 @@ execClipButton.MouseButton1Click:Connect(function()
     end
 end)
 
---[[ TOGGLE BUTTON ]]
+--[[ TOGGLE BUTTON ]]--
 local DragButton = Instance.new("TextButton", screenGui)
 DragButton.Name = "DragButton"
 DragButton.Size = UDim2.new(0, 50, 0, 40)
@@ -497,7 +498,7 @@ DragButtonStroke.Transparency = 0
 DragButtonStroke.LineJoinMode = Enum.LineJoinMode.Round
 DragButtonStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 
---[[ ANIMATIONS ]]
+--[[ ANIMATIONS ]]--
 local function fadeIn(frame)
     frame.Visible = true
     frame.Size = UDim2.new(0, 0, 0, 0)
@@ -530,7 +531,7 @@ minusButton.MouseButton1Click:Connect(function()
     fadeOut(mainContainer)
 end)
 
--- CHAT COMMANDS (FULL LIST FROM ORIGINAL)
+--[[ CHAT COMMANDS ]]--
 player.Chatted:Connect(function(msg)
     local cmd = msg:split(" ")[1]
     if commands[1] then
@@ -543,7 +544,7 @@ player.Chatted:Connect(function(msg)
     end
 end)
 
---[[ NOTIFICATION & SOUND ]]
+--[[ NOTIFICATION & SOUND ]]--
 local notificationInfo = {
     Title = "Welcome!",
     Text = "shashlik executor loaded!",
@@ -556,4 +557,4 @@ loaded.SoundId = "rbxassetid://9086208751"
 loaded.Volume = 5
 loaded:Play()
 
-print("Shashlik Executor v5.0 (Modern GUI) loaded successfully! 🍢")
+print("Shashlik Executor v4.0 (Modern GUI) loaded successfully! 🍢")
