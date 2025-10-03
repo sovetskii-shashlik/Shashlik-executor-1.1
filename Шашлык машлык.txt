@@ -137,6 +137,12 @@ scriptBox.ClearTextOnFocus = false
 scriptBox.MultiLine = true
 scriptBox.TextWrapped = false
 
+scriptBox:GetPropertyChangedSignal("Text"):Connect(function()
+    if #scriptBox.Text > math.huge then
+        scriptBox.Text = scriptBox.Text:sub(1, math.huge)
+    end
+end)
+
 --[[ FPS/Ping ]]--
 local statsLabel = Instance.new("TextLabel", scriptBox)
 statsLabel.Size = UDim2.new(0, 180, 0, 20)
