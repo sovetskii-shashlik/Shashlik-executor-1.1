@@ -187,10 +187,10 @@ local function makeButton(parent, pos, text, color)
 end
 
 local executeButton = makeButton(buttonPanel, UDim2.new(0, 10, 0, 0), "EXECUTE", Color3.fromRGB(80, 180, 80))
-local clearButton = makeButton(buttonPanel, UDim2.new(0, 120, 0, 0), "CLEAR", Color3.fromRGB(180, 80, 80))
+local execClipButton = makeButton(buttonPanel, UDim2.new(0, 120, 0, 0), "CLIPBOARD", Color3.fromRGB(200, 120, 80))
 local copyButton = makeButton(buttonPanel, UDim2.new(0, 230, 0, 0), "COPY", Color3.fromRGB(80, 120, 200))
 local pasteButton = makeButton(buttonPanel, UDim2.new(0, 340, 0, 0), "PASTE", Color3.fromRGB(120, 80, 200))
-local execClipButton = makeButton(buttonPanel, UDim2.new(0, 450, 0, 0), "CLIPBOARD", Color3.fromRGB(200, 120, 80))
+local clearButton = makeButton(buttonPanel, UDim2.new(0, 450, 0, 0), "CLEAR", Color3.fromRGB(180, 80, 80))
 
 --[[ Hover effect ]]--
 local function setupHover(btn)
