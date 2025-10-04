@@ -1,7 +1,8 @@
 --[[
 Shashlik Executor Source!!! Current Version is: 5.0 → GUI Updated to Modern Style
 Credits to Maksimilianych228 and Gerdroid
-]]
+]]--
+
 --[[ MAIN SCRIPTS ]]--
 task.spawn(function()
   --//fast console button
