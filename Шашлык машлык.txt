@@ -29,7 +29,7 @@ elseif player.Name == "Roblox" or player.Name == "Skid" then
 end
 
 --[[ CLEANUP ]]--
-local playerGui = player:WaitForChild("CoreGui")
+local playerGui = player:WaitForChild("PlayerGui")
 if playerGui:FindFirstChild("ShashlikExecutor") then
     playerGui:FindFirstChild("ShashlikExecutor"):Destroy()
 end
