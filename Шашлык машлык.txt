@@ -28,13 +28,13 @@ elseif player.Name == "Roblox" or player.Name == "Skid" then
 end
 
 --[[ CLEANUP ]]--
-local playerGui = player:WaitForChild("PlayerGui")
-if playerGui:FindFirstChild("ShashlikExecutor") then
-    playerGui:FindFirstChild("ShashlikExecutor"):Destroy()
+local coreGui = game:GetService("CoreGui")
+if coreGui:FindFirstChild("ShashlikExecutor") then
+    coreGui:FindFirstChild("ShashlikExecutor"):Destroy()
 end
 
 --[[ GUI ]]--
-local screenGui = Instance.new("ScreenGui", game:GetService("CoreGui"))
+local screenGui = Instance.new("ScreenGui", coreGui)
 screenGui.Name = "ShashlikExecutor"
 screenGui.ResetOnSpawn = false
 
