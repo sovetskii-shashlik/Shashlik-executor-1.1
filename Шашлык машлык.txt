@@ -204,7 +204,7 @@ end
 --[[ Sound ]]--
 local function PlayButtonSound()
     local snd = Instance.new("Sound", SoundService)
-    snd.SoundId = "rbxasset://sounds/button.wav"
+    snd.SoundId = "rbxassetid://226892749"
     snd.Volume = 5
     snd:Play()
     task.delay(1, function() snd:Destroy() end)
