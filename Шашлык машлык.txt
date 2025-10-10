@@ -248,7 +248,7 @@ local function executeCode(code)
     elseif code == ";r15anims" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/7yd7/Hub/refs/heads/Branch/GUIS/Emotes.lua"))()
     elseif code == ";knpc2" then
-        loadstring(game:HttpGet("https://paste.myconan.net/610969.txt"))()
+        loadstring(game:HttpGet("https://paste.myconan.net/611639.txt"))()
     elseif code == ";OCDtool" then
         loadstring(game:HttpGet("https://glot.io/snippets/h9l8vsvzz6/raw/OCDT.lua"))()
     elseif code == ";esp" then
