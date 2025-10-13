@@ -49,6 +49,7 @@ mainContainer.Active = true
 mainContainer.Draggable = true
 mainContainer.Visible = false
 mainContainer.Parent = screenGui
+local dragDetector = Instance.new("UIDragDetector", mainContainer)
 
 --[[ Corner & Shadow ]]--
 local corner = Instance.new("UICorner", mainContainer)
