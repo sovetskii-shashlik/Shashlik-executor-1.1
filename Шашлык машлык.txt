@@ -218,16 +218,14 @@ local commands = {}
 -- Загружаем движок команд
 local function loadCommandEngine()
     local success, engine = pcall(function()
-        return loadstring(game:HttpGet("https://pastebin.com/raw/ТВОЙ_КОД_ДВИЖКА"))()
+        return loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Shashlik-executor-1.1/raw/main/commands.lua"))()
     end)
     
     if success then
         commandEngine = engine()
         commands = commandEngine.commands or {}
-        print("✅ Движок команд загружен! Команд: " .. #commands)
         return true
     else
-        warn("❌ Ошибка загрузки движка команд")
         return false
     end
 end
