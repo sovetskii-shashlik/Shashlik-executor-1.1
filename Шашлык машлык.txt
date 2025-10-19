@@ -219,12 +219,14 @@ local function loadCommandEngine()
     local success, engine = pcall(function()
         return loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Shashlik-executor-1.1/raw/main/commands.lua"))()
     end)
-    
+
     if success then
-        commandEngine = engine()
+        commandEngine = engine(scriptBox, player)
         commands = commandEngine.commands or {}
+        print("✅ Command engine loaded! Commands: " .. #commands)
         return true
     else
+        warn("❌ Command engine loading error")
         return false
     end
 end
@@ -233,9 +235,9 @@ loadCommandEngine()
 
 _G.ShashlikReloadEngine = function()
     if loadCommandEngine() then
-        return "The command engine has been reloaded. number of commands:" .. #commands
+        return "The command engine has been reloaded. Number of commands: " .. #commands
     else
-        return "Ошибка перезагрузки движка"
+        return "Engine reload error"
     end
 end
 
@@ -247,7 +249,7 @@ local function executeCode(code)
             return
         end
     end
-    
+
     commandEngine.executeCode(code)
 end
 
