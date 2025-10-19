@@ -1,4 +1,4 @@
-return function()
+return function(scriptBox, player)
     local commands = {
         ";krunox", ";dhex", ";qcmd", ";straw",
         ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";sfly", ";fly2", ";sfly2", ";rtt", ";rkt",
@@ -12,7 +12,7 @@ return function()
     -- Функция executeCode с ВСЕМИ условиями
     local function executeCode(code)
         if code == ";cmds" then
-            scriptBox.Text = "Существующие команды:\n" .. table.concat(commands, "\n") .. "\nНовые команды:\nnope"
+            scriptBox.Text = "Существующие команды:\n" .. table.concat(commands, "\n") .. "\n\nИспользуй ;reloadengine для обновления движка"
         elseif code == ";tptool" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Tptool/refs/heads/main/Tptool "))()
         elseif code == ";jerk" then
