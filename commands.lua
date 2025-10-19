@@ -9,7 +9,6 @@ return function(scriptBox, player)
         ";krnlk (key: 9X1L9ZPAXN4)"
     }
 
-    -- Функция executeCode с ВСЕМИ условиями
     local function executeCode(code)
         if code == ";cmds" then
             scriptBox.Text = "Существующие команды:\n" .. table.concat(commands, "\n") .. "\n\nИспользуй ;reloadengine для обновления движка"
