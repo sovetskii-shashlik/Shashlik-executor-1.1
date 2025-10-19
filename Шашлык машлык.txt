@@ -215,7 +215,6 @@ end
 local commandEngine = {}
 local commands = {}
 
--- Загружаем движок команд
 local function loadCommandEngine()
     local success, engine = pcall(function()
         return loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Shashlik-executor-1.1/raw/main/commands.lua"))()
@@ -230,13 +229,11 @@ local function loadCommandEngine()
     end
 end
 
--- Загружаем при старте
 loadCommandEngine()
 
--- Функция для обновления движка
 _G.ShashlikReloadEngine = function()
     if loadCommandEngine() then
-        return "Движок команд перезагружен! Команд: " .. #commands
+        return "The command engine has been reloaded. number of commands:" .. #commands
     else
         return "Ошибка перезагрузки движка"
     end
@@ -244,29 +241,13 @@ end
 
 --[[ EXECUTE LOGIC ]]--
 local function executeCode(code)
-    -- Если движок не загружен, пробуем загрузить
     if not commandEngine.executeCode then
         if not loadCommandEngine() then
-            warn("Движок команд не доступен")
+            warn("Command engine is not available!")
             return
         end
     end
     
-    -- Используем движок команд для выполнения
-    commandEngine.executeCode(code)
-end
-
---[[ EXECUTE LOGIC ]]--
-local function executeCode(code)
-    -- Если движок не загружен, пробуем загрузить
-    if not commandEngine.executeCode then
-        if not loadCommandEngine() then
-            warn("Движок команд не доступен")
-            return
-        end
-    end
-    
-    -- Используем движок команд для выполнения
     commandEngine.executeCode(code)
 end
 
