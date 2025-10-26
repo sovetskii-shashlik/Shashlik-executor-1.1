@@ -37,8 +37,6 @@ end
 local screenGui = Instance.new("ScreenGui", coreGui)
 screenGui.Name = "ShashlikExecutor"
 screenGui.ResetOnSpawn = false
-screenGui.ZIndexBehavior = Enum.ZIndexBehavior.Global
-screenGui.DisplayOrder = 9999
 
 --[[ Main Container ]]--
 local mainContainer = Instance.new("Frame")
@@ -376,5 +374,13 @@ local loaded = Instance.new("Sound", SoundService)
 loaded.SoundId = "rbxassetid://9086208751"
 loaded.Volume = 5
 loaded:Play()
+
+-- Просто добавьте эту строку:
+screenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+-- И установите ZIndex только для основных элементов:
+mainContainer.ZIndex = 10
+topBar.ZIndex = 11
+DragButton.ZIndex = 10
 
 print("Shashlik Executor v5.0 (Modern GUI) loaded successfully! 🍢")
