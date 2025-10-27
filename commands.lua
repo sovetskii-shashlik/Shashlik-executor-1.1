@@ -1,7 +1,7 @@
 return function(scriptBox, player)
     local commands = {
         ";krunox", ";dhex", ";qcmd", ";straw",
-        ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";sfly", ";fly2", ";sfly2", ";rtt", ";rkt",
+        ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";sfly", ";fly2", ";sfly2", ";rtt", ";rkt", ";conprint",
         ";tfling2", ";bp1", ";bp2", ";bp3", ";bp4", ";bp5", ";bp6", ";bp7", ";bp8", ";bhtool", ";mvtool", ";grtool", ";tel1", ";tel2", ";glios", ";cmds", ";hth", ";rspy", ";antierr",
         ";zomb", ";search", ";knpc", ";jerk", ";punch", ";invis2", ";invis", ";invis3", ";tel3", ";roa", ";akp1", ";akp2", ";akp3", ";keyb3", ";keyb4", ";cvb", ";ska", ";reach", ";reach2", ";hitbox", ";aimbot", ";cfling", ";finger", ";finger2", ";spdmtr",
         ";prox", ";rochips", ";fc1", ";fc2", ";synapse", ";synapse2", ";krnl", ";krnlk", ";bypass", ";fc3", ";rp", ";rp2", ";srp", ";srp2", ";tictactoe", ";illus", ";toolgui", ";keyb", ";cspy", ";slock", ";wibtt", ";acl", ";crouch", ";srp3", ";srp4", ";tptool", ";ngp", ";fling", ";esp", ";radar", ";OCDtool", ";fc4",
@@ -22,6 +22,8 @@ return function(scriptBox, player)
             end
         elseif code == ";synapse" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Synapse-x/refs/heads/main/Synapse%20x "))()
+        elseif code == ";conprint" then
+            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/FE-console-typer/raw/refs/heads/main/Console%20printer"))()
         elseif code == ";antierr" then
             loadstring(game:HttpGet("https://glot.io/snippets/hcfoitpvco/raw/AntiError.lua "))()
         elseif code == ";rspy" then
