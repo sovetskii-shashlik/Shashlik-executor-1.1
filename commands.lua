@@ -7,7 +7,7 @@ return function(scriptBox, player)
         ";prox", ";rochips", ";fc1", ";fc2", ";synapse", ";synapse2", ";krnl", ";krnlk", ";bypass", ";fc3", ";rp", ";rp2", ";srp", ";srp2", ";tictactoe", ";illus", ";toolgui", ";keyb", ";cspy", ";slock", ";wibtt", ";acl", ";crouch", ";srp3", ";srp4", ";tptool", ";ngp", ";fling", ";esp", ";radar", ";OCDtool", ";fc4",
         ";rc7", ";cunc", ";keyb2", ";na3", ";backpack", ";backpack2", ";r15anims", ";knpc2",
         ";krnlk (key: 9X1L9ZPAXN4)",
-        ";hydroxide", ";rspy", ";sspyV3", ";dex++",
+        ";hydroxide", ";rspy", ";sspyV3", ";dex++", ";dex", ";darkdex",
     }
 
     local function executeCode(code)
@@ -39,6 +39,10 @@ return function(scriptBox, player)
             loadstring(game:HttpGet("https://pastebin.com/raw/H3281zhD "))()
         elseif code == ";r15anims" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/7yd7/Hub/refs/heads/Branch/GUIS/Emotes.lua "))()
+        elseif code == ";dex" then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/dex.lua"))()
+        elseif code == ";darkdex" then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/BypassedDarkDexV3.lua"))()
         elseif code == ";dex++" then
             loadstring(game:HttpGet("https://github.com/AZYsGithub/DexPlusPlus/releases/latest/download/out.lua"))()
         elseif code == ";sspyV3" then
