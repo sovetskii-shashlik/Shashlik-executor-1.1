@@ -6,7 +6,8 @@ return function(scriptBox, player)
         ";zomb", ";search", ";knpc", ";jerk", ";punch", ";invis2", ";invis", ";invis3", ";tel3", ";roa", ";akp1", ";akp2", ";akp3", ";keyb3", ";keyb4", ";cvb", ";ska", ";reach", ";reach2", ";hitbox", ";aimbot", ";cfling", ";finger", ";finger2", ";spdmtr",
         ";prox", ";rochips", ";fc1", ";fc2", ";synapse", ";synapse2", ";krnl", ";krnlk", ";bypass", ";fc3", ";rp", ";rp2", ";srp", ";srp2", ";tictactoe", ";illus", ";toolgui", ";keyb", ";cspy", ";slock", ";wibtt", ";acl", ";crouch", ";srp3", ";srp4", ";tptool", ";ngp", ";fling", ";esp", ";radar", ";OCDtool", ";fc4",
         ";rc7", ";cunc", ";keyb2", ";na3", ";backpack", ";backpack2", ";r15anims", ";knpc2",
-        ";krnlk (key: 9X1L9ZPAXN4)"
+        ";krnlk (key: 9X1L9ZPAXN4)",
+        ";hydroxide",
     }
 
     local function executeCode(code)
@@ -40,6 +41,8 @@ return function(scriptBox, player)
             loadstring(game:HttpGet("https://pastebin.com/raw/H3281zhD "))()
         elseif code == ";r15anims" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/7yd7/Hub/refs/heads/Branch/GUIS/Emotes.lua "))()
+        elseif code == ";hydroxide" then
+            loadstring(game:HttpGet("https://paste.myconan.net/617098.txt "))()
         elseif code == ";knpc2" then
             loadstring(game:HttpGet("https://paste.myconan.net/611639.txt "))()
         elseif code == ";OCDtool" then
