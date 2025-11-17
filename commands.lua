@@ -7,7 +7,7 @@ return function(scriptBox, player)
         ";prox", ";rochips", ";fc1", ";fc2", ";synapse", ";synapse2", ";krnl", ";krnlk", ";bypass", ";fc3", ";rp", ";rp2", ";srp", ";srp2", ";tictactoe", ";illus", ";toolgui", ";keyb", ";cspy", ";slock", ";wibtt", ";acl", ";crouch", ";srp3", ";srp4", ";tptool", ";ngp", ";fling", ";esp", ";radar", ";OCDtool", ";fc4", ";guneditor",
         ";rc7", ";cunc", ";keyb2", ";na3", ";backpack", ";backpack2", ";r15anims", ";knpc2",
         ";krnlk (key: 9X1L9ZPAXN4)",
-        ";hydroxide", ";rspy", ";sspyV3", ";dex++", ";dex", ";darkdex", ";sspy", ";sigma",
+        ";hydroxide", ";rspy", ";sspyV3", ";dex++", ";dex", ";darkdex", ";sspy", ";sigma (rip)", ";cobalt",
     }
 
     local function executeCode(code)
@@ -47,6 +47,8 @@ return function(scriptBox, player)
             loadstring(game:HttpGet("https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/BypassedDarkDexV3.lua"))()
         elseif code == ";dex++" then
             loadstring(game:HttpGet("https://github.com/AZYsGithub/DexPlusPlus/releases/latest/download/out.lua"))()
+        elseif code == ";cobalt" then
+            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/cobalt.lua"))()
         elseif code == ";sigma" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/depthso/Sigma-Spy/refs/heads/main/Main.lua"))()
         elseif code == ";sspy" then
