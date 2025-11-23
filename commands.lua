@@ -92,7 +92,7 @@ return function(scriptBox, player)
         elseif code == ";invis3" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/hm5650/Invis/refs/heads/main/Invistoggle "))()
         elseif code == ";fling" then
-            loadstring(game:HttpGet("https://glot.io/snippets/h86gnsdgud/raw/FlingGui.lua "))()
+            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/FlingGui"))()
         elseif code == ";ngp" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/hm5650/Gravity-inverter/refs/heads/main/GI "))()
         elseif code == ";rkt" then
@@ -132,7 +132,7 @@ return function(scriptBox, player)
         elseif code == ";backpack" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/uuuuuuu/refs/heads/main/mobileBACKPACK.lua "))()
         elseif code == ";backpack2" then
-            loadstring(game:HttpGet("https://glot.io/snippets/h9u1v79k2y/raw/CusInv.lua "))()
+            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/custombackpack"))()
         elseif code == ";acl" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/AnthonyIsntHere/anthonysrepository/main/scripts/AntiChatLogger.lua "))()
         elseif code == ";srp4" then
