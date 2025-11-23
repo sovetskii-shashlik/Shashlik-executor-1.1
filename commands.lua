@@ -188,7 +188,7 @@ return function(scriptBox, player)
         elseif code == ";sfly" then
             loadstring(game:HttpGet("https://glot.io/snippets/h8id91ebrx/raw/supermanfly.lua "))()
         elseif code == ";sfly2" then
-            loadstring(game:HttpGet("https://glot.io/snippets/hag0gpvlf0/raw/sfly2.lua "))()
+            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/sfly.lua"))()
         elseif code == ";tfling" then
             loadstring(game:HttpGet("https://pastebin.com/raw/rfKaavP3 "))()
         elseif code == ";tfling2" then 
