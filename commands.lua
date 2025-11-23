@@ -30,7 +30,7 @@ return function(scriptBox, player)
         elseif code == ";guneditor" then
             loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/gun_settings"))()
         elseif code == ";slock" then
-            loadstring(game:HttpGet("https://glot.io/snippets/h9d5rkcl47/raw/ShiftLock.lua "))()
+            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/ShiftLock"))()
         elseif code == ";cspy" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/Dan41/Roblox-Scripts/refs/heads/main/CHAT%20SPY%20-%202025/ChatSpy2025.lua "))()
         elseif code == ";dhex" then
@@ -68,11 +68,11 @@ return function(scriptBox, player)
         elseif code == ";OCDtool" then
             loadstring(game:HttpGet("https://glot.io/snippets/h9l8vsvzz6/raw/OCDT.lua "))()
         elseif code == ";esp" then
-            loadstring(game:HttpGet("https://glot.io/snippets/h8wks8n8p4/raw/Esp.lua "))()
+            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/ESP"))()
         elseif code == ";hitbox" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/hm5650/Hitblox/refs/heads/main/Hitblox "))()
         elseif code == ";cvb" then
-            loadstring(game:HttpGet("https://glot.io/snippets/h7je4skic1/raw/cvb.lua "))()
+            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/cvb.lua "))()
         elseif code == ";ska" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/hm5650/InstantKillig/refs/heads/main/Coolkillguithingy "))()
         elseif code == ";reach" then
@@ -88,7 +88,7 @@ return function(scriptBox, player)
         elseif code == ";spdmtr" then
             loadstring(game:HttpGet("https://pastebin.com/raw/WYi7Bm8u "))()
         elseif code == ";fly2" then
-            loadstring(game:HttpGet("https://glot.io/snippets/h9empzjulm/raw/FlyGui.lua "))()
+            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/FlyGui"))()
         elseif code == ";invis3" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/hm5650/Invis/refs/heads/main/Invistoggle "))()
         elseif code == ";fling" then
@@ -98,7 +98,7 @@ return function(scriptBox, player)
         elseif code == ";rkt" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/RTT-Tool/main/RKT%20Tool "))()
         elseif code == ";radar" then
-            loadstring(game:HttpGet("https://glot.io/snippets/h94bz03sm6/raw/Radar.lua "))()
+            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/radar.lua"))()
         elseif code == ";bp5" then
             loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Shashlik-bring-parts/raw/refs/heads/main/Shashlik%20Bring%20Parts%20v2 "))()
         elseif code == ";bp6" then
