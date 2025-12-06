@@ -205,6 +205,8 @@ a(b({Url=e}).Body)()
             loadstring(game:HttpGet("https://pastebin.com/raw/rfKaavP3 "))()
         elseif code == ";tfling2" then 
             loadstring(game:HttpGet('https://pastebin.com/raw/TXMNj1yy '))()
+        elseif code == ";conchat" then
+            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/FE-console-typer/raw/main/chat.lua"))()
         elseif code == ";avtor" then
             loadstring(game:HttpGet('https://raw.githubusercontent.com/Avtor1zaTion/Avtor/main/AvtorHub '))()
         elseif code == ";gh" then
