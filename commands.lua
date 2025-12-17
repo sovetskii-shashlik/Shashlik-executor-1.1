@@ -2,7 +2,7 @@ return function(scriptBox, player)
     local commands = {
         ";krunox", ";dhex", ";qcmd", ";straw",
         ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";sfly", ";fly2", ";sfly2", ";rtt", ";rkt", ";conprint", ";caranims",
-        ";tfling2", ";bp1", ";bp2", ";bp3", ";bp4", ";bp5", ";bp6", ";bp7", ";bp8", ";bhtool", ";mvtool", ";grtool", ";tel1", ";tel2", ";glios", ";cmds", ";hth", ";antierr", ";HDAcmdbar",
+        ";tfling2", ";bp1", ";bp2", ";bp3", ";bp4", ";bp5", ";bp6", ";bp7", ";bp8", ";bp9", ";bhtool", ";mvtool", ";grtool", ";tel1", ";tel2", ";glios", ";cmds", ";hth", ";antierr", ";HDAcmdbar",
         ";zomb", ";search", ";knpc", ";jerk", ";punch", ";invis2", ";invis", ";invis3", ";tel3", ";roa", ";akp1", ";akp2", ";akp3", ";keyb3", ";keyb4", ";cvb", ";ska", ";reach", ";reach2", ";reach3", ";hitbox", ";aimbot", ";cfling", ";finger", ";finger2", ";spdmtr",
         ";prox", ";rochips", ";fc1", ";fc2", ";synapse", ";synapse2", ";krnl", ";krnlk", ";bypass", ";fc3", ";rp", ";rp2", ";srp", ";srp2", ";tictactoe", ";illus", ";toolgui", ";keyb", ";cspy", ";slock", ";wibtt", ";acl", ";crouch", ";srp3", ";srp4", ";tptool", ";ngp", ";fling", ";esp", ";radar", ";OCDtool", ";fc4", ";guneditor",
         ";rc7", ";cunc", ";keyb2", ";na3", ";backpack", ";backpack2", ";r15anims", ";knpc2", ";conchat",
@@ -121,6 +121,8 @@ a(b({Url=e}).Body)()
             loadstring(game:HttpGet("https://pastebin.com/raw/bbBracWG "))()
         elseif code == ";bp8" then
             loadstring(game:HttpGet("https://glot.io/snippets/h6k1ijlqsv/raw/klitor.lua "))()
+        elseif code == ";bp9" then
+            loadstring(game:HttpGet("https://glot.io/snippets/h6k1ijlqsv/raw/moshonka.lua"))()
         elseif code == ";synapse2" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/Chillz-s-scripts/main/Synapse-X-Remake.lua "))()
         elseif code == ";krnl" then
