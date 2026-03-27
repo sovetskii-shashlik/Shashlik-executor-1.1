@@ -7,7 +7,7 @@ return function(scriptBox, player)
         ";prox", ";rochips", ";fc1", ";fc2", ";synapse", ";synapse2", ";krnl", ";krnlk", ";bypass", ";fc3", ";rp", ";rp2", ";srp", ";srp2", ";tictactoe", ";illus", ";toolgui", ";keyb", ";cspy", ";slock", ";wibtt", ";acl", ";crouch", ";srp3", ";srp4", ";tptool", ";ngp", ";fling", ";esp", ";radar", ";OCDtool", ";fc4", ";guneditor",
         ";rc7", ";cunc", ";keyb2", ";na3", ";backpack", ";backpack2", ";r15anims", ";knpc2", ";conchat",
         ";krnlk (key: 9X1L9ZPAXN4)",
-        ";hydroxide", ";rspy", ";sspyV3", ";dex++", ";dex", ";darkdex", ";sspy", ";sspym", ";sigma (rip)", ";cobalt", ";sspym2", ";sspym3", ";sspym4", ";silentspy",
+        ";hydroxide", ";rspy", ";sspyV3", ";dex++", ";dex", ";darkdex", ";sspy", ";sspym", ";sigma (rip)", ";cobalt", ";sspym2", ";sspym3", ";sspym4", ";silentspy", ";saveexec",
     }
 
     local function executeCode(code)
@@ -23,6 +23,8 @@ return function(scriptBox, player)
             end
         elseif code == ";synapse" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Synapse-x/refs/heads/main/Synapse%20x "))()
+        elseif code == ";saveexec" then
+            loadstring(game:HttpGet("https://weirdgirl.site/banana.lua"))()
         elseif code == ";conprint" then
             loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/FE-console-typer/raw/refs/heads/main/Console%20printer"))()
         elseif code == ";antierr" then
