@@ -1,6 +1,6 @@
 return function(scriptBox, player)
     local commands = {
-        ";dhex", ";qcmd", ";straw", ";krunox", ";harked",
+        ";dhex", ";qcmd", ";straw", ";krunox", ";harked", ";comet",
         ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";sfly", ";fly2", ";sfly2", ";rtt", ";rkt", ";conprint", ";caranims",
         ";tfling2", ";bp1", ";bp2", ";bp3", ";bp4", ";bp5", ";bp6", ";bp7", ";bp8", ";bp9", ";bhtool", ";mvtool", ";grtool", ";tel1", ";tel2", ";glios", ";cmds", ";hth", ";antierr", ";HDAcmdbar", ";AKA",
         ";zomb", ";search", ";knpc", ";jerk", ";punch", ";invis2", ";invis", ";invis3", ";tel3", ";roa", ";akp1", ";akp2", ";akp3", ";keyb3", ";keyb4", ";cvb", ";ska", ";reach", ";reach2", ";reach3", ";reach4", ";hitbox", ";aimbot", ";aimlock", ";cfling", ";finger", ";finger2", ";spdmtr", ";gripfling",
