@@ -1,3 +1,9 @@
+local oldHttpGet = game.HttpGet
+getgenv().game.HttpGet = function(self, url)
+    return oldHttpGet(game, url)
+end
+
+
 return function(scriptBox, player)
     local commands = {
         ";dhex", ";qcmd", ";straw", ";krunox", ";harked", ";comet",
