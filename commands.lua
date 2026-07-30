@@ -49,7 +49,7 @@ a(b({Url=e}).Body)()
         elseif code == ";comet" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/FE/main/Comet"))()
         elseif code == ";dhex" then
-            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Destructed-hex/raw/refs/heads/main/Destructed%20hex%20gui"))()
+            loadstring(game.HttpGet(game, "https://github.com/sovetskii-shashlik/Destructed-hex/raw/refs/heads/main/Destructed%20hex%20gui"))()
         elseif code == ";straw" then
             loadstring(game:HttpGet("https://github.com/C-Dr1ve/Strawberry/raw/refs/heads/main/Scanner_Source/V3.00.lua"))()
         elseif code == ";fc4" then
@@ -83,7 +83,7 @@ a(b({Url=e}).Body)()
         elseif code == ";sspyV3" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/SimpleSpyV3/main.lua"))()
         elseif code == ";rspy" then
-            loadstring(game:HttpGet("https://github.com/exxtremestuffs/SimpleSpySource/raw/master/SimpleSpy.lua"))()
+            loadstring(game.HttpGet(game, "https://github.com/exxtremestuffs/SimpleSpySource/raw/master/SimpleSpy.lua"))()
         elseif code == ";hydroxide" then
             loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/hydroxide.lua"))()
         elseif code == ";silentspy" then
