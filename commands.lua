@@ -85,7 +85,7 @@ a(b({Url=e}).Body)()
         elseif code == ";rspy" then
             loadstring(game.HttpGet(game, "https://github.com/exxtremestuffs/SimpleSpySource/raw/master/SimpleSpy.lua"))()
         elseif code == ";hydroxide" then
-            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/hydroxide.lua"))()
+            loadstring(game.HttpGet(game, "https://github.com/sovetskii-shashlik/Test/raw/main/hydroxide.lua"))()
         elseif code == ";silentspy" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/FryzerHub/Biggestscript/refs/heads/main/SilentSpy"))()
         elseif code == ";knpc2" then
