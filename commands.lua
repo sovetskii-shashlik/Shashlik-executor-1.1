@@ -38,8 +38,7 @@ a(b({Url=e}).Body)()
         elseif code == ";guneditor" then
             loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/gun_settings"))()
         elseif code == ";HDAcmdbar" then
-            local a,b,e=loadstring,http.request,"https://ogy.de/HDAdminCMDBAR"
-a(b({Url=e}).Body)()
+            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/HDAdminCMDBAR"))()
         elseif code == ";slock" then
             loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/ShiftLock"))()
         elseif code == ";cspy" then
