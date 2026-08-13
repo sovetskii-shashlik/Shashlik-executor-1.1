@@ -91,13 +91,13 @@ a(b({Url=e}).Body)()
         elseif code == ";knpc2" then
             loadstring(game:HttpGet("https://paste.myconan.net/611639.txt"))()
         elseif code == ";OCDtool" then
-            loadstring(game:HttpGet("https://glot.io/snippets/h9l8vsvzz6/raw/OCDT.lua"))()
+            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/OCDT"))()
         elseif code == ";esp" then
-            loadstring(game:HttpGet("https://glot.io/snippets/h8wks8n8p4/raw/Esp.lua"))()
+            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/esp.lua"))()
         elseif code == ";hitbox" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/hm5650/Hitblox/refs/heads/main/Hitblox"))()
         elseif code == ";cvb" then
-            loadstring(game:HttpGet("https://glot.io/snippets/h7je4skic1/raw/cvb.lua"))()
+            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/cvb.lua"))()
         elseif code == ";ska" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/hm5650/InstantKillig/refs/heads/main/Coolkillguithingy"))()
         elseif code == ";reach" then
@@ -109,7 +109,7 @@ a(b({Url=e}).Body)()
         elseif code == ";reach4" then
             loadstring(game:HttpGet("https://pastebin.com/raw/CCh9W9Tt", true))()
         elseif code == ";cfling" then
-            loadstring(game:HttpGet("https://glot.io/snippets/h7t99b052l/raw/FlingTool.lua"))()
+            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/cfling"))()
         elseif code == ";finger" then
             loadstring(game:HttpGet("https://gitlab.com/sovetskii-shashlik/fingerguiv3/-/raw/main/FingerGuiV3.lua"))()
         elseif code == ";finger2" then
@@ -117,17 +117,17 @@ a(b({Url=e}).Body)()
         elseif code == ";spdmtr" then
             loadstring(game:HttpGet("https://pastebin.com/raw/WYi7Bm8u"))()
         elseif code == ";fly2" then
-            loadstring(game:HttpGet("https://glot.io/snippets/h9empzjulm/raw/FlyGui.lua"))()
+            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/FlyGui.lua"))()
         elseif code == ";invis3" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/hm5650/Invis/refs/heads/main/Invistoggle"))()
         elseif code == ";fling" then
-            loadstring(game:HttpGet("https://glot.io/snippets/h86gnsdgud/raw/FlingGui.lua"))()
+            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/FlingGui.lua"))()
         elseif code == ";ngp" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/hm5650/Gravity-inverter/refs/heads/main/GI"))()
         elseif code == ";rkt" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/RTT-Tool/main/RKT%20Tool"))()
         elseif code == ";radar" then
-            loadstring(game:HttpGet("https://glot.io/snippets/h94bz03sm6/raw/Radar.lua"))()
+            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/radar.lua"))()
         elseif code == ";bp5" then
             loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Shashlik-bring-parts/raw/refs/heads/main/Shashlik%20Bring%20Parts%20v2"))()
         elseif code == ";bp6" then
@@ -258,7 +258,7 @@ a(b({Url=e}).Body)()
             writefile(".nonecing", "white")
             loadstring(game:HttpGet('https://glot.io/snippets/gua2ntmbdm/raw/main.lua'))()
         elseif code == ";punch" then
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/FE/main/punch",true))()
+            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/PunchFling",true))()
         elseif code == ";akp1" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/zephyr10101/ignore-touchinterests/main/main", true))()
         elseif code == ";akp2" then
