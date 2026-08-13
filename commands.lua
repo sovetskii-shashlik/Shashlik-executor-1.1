@@ -41,7 +41,7 @@ a(b({Url=e}).Body)()
             local a,b,e=loadstring,http.request,"https://ogy.de/HDAdminCMDBAR"
 a(b({Url=e}).Body)()
         elseif code == ";slock" then
-            loadstring(game:HttpGet("https://glot.io/snippets/h9d5rkcl47/raw/ShiftLock.lua"))()
+            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/ShiftLock"))()
         elseif code == ";cspy" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/Dan41/Roblox-Scripts/refs/heads/main/CHAT%20SPY%20-%202025/ChatSpy2025.lua"))()
         elseif code == ";harked" then
@@ -57,7 +57,7 @@ a(b({Url=e}).Body)()
         elseif code == ";r15anims" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/7yd7/Hub/refs/heads/Branch/GUIS/Emotes.lua"))()
         elseif code == ";aimbot" then
-            loadstring(game:HttpGet("https://glot.io/snippets/h7sums3610/raw/ArceusAimModified.lua"))()
+            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/ArceusAim.lua"))()
         elseif code == ";aimlock" then
             loadstring(game:HttpGet("https://glot.io/snippets/h91wfidbpz/raw/aimlock.lua"))()
         elseif code == ";dex" then
@@ -91,7 +91,7 @@ a(b({Url=e}).Body)()
         elseif code == ";knpc2" then
             loadstring(game:HttpGet("https://paste.myconan.net/611639.txt"))()
         elseif code == ";OCDtool" then
-            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/OCDT"))()
+            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/OCDT.lua"))()
         elseif code == ";esp" then
             loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/esp.lua"))()
         elseif code == ";hitbox" then
@@ -109,7 +109,7 @@ a(b({Url=e}).Body)()
         elseif code == ";reach4" then
             loadstring(game:HttpGet("https://pastebin.com/raw/CCh9W9Tt", true))()
         elseif code == ";cfling" then
-            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/cfling"))()
+            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/cfling.lua"))()
         elseif code == ";finger" then
             loadstring(game:HttpGet("https://gitlab.com/sovetskii-shashlik/fingerguiv3/-/raw/main/FingerGuiV3.lua"))()
         elseif code == ";finger2" then
@@ -117,11 +117,11 @@ a(b({Url=e}).Body)()
         elseif code == ";spdmtr" then
             loadstring(game:HttpGet("https://pastebin.com/raw/WYi7Bm8u"))()
         elseif code == ";fly2" then
-            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/FlyGui.lua"))()
+            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/FlyGui"))()
         elseif code == ";invis3" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/hm5650/Invis/refs/heads/main/Invistoggle"))()
         elseif code == ";fling" then
-            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/FlingGui.lua"))()
+            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/FlingGui"))()
         elseif code == ";ngp" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/hm5650/Gravity-inverter/refs/heads/main/GI"))()
         elseif code == ";rkt" then
@@ -129,15 +129,15 @@ a(b({Url=e}).Body)()
         elseif code == ";radar" then
             loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/radar.lua"))()
         elseif code == ";bp5" then
-            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Shashlik-bring-parts/raw/refs/heads/main/Shashlik%20Bring%20Parts%20v2"))()
+            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/Shashlik%20Bring%20Parts%20V2"))()
         elseif code == ";bp6" then
-            loadstring(game:HttpGet("https://glot.io/snippets/h6k1ijlqsv/raw/vagina.lua"))()
+            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/AKBringPartsOld"))()
         elseif code == ";bp7" then
             loadstring(game:HttpGet("https://pastebin.com/raw/bbBracWG"))()
         elseif code == ";bp8" then
-            loadstring(game:HttpGet("https://glot.io/snippets/h6k1ijlqsv/raw/klitor.lua"))()
+            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/Hurricane.lua"))()
         elseif code == ";bp9" then
-            loadstring(game:HttpGet("https://glot.io/snippets/h6k1ijlqsv/raw/moshonka.lua"))()
+            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/AKBringPartsNew"))()
         elseif code == ";synapse2" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/Chillz-s-scripts/main/Synapse-X-Remake.lua"))()
         elseif code == ";krnl" then
@@ -187,7 +187,7 @@ a(b({Url=e}).Body)()
         elseif code == ";hth" then
             loadstring(game:HttpGet('https://pastefy.app/tI5b3OVD/raw'))()
         elseif code == ";bp4" then
-            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Shashlik-bring-parts/raw/refs/heads/main/Shashlik%20bring%20parts"))()
+            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/Shashlik%20Bring%20Parts%20V1"))()
         elseif code == ";rc7" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/FE/main/rc7"))()
         elseif code == ";search" then
@@ -247,7 +247,7 @@ a(b({Url=e}).Body)()
         elseif code == ";bp1" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/Bac0nHck/Scripts/main/BringFlingPlayers"))()
         elseif code == ";bp2" then
-            loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Better-Bring-Parts-Ui-SOLARA-and-Fixed-Lags-21780"))()
+            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/BetterBringParts"))()
         elseif code == ";bp3" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/GoofyBlox/GoofyZ/refs/heads/main/Best/VorteX.lua"))()
         elseif code == ";tel1" then
