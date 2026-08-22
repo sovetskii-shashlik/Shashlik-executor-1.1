@@ -4,7 +4,7 @@ return function(scriptBox, player)
         ";avtor", ";gh", ";na2", ";inf", ";na1", ";le", ";tfling", ";fly", ";sfly", ";fly2", ";sfly2", ";rtt", ";rkt", ";looper", ";caranims",
         ";tfling2", ";bp1", ";bp2", ";bp3", ";bp4", ";bp5", ";bp6", ";bp7", ";bp8", ";bp9", ";bhtool", ";mvtool", ";grtool", ";tel1", ";tel2", ";glios", ";cmds", ";hth", ";antierr", ";HDAcmdbar", ";AKA",
         ";zomb", ";search", ";knpc", ";jerk", ";punch", ";invis2", ";invis", ";invis3", ";tel3", ";roa", ";akp1", ";akp2", ";akp3", ";keyb3", ";keyb4", ";cvb", ";ska", ";reach", ";reach2", ";reach3", ";reach4", ";hitbox", ";aimbot", ";aimlock", ";cfling", ";finger", ";finger2", ";spdmtr", ";gripfling",
-        ";prox", ";rochips", ";fc1", ";fc2", ";synapse", ";synapse2", ";krnl", ";krnlk", ";bypass", ";fc3", ";rp", ";rp2", ";srp", ";srp2", ";tictactoe", ";illus", ";toolgui", ";keyb", ";cspy", ";slock", ";wibtt", ";acl", ";crouch", ";srp3", ";srp4", ";tptool", ";ngp", ";fling", ";esp", ";radar", ";OCDtool", ";fc4", ";guneditor",
+        ";prox", ";rochips", ";fc1", ";fc2", ";synapse", ";synapse2", ";krnl", ";krnlk", ";bypass", ";fc3", ";rp", ";rp2", ";srp", ";srp2", ";tictactoe", ";illus", ";toolgui", ";keyb", ";cspy", ";slock", ";wibtt", ";acl", ";crouch", ";srp3", ";srp4", ";tptool", ";ngp", ";fling", ";esp", ";radar", ";OCDtool", ";fc4", ";guneditor", ";wapr6",
         ";rc7", ";cunc", ";keyb2", ";na3", ";backpack", ";backpack2", ";r15anims", ";knpc2", ";conchat",
         ";krnlk (key: 9X1L9ZPAXN4)",
         ";hydroxide", ";rspy", ";sspyV3", ";dex++", ";dex", ";darkdex", ";sspy", ";sspym", ";sigma (rip)", ";cobalt", ";sspym2", ";sspym3", ";sspym4", ";silentspy", ";saveexec",
@@ -175,6 +175,8 @@ a(b({Url=e}).Body)()
             loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/GrabTool/refs/heads/main/GrabToolFix"))()
         elseif code == ";gripfling" then
             loadstring(game:HttpGet("https://paste.myconan.net/646147.txt"))()
+        elseif code == ";wapr6" then
+            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/WarAnimPackrR6.lua"))()
         elseif code == ";srp2" then
             loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Open-Source-Ring-Parts-26702"))()
         elseif code == ";toolgui" then
