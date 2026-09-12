@@ -102,7 +102,7 @@ a(b({Url=e}).Body)()
         elseif code == ";reach" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/wuxuin/Reach-sword/refs/heads/main/Reach%20sword"))()
         elseif code == ";reach2" then
-            loadstring(game:HttpGet("https://glot.io/snippets/h7i90cj5s8/raw/reach.lua"))()
+            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/reach.lua"))()
         elseif code == ";reach3" then
             loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/ReachSwordNew.lua"))()
         elseif code == ";reach4" then
