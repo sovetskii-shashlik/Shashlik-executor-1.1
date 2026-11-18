@@ -88,7 +88,7 @@ a(b({Url=e}).Body)()
         elseif code == ";silentspy" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/FryzerHub/Biggestscript/refs/heads/main/SilentSpy"))()
         elseif code == ";knpc2" then
-            loadstring(game:HttpGet("https://paste.myconan.net/611639.txt"))()
+            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/KillNPC.lua"))()
         elseif code == ";OCDtool" then
             loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/OCDT.lua"))()
         elseif code == ";esp" then
