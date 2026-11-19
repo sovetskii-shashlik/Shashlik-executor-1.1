@@ -64,7 +64,7 @@ a(b({Url=e}).Body)()
         elseif code == ";darkdex" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/BypassedDarkDexV3.lua"))()
         elseif code == ";dex++" then
-            loadstring(game:HttpGet("https://github.com/AZYsGithub/DexPlusPlus/releases/latest/download/out.lua"))()
+            loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/refs/heads/main/out.lua"))()
         elseif code == ";cobalt" then
             loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Test/raw/main/cobalt.lua"))()
         elseif code == ";tlp" then
